@@ -33,9 +33,9 @@ $rol = $_SESSION["rol"];
         <header> 
     <form method="POST" action="" class="" id="">
             <i class="fas fa-user-circle"></i>
-            <button type="submit" name="pagina" value="Inicio">Inicio</button>
-            <button type="submit" name="pagina" value="Control">Control</button>
-            <button type="submit" name="pagina" value="Solicitudes">Solicitudes</button>
+            <button type="submit" name="Inicio" value="Inicio">Inicio</button>
+            <button type="submit" name="Control" value="Control">Control</button>
+            <button type="submit" name="Solicitudes" value="Solicitudes">Solicitudes</button>
             <a href="logout.php">Cerrar Sesion</a>
         </form> 
     </header>
