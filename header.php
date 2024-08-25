@@ -1,5 +1,5 @@
 <?php
-$rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
+$rol = $_SESSION["rol"];
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
             <i class="fas fa-user-circle"></i>
             <button type="submit" name="pagina" value="Inicio">Inicio</button>
             <button type="submit" name="pagina" value="subir-proyecto">Subir Proyecto</button>
-            <button type="submit" name="pagina" value="Cerrar">Cerrar sesión</button>
+            <a href="logout.php">Cerrar Sesion</a>
         </form> 
     </header>
     <?php elseif ($rol === 'profesor'): ?>
@@ -26,7 +26,7 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
     <form method="POST" action="" class="" id="">
             <i class="fas fa-user-circle"></i>
             <button type="submit" name="pagina" value="Inicio">Inicio</button>
-            <button type="submit" name="pagina" value="Cerrar">Cerrar sesión</button>
+            <a href="logout.php">Cerrar Sesion</a>
         </form> 
     </header>
     <?php elseif ($rol === 'administrador'): ?>
@@ -36,18 +36,10 @@ $rol = isset($_SESSION['rol']) ? $_SESSION['rol'] : '';
             <button type="submit" name="pagina" value="Inicio">Inicio</button>
             <button type="submit" name="pagina" value="Control">Control</button>
             <button type="submit" name="pagina" value="Solicitudes">Solicitudes</button>
-            <button type="submit" name="pagina" value="Cerrar">Cerrar sesión</button>
+            <a href="logout.php">Cerrar Sesion</a>
         </form> 
     </header>
-    <?php else: ?>
-        <header>
-            <h1>Bienvenido</h1>
-            <nav>
-                <ul>
-                    <li><a href="login.php">Iniciar Sesión</a></li>
-                </ul>
-            </nav>
-        </header>
+
     <?php endif; ?>
 </body>
 </html>
