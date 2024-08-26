@@ -9,15 +9,17 @@ if(isset($_POST["Inicio"])){
 if (isset($_SESSION["errRegistro"])){
     $errRegistro = $_SESSION['errRegistro'];
     echo "<p> $errRegistro </p>";
+   
+    
 }
 
 if(isset($_SESSION["seccion"]) && $_SESSION["seccion"] == "Inicio"): ?>
 <!-- INICIO -->
 <?php elseif(isset($_SESSION["seccion"]) && $_SESSION["seccion"] == "Control"): ?>
 <form action="administrador/adminFunciones.php" method="post">
-<button type="submit" name="PROFESORBTN" value="">Profesor</button>
-<button type="submit" name="ADMINISTRADORBTN" value="">Administrador</button>
-<button type="submit" name="ALUMNOBTN" value="">Alumno</button>
+<button type="submit" name="" value="">Profesor</button>
+<button type="submit" name="" value="">Administrador</button>
+<button type="submit" name="" value="">Alumno</button>
 
 <p>Lista de usuarios</p>
 <!-- Incluir dependiendo el boton prof o alumno -->
