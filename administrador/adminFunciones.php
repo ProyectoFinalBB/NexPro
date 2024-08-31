@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require("../conexion.php");
 $con = conectar_bd();
 if(isset($_POST["addusr"])){
@@ -70,4 +71,118 @@ function registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_us
     }
 }
 
+
+if(isset($_POST["PROFESORBTN"])){
+    $_SESSION["listadoElección"] = $_POST["PROFESORBTN"];
+    $le = $_SESSION["listadoElección"] ;
+    listados ($le, $con);
+} elseif(isset($_POST["ADMINISTRADORBTN"])){
+    $_SESSION["listadoElección"] = $_POST["ADMINISTRADORBTN"];
+    $le = $_SESSION["listadoElección"] ;
+    listados ($le, $con);
+}elseif(isset($_POST["ALUMNOBTN"])){
+    $_SESSION["listadoElección"] = $_POST["ALUMNOBTN"];
+    $le = $_SESSION["listadoElección"] ;
+    listados ($le, $con);
+}
+
+function listados ($le, $con){
+
+    session_start();
+switch ($le){
+    case "PROFESORBTN":
+                     listaProfesor($con);
+                    break;
+    case "ADMINISTRADORBTN":
+                     listaAdministradores($con);
+                    break;
+    case "ALUMNOBTN":
+                     listaAlumnos($con);
+                    break;
+}
+header("Location: ../index.php");
+exit();
+}
+
+function listaProfesor($con) {
+    session_start();
+    $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci 
+            FROM usuarios 
+            INNER JOIN roles ON usuarios.id_usr = roles.id_usr 
+            WHERE roles.rol = 'profesor'";
+    $result = mysqli_query($con, $sql);
+
+    $salida = '';
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($fila = mysqli_fetch_assoc($result)) {
+            $salida .= "<div class='usuario-item'>";
+            $salida .= "<img src='ruta_a_imagen_perfil.png' alt='Foto de perfil' class='icono-perfil'>";
+            $salida .= "<span class='nombre-usuario'>" . htmlspecialchars($fila['nombrecompleto']) . "</span>";
+            $salida .= "<span class='ci-usuario'>" . htmlspecialchars($fila['ci']) . "</span>";
+            $salida .= "<img src='ruta_a_icono_lapiz.png' alt='Modificar' class='icono-modificar'>";
+            $salida .= "<img src='ruta_a_icono_basura.png' alt='Eliminar' class='icono-eliminar'>";
+            $salida .= "</div>";
+        }
+    } else {
+        $salida = "No se encontraron profesores.";
+    }
+
+    $_SESSION['salida'] = $salida;
+}
+
+
+
+function listaAdministradores($con) {
+    session_start();
+    $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci 
+            FROM usuarios 
+            INNER JOIN roles ON usuarios.id_usr = roles.id_usr 
+            WHERE roles.rol = 'administrador'";
+    $result = mysqli_query($con, $sql);
+
+    $salida = '';
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($fila = mysqli_fetch_assoc($result)) {
+            $salida .= "<div class='usuario-item'>";
+            $salida .= "<img src='ruta_a_imagen_perfil.png' alt='Foto de perfil' class='icono-perfil'>";
+            $salida .= "<span class='nombre-usuario'>" . htmlspecialchars($fila['nombrecompleto']) . "</span>";
+            $salida .= "<span class='ci-usuario'>" . htmlspecialchars($fila['ci']) . "</span>";
+            $salida .= "<img src='ruta_a_icono_lapiz.png' alt='Modificar' class='icono-modificar'>";
+            $salida .= "<img src='ruta_a_icono_basura.png' alt='Eliminar' class='icono-eliminar'>";
+            $salida .= "</div>";
+        }
+    } else {
+        $salida = "No se encontraron Administradores.";
+    }
+
+    $_SESSION['salida'] = $salida;
+}
+function listaAlumnos($con) {
+    session_start();
+    $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci 
+            FROM usuarios 
+            INNER JOIN roles ON usuarios.id_usr = roles.id_usr 
+            WHERE roles.rol = 'alumno'";
+    $result = mysqli_query($con, $sql);
+
+    $salida = '';
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($fila = mysqli_fetch_assoc($result)) {
+            $salida .= "<div class='usuario-item'>";
+            $salida .= "<img src='ruta_a_imagen_perfil.png' alt='Foto de perfil' class='icono-perfil'>";
+            $salida .= "<span class='nombre-usuario'>" . htmlspecialchars($fila['nombrecompleto']) . "</span>";
+            $salida .= "<span class='ci-usuario'>" . htmlspecialchars($fila['ci']) . "</span>";
+            $salida .= "<img src='ruta_a_icono_lapiz.png' alt='Modificar' class='icono-modificar'>";
+            $salida .= "<img src='ruta_a_icono_basura.png' alt='Eliminar' class='icono-eliminar'>";
+            $salida .= "</div>";
+        }
+    } else {
+        $salida = "No se encontraron Alumnos.";
+    }
+
+    $_SESSION['salida'] = $salida;
+}
 ?>

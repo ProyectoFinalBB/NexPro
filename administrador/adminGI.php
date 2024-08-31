@@ -1,4 +1,5 @@
 <?php 
+
 if(isset($_POST["Inicio"])){
     $_SESSION["seccion"] = $_POST["Inicio"];
 } elseif(isset($_POST["Control"])){
@@ -15,12 +16,21 @@ if(isset($_SESSION["seccion"]) && $_SESSION["seccion"] == "Inicio"): ?>
 <!-- INICIO -->
 <?php elseif(isset($_SESSION["seccion"]) && $_SESSION["seccion"] == "Control"): ?>
 <form action="administrador/adminFunciones.php" method="post">
-<button type="submit" name="PROFESORBTN" value="">Profesor</button>
-<button type="submit" name="ADMINISTRADORBTN" value="">Administrador</button>
-<button type="submit" name="ALUMNOBTN" value="">Alumno</button>
+<button type="submit" name="PROFESORBTN" value="PROFESORBTN">Profesor</button>
+<button type="submit" name="ADMINISTRADORBTN" value="ADMINISTRADORBTN">Administrador</button>
+<button type="submit" name="ALUMNOBTN" value="ALUMNOBTN">Alumno</button>
 
 <p>Lista de usuarios</p>
-<!-- Incluir dependiendo el boton prof o alumno -->
+<?php
+if (isset($_SESSION['salida'])) {
+    // Imprimir el contenido de 'salida'
+    echo $_SESSION['salida'];
+} else {
+    // Mensaje si 'salida' no está definida
+    echo "No hay datos disponibles para mostrar.";
+}
+
+?>
  
  <button type="submit" name="addusr" value="addusr">Agregar Usuario</button>
  </form>
