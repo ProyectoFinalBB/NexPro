@@ -33,6 +33,7 @@ function consultar_existe_usr($con, $ci) {
 function registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_usr) {
     session_start();
     if ($existe_usr == false) {
+        //para evitar inyecciones
         $ci = mysqli_real_escape_string($con, $ci);
 
         // Encripto la contraseña usando la función password_hash
@@ -46,8 +47,7 @@ function registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_us
             // Obtengo el ID del usuario recién insertado
             $id_usr = mysqli_insert_id($con);
             $_SESSION["errRegistro"] = "Usuario registrado con Exito ";
-            header("Location: ../index.php");
-            exit();
+
             // Inserto el rol del usuario en la tabla roles
             $consulta_insertarRol = "INSERT INTO roles (id_usr, rol) VALUES ('$id_usr', '$rol')";
             if(mysqli_query($con, $consulta_insertarRol)) {
@@ -120,8 +120,10 @@ function listaProfesor($con) {
             $salida .= "<img src='ruta_a_imagen_perfil.png' alt='Foto de perfil' class='icono-perfil'>";
             $salida .= "<span class='nombre-usuario'>" . htmlspecialchars($fila['nombrecompleto']) . "</span>";
             $salida .= "<span class='ci-usuario'>" . htmlspecialchars($fila['ci']) . "</span>";
-            $salida .= "<img src='ruta_a_icono_lapiz.png' alt='Modificar' class='icono-modificar'>";
+            $salida .= "<img src='ruta_a_icono_lapiz.png' alt='Modificar' class='icono-modificar'></img>";
+            $salida .= "<a href='administrador/adminFunciones.php?id=" . $fila['id_usr'] . "' onclick='return confirmarEliminacion();'>";
             $salida .= "<img src='ruta_a_icono_basura.png' alt='Eliminar' class='icono-eliminar'>";
+            $salida .= "</a>";
             $salida .= "</div>";
         }
     } else {
@@ -185,4 +187,39 @@ function listaAlumnos($con) {
 
     $_SESSION['salida'] = $salida;
 }
+
+
+if (isset($_GET['id'])) {
+//pasa el valor a int
+    $id_usr = intval($_GET['id']);
+    $consulta_eliminar_rol = "DELETE FROM roles WHERE id_usr = $id_usr";
+    $resultado_eliminar_rol = mysqli_query($con, $consulta_eliminar_rol);
+
+    if ($resultado_eliminar_rol) {
+        // Eliminar el usuario
+        $consulta_eliminar_usuario = "DELETE FROM usuarios WHERE id_usr = $id_usr";
+        $resultado_eliminar_usuario = mysqli_query($con, $consulta_eliminar_usuario);
+
+        if ($resultado_eliminar_usuario) {
+            // Redirigir a la página de listado de usuarios
+            header("Location: ../index.php");
+            exit();
+        } else {
+            $_SESSION["err"] = "Error al eliminar el usuario: " . mysqli_error($con);
+            header("Location: ../index.php");
+            exit();
+        }
+    } else {
+        $_SESSION["err"] = "Error al eliminar el rol: " . mysqli_error($con);
+        header("Location: ../index.php");
+        exit();
+    }
+} else {
+    echo "ID de usuario no proporcionado.";
+}
+
+
+
+
+
 ?>

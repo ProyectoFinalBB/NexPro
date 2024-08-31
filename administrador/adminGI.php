@@ -20,7 +20,7 @@ if(isset($_SESSION["seccion"]) && $_SESSION["seccion"] == "Inicio"): ?>
 <button type="submit" name="ADMINISTRADORBTN" value="ADMINISTRADORBTN">Administrador</button>
 <button type="submit" name="ALUMNOBTN" value="ALUMNOBTN">Alumno</button>
 
-<p>Lista de usuarios</p>
+<h3>Lista de usuarios</h3>
 <?php
 if (isset($_SESSION['salida'])) {
     // Imprimir el contenido de 'salida'

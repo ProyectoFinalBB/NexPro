@@ -2,5 +2,6 @@
     <p> Autores: Alex Carnelli, Candela Sosa, Lucas Ojeda, Joaquin Stekl</p>
     <p> Empresa: CLAJ Desarrolladores</p>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>
