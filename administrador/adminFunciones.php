@@ -152,7 +152,9 @@ function listaAdministradores($con) {
             $salida .= "<span class='nombre-usuario'>" . htmlspecialchars($fila['nombrecompleto']) . "</span>";
             $salida .= "<span class='ci-usuario'>" . htmlspecialchars($fila['ci']) . "</span>";
             $salida .= "<img src='ruta_a_icono_lapiz.png' alt='Modificar' class='icono-modificar'>";
+            $salida .= "<a href='administrador/adminFunciones.php?id=" . $fila['id_usr'] . "' onclick='return confirmarEliminacion();'>";
             $salida .= "<img src='ruta_a_icono_basura.png' alt='Eliminar' class='icono-eliminar'>";
+            $salida .= "</a>";
             $salida .= "</div>";
         }
     } else {
@@ -177,8 +179,12 @@ function listaAlumnos($con) {
             $salida .= "<img src='ruta_a_imagen_perfil.png' alt='Foto de perfil' class='icono-perfil'>";
             $salida .= "<span class='nombre-usuario'>" . htmlspecialchars($fila['nombrecompleto']) . "</span>";
             $salida .= "<span class='ci-usuario'>" . htmlspecialchars($fila['ci']) . "</span>";
+            $salida .= "<a href='administrador/modificarUsuario.php?id=" . $fila['id_usr'] . "' onclick='return confirmarEliminacion();'>";
             $salida .= "<img src='ruta_a_icono_lapiz.png' alt='Modificar' class='icono-modificar'>";
+            $salida .= "</a>";
+            $salida .= "<a href='administrador/adminFunciones.php?id=" . $fila['id_usr'] . "' onclick='return confirmarEliminacion();'>";
             $salida .= "<img src='ruta_a_icono_basura.png' alt='Eliminar' class='icono-eliminar'>";
+            $salida .= "</a>";
             $salida .= "</div>";
         }
     } else {
@@ -219,7 +225,47 @@ if (isset($_GET['id'])) {
 }
 
 
+//modificar usuario
 
+if (isset($_POST['modificarUsr'])) {
+    $id_usr = $_POST['id_usr']; 
+    $nombre = $_POST['nombreUsrModificar'];
+    $apellido = $_POST['apellidoUsrModificar'];
+    $ci = $_POST['ciUsrModificar'];
+    $rol = $_POST['rolModificar'];
 
+    echo $id_usr, $nombre,$apellido,$ci, $rol ;
+
+    modificarUsuario($con, $id_usr, $nombre, $apellido,$ci, $rol);
+}
+
+function modificarUsuario($con, $id_usr, $nombre, $apellido,$ci, $rol) {
+    // Iniciar la sesión
+   
+    $nombreCompleto = $nombre . " " . $apellido;
+
+    // Actualizar la tabla usuarios
+    $sqlUsuarios = "UPDATE usuarios 
+                    SET nombrecompleto = '$nombreCompleto', ci = '$ci'
+                    WHERE id_usr = '$id_usr'";
+
+    // Ejecutar la consulta de actualización de usuarios
+    if (mysqli_query($con, $sqlUsuarios)) {
+        // Actualizar la tabla roles
+        $sqlRoles = "UPDATE roles 
+                     SET rol = '$rol' 
+                     WHERE id_usr = '$id_usr'";
+
+        // Ejecutar la consulta de actualización de roles
+        if (mysqli_query($con, $sqlRoles)) {
+            $_SESSION['err'] = "Usuario modificado correctamente.";
+        } else {
+            $_SESSION['err'] = "Error al actualizar el rol: " . mysqli_error($con);
+        }
+    } else {
+        $_SESSION['err'] = "Error al modificar el usuario: " . mysqli_error($con);
+    }
+    header("location: ../index.php");
+}
 
 ?>

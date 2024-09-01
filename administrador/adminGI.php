@@ -8,8 +8,8 @@ if(isset($_POST["Inicio"])){
     $_SESSION["seccion"] = $_POST["Solicitudes"];
 }
 if (isset($_SESSION["errRegistro"])){
-    $errRegistro = $_SESSION['errRegistro'];
-    echo "<p> $errRegistro </p>";
+    $err = $_SESSION['err'];
+    echo "<p> $err </p>";
 }
 
 if(isset($_SESSION["seccion"]) && $_SESSION["seccion"] == "Inicio"): ?>
