@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+
 <div class="contenC">
 <form action="ControlLogin.php" method="post">
-    <h1>Log in</h1>
-    <input type="text" name="ci" placeholder="Usuario">
-    <input type="password" name="contrasenia" placeholder="Contraseña">
-    <input type="submit" name="envio" value="envio"> 
+<img src="img/logo.png" alt="Logo de NexPro" class="logo">
+    <h3>INICIO DE SESION</h3>
+    <input type="text" name="ci" placeholder="CEDULA">
+    <input type="password" name="contrasenia" placeholder="CONTRASEÑA"><br>
+    <input type="submit" name="envio" value="ENVIAR"> 
     </form>
 <?php 
 

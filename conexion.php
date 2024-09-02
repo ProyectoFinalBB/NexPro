@@ -7,7 +7,7 @@ function conectar_bd(){
 $servidor = "localhost";
 $bd = "nexpro";
 $usuario = "root";
-$pass = "";
+$pass = "root";
 
 //definir la conexion usando las variables.
 
