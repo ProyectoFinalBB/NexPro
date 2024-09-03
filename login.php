@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,27 +8,28 @@
 </head>
 <body>
 
+<div class="container">
+    <div class="contenedor-login">
+        <form action="ControlLogin.php" method="post" class="formulario-login">
+            <img src="img/logo.png" alt="Logo de NexPro" class="logo1">
+            <h3 class="titulo-login">INICIO DE SESION</h3>
+            <input type="text" name="ci" placeholder="CEDULA" class="input-cedula">
+            <input type="password" name="contrasenia" placeholder="CONTRASEÑA" class="input-contrasenia"><br>
+            <input type="submit" name="envio" value="ENVIAR" class="boton-enviar"> 
+        </form>
 
-<div class="contenC">
-<form action="ControlLogin.php" method="post">
-<img src="img/logo.png" alt="Logo de NexPro" class="logo">
-    <h3>INICIO DE SESION</h3>
-    <input type="text" name="ci" placeholder="CEDULA">
-    <input type="password" name="contrasenia" placeholder="CONTRASEÑA"><br>
-    <input type="submit" name="envio" value="ENVIAR"> 
-    </form>
-<?php 
+        <?php 
+        if (!isset($_SESSION['ci']) && isset($_SESSION['err'])){
+            $err = $_SESSION['err'];
+            echo "<p class='mensaje-error'>$err</p>";
+        }
+        ?>
+    </div>
 
-if (!isset($_SESSION['ci']) && isset($_SESSION['err'])){
-    $err = $_SESSION['err'];
-    echo "<p> $err </p>";
-}
-
-?>
-
-
+    <div class="container-frases">
+        <img src="img/frases.png" alt="Frase motivacional" class="logo2">
+    </div>
 </div>
-
 
 </body>
 </html>
