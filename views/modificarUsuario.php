@@ -11,7 +11,7 @@
 
     <form action="adminFunciones.php" method="post">
         <div class="contein-img">
-        <img src="../img/logo.png" alt="Logo de NexPro" class="logo2"></div>
+        <img src="../assets/img/logo.png" alt="Logo de NexPro" class="logo2"></div>
         <h1>Editar un Usuario</h1>
         <div class="form-modificar ">
         <label for="nombreUsrModificar">Nombres</label>
