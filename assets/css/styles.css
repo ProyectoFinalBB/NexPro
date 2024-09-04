@@ -1,0 +1,317 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f9f5fc; /* Color de fondo similar al de la imagen */
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.btn-filters {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+.btn-search {
+    background: none;
+    border: none;
+    margin-left: -35px;
+    cursor: pointer;
+}
+
+.search-icon {
+    font-size: 18px;
+    color: #ccc;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/* Trabajo de Lucas*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-container {
+    padding: 20px;
+    text-align: center;
+    width: 50%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.titulo-login {
+    font-size: 20px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.input-cedula, 
+.input-contrasenia {
+    width: 100%; 
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.boton-enviar {
+    background-color: #4F80FF;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+    border: none;
+    margin: 10px 0;
+}
+
+.boton-enviar:hover {
+    background-color: #0056b3;
+}
+
+.mensaje-error {
+    color: red;
+    margin-top: 20px;
+}
+
+.container-frases {
+    width: 50%;
+    background-color: #e0e7ff; /* Fondo de color diferente para el contenedor de frases */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+    background-color: #606db1;
+}
+
+.contenedor {
+    background-image: url('../img/frases.png');
+/* Centra la imagen dentro del contenedor */
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Nav CSS */
+.menu {
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    display: none;
+    z-index: 1000;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-header h2 {
+    margin: 0;
+}
+
+.cerrar {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.perfil-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.perfil-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.btn-subir {
+    background-color: #1d72b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.configuracion {
+    margin-top: 20px;
+}
+
+.opcion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #1d72b8;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.cerrar-sesion {
+    background: none;
+    border: none;
+    color: #1d72b8;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+}
+/* Footer CSS*/
+
+.footer {
+    background-color: #1d72b8;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.footer-text {
+    margin: 0;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon img {
+    height: 20px;
+    width: 20px;
+    filter: invert(100%); /* Blanco sobre fondo azul */
+    transition: transform 0.3s;
+}
+
+.social-icon img:hover {
+    transform: scale(1.1);
+}
+
+

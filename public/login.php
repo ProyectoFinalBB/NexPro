@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 </head>
 <body>
 
 <div class="container">
-    <div class="contenedor-login">
-        <form action="ControlLogin.php" method="post" class="formulario-login">
-            <img src="img/logo.png" alt="Logo de NexPro" class="logo1">
+    <div class="form-container">
+        <form action="../controllers/ControlLogin.php" method="post" class="formulario">
+            <img src="../assets/img/logo.png" alt="Logo de NexPro" class="logo1">
             <h3 class="titulo-login">INICIO DE SESION</h3>
             <input type="text" name="ci" placeholder="CEDULA" class="input-cedula">
             <input type="password" name="contrasenia" placeholder="CONTRASEÑA" class="input-contrasenia"><br>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="container-frases">
-        <img src="img/frases.png" alt="Frase motivacional" class="logo2">
+        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
     </div>
 </div>
 

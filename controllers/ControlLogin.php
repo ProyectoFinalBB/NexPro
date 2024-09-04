@@ -1,6 +1,6 @@
 
 <?php 
-require("conexion.php");
+require("../includes/conexion.php");
 $con = conectar_bd();
   
 
@@ -13,6 +13,8 @@ if (isset($_POST["envio"])) {
 
     logear($con, $ci, $pass);
 }
+
+
 function logear($con, $ci, $pass) {
     session_start();
 
@@ -45,24 +47,24 @@ function logear($con, $ci, $pass) {
                     $_SESSION["rol"] = $rol;
                     
                     // Redirigir a la página principal o al área de usuario
-                    header("Location: index.php");
+                    header("Location: ../public/index.php");
                     exit();
                 } else {
                     $_SESSION["err"] = "No se encontró el rol para el usuario.";
-                    header("Location: index.php");
+                    header("Location: ../public/index.php");
                 }
             } else {
                 $_SESSION["err"] = "Contraseña incorrecta";
-                header("Location: index.php");
+                header("Location: ../public/index.php");
             }
         } else {
             $_SESSION["err"] = "Usuario no encontrado";
-            header("Location: index.php");
+            header("Location: ../public/index.php");
         }
     } else {
         // Manejo de errores en la consulta SQL
         $_SESSION["err"] = "Error en la consulta: " . mysqli_error($con);
-        header("Location: index.php");
+        header("Location: ../public/index.php");
     }
 }
 
