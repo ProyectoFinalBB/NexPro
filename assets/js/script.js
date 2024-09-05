@@ -4,13 +4,6 @@ function confirmarEliminacion() {
 function confirmarModificación() {
     return confirm("¿Estás seguro de que deseas modificar este usuario?");
 }
-document.getElementById('cerrarMenu').addEventListener('click', function() {
-    document.getElementById('menuPerfil').style.display = 'none';
-});
-
- document.getElementById('nav-btn').addEventListener('click', function() {
-    document.getElementById('menuPerfil').style.display = 'block';
-});
 
 function redirectToView(ruta) {
     const baseURL = '../controllers/viewController.php';
@@ -20,4 +13,8 @@ function redirectToView(ruta) {
     url.searchParams.append('ruta', ruta);
 
     window.location.href = url;
+}
+
+function registrarUsuario(){
+
 }

@@ -7,8 +7,7 @@
 </head>
 <body>
     
-<form action="adminFunciones.php" method="post">
-
+<form method="post">
 <div>
 <img src="" alt="">
 <h1>Registra un Usuario</h1>
@@ -24,7 +23,7 @@
             <option value="alumno">Alumno</option>
             <option value="profesor">Profesor</option>
         </select>
-        <button type="submit" name="registrarUsr" value="registrarUsr">Agregar Usuario</button>
+        <button type="submit" name="registrarUsr" value="registrarUsr" onclick="registrarUsuario()" >Agregar Usuario</button>
 </div>
 
 </form>

@@ -9,7 +9,7 @@
 <body>
 
 
-    <form action="adminFunciones.php" method="post">
+    <form>
         <div class="contein-img">
         <img src="../assets/img/logo.png" alt="Logo de NexPro" class="logo2"></div>
         <h1>Editar un Usuario</h1>
