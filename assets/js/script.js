@@ -52,7 +52,6 @@ function registrarUsuario() {
     });
 }
 
-// Funciones de editar y eliminar para los iconos
 function editUser(userId) {
     console.log('Editing user', userId);
     
@@ -60,8 +59,37 @@ function editUser(userId) {
 
 function deleteUser(userId) {
     console.log('Deleting user', userId);
-   
+
+    // Llamamos a la función de confirmación y verificamos la respuesta
+    if (!confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
+        return; // Si el usuario no confirma, detenemos la ejecución
+    }
+    
+    var datos = {
+        userId: userId,
+        eliminarUsr: "eliminarUsr"
+    };
+
+    fetch('../controllers/eliminarUsuario.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Indicar que los datos son JSON
+        },
+        body: JSON.stringify(datos) // Convertir el objeto de datos a JSON
+    })
+    .then(response => response.json()) // Procesar la respuesta del servidor como JSON
+    .then(data => {
+        // Mostrar el mensaje de resultado en la página
+        console.log(data.message); // También podemos verlo en la consola para depuración
+        document.getElementById("mensajeResultado").innerText = data.message;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante la eliminación.";
+    });
 }
+
+
 
 function Listado($ruta) {
     fetch($ruta)
@@ -108,7 +136,6 @@ function Listado($ruta) {
     .catch(error => console.error('Error:', error));
 }
 
-// Si quieres inicializar el contenedor de datos oculto
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('userData').style.display = 'none';
 });
