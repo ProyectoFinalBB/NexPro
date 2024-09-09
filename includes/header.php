@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="header">
     <div class="logo">
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-img">
     </div>
@@ -26,7 +26,44 @@
     </div>
 </header>
 
+<div class="menuCTRLUsuario" id="menuCTRLUsuario">
+<header class="headerCTRLUSR">
+        <div class="logoCTRLUSR">
+            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu()" class="logo-imgCTRLUSR">
+        </div>
+        <h2 class="titleCTRLUSR">CONTROL DE USUARIOS</h2>
+        <div class="user-iconCTRLUSR">
+            <img src="https://cdn-icons-png.freepik.com/512/359/359657.png" onclick="redirectToView('../views/registrarUsuarios.php') alt="User Icon" class="icon-imgCTRLUSR">
+        </div>
+    </header>
+    <nav class="navCTRLUSR">
+        <ul class="nav-listCTRLUSR">
+            <li class="nav-item active"><a href="#" onclick="studentList()" class="nav-link">Estudiantes</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Profesores</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Administrador</a></li>
+        </ul>
+    </nav>
+</div>
 
-</body>
-</html>
+<script>
+    // Iniciar con el header visible y el menú de control de usuarios oculto
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('header').style.display = 'flex';
+    document.getElementById('menuCTRLUsuario').style.display = 'none';
+});
+function toggleMenu() {
+    const header = document.getElementById('header');
+    const menuCTRLUsuario = document.getElementById('menuCTRLUsuario');
+
+    // Alternar la visibilidad del header y el menú de control de usuarios
+    if (header.style.display === 'none') {
+        header.style.display = 'flex';
+        menuCTRLUsuario.style.display = 'none';
+    } else {
+        header.style.display = 'none';
+        menuCTRLUsuario.style.display = 'block';
+    }
+    document.getElementById('menuPerfil').style.display = 'none';
+}
+</script>
 

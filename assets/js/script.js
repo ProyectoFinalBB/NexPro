@@ -1,9 +1,4 @@
-function confirmarEliminacion() {
-    return confirm("¿Estás seguro de que deseas eliminar este usuario?");
-}
-function confirmarModificación() {
-    return confirm("¿Estás seguro de que deseas modificar este usuario?");
-}
+
 
 function redirectToView(ruta) {
     const baseURL = '../controllers/viewController.php';
@@ -51,3 +46,12 @@ function registrarUsuario() {
         document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
     });
 }
+
+
+function studentList() {
+    // Tu implementación aquí
+    console.log("studentList function called");
+}
+
+
+
