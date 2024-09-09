@@ -33,37 +33,21 @@
         </div>
         <h2 class="titleCTRLUSR">CONTROL DE USUARIOS</h2>
         <div class="user-iconCTRLUSR">
-            <img src="https://cdn-icons-png.freepik.com/512/359/359657.png" onclick="redirectToView('../views/registrarUsuarios.php') alt="User Icon" class="icon-imgCTRLUSR">
+            <img src="https://cdn-icons-png.freepik.com/512/359/359657.png" onclick="redirectToView('../views/registrarUsuario.php')" alt="User Icon" class="icon-imgCTRLUSR">
         </div>
     </header>
     <nav class="navCTRLUSR">
         <ul class="nav-listCTRLUSR">
-            <li class="nav-item active"><a href="#" onclick="studentList()" class="nav-link">Estudiantes</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Profesores</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Administrador</a></li>
+            <li class="nav-item active"><a href="#" onclick="Listado('../controllers/listarEstudiante.php')" class="nav-link">Estudiantes</a></li>
+            <li class="nav-item"><a href="#" onclick="Listado('../controllers/listarProfesor.php')" class="nav-link" >Profesores</a></li>
+            <li class="nav-item"><a href="#" onclick="Listado('../controllers/listarAdministrador.php')" class="nav-link">Administrador</a></li>
         </ul>
     </nav>
 </div>
 
-<script>
-    // Iniciar con el header visible y el menú de control de usuarios oculto
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('header').style.display = 'flex';
-    document.getElementById('menuCTRLUsuario').style.display = 'none';
-});
-function toggleMenu() {
-    const header = document.getElementById('header');
-    const menuCTRLUsuario = document.getElementById('menuCTRLUsuario');
-
-    // Alternar la visibilidad del header y el menú de control de usuarios
-    if (header.style.display === 'none') {
-        header.style.display = 'flex';
-        menuCTRLUsuario.style.display = 'none';
-    } else {
-        header.style.display = 'none';
-        menuCTRLUsuario.style.display = 'block';
-    }
-    document.getElementById('menuPerfil').style.display = 'none';
-}
-</script>
+<div id="userData">
+        <ul id="userList">
+            <!-- Los usuarios se llenarán aquí mediante JavaScript -->
+        </ul>
+    </div>
 
