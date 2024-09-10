@@ -16,7 +16,6 @@ if (isset($_GET['ruta'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css"> 
 </head>
 <body>
@@ -25,7 +24,6 @@ if (isset($_GET['ruta'])) {
 <div class="form-container">
 <?php include($ruta); ?>
 </div>
-
     <div class="container-frases">
         <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
     </div>
@@ -33,5 +31,24 @@ if (isset($_GET['ruta'])) {
 
 
 <script src="../assets/js/script.js" ></script>
+<script>
+    // Función para obtener el parámetro "param" de la URL
+    function getParameterByName(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name); // Retorna el valor del parámetro
+    }
+
+    // Obtener el valor del parámetro "param" en la URL
+    const param = getParameterByName('param');
+
+    // Verificar si existe el parámetro antes de llamar a la función
+    if (param) {
+        // Llamar a la función modificarUsrCampos con el valor del parámetro
+        modificarUsrCampos(param);
+    } else {
+        console.log('El parámetro "param" no se encuentra en la URL.');
+    }
+
+</script>
 </body>
 </html>

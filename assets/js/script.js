@@ -5,8 +5,8 @@
     document.getElementById('menuCTRLUsuario').style.display = 'none';
 });
 
-function redirectToView(ruta) {
-    const baseURL = '../controllers/viewController.php';
+function redirectToView(ruta, param) {
+    const baseURL = '../controllers/viewController.php?param='+param;
     
     const url = new URL(baseURL, window.location.href);
     
@@ -117,7 +117,8 @@ function Listado($ruta) {
             // Icono de editar
             const editIcon = document.createElement('span');
             editIcon.className = 'fa fa-pencil-alt icon';
-            editIcon.onclick = function () { editUser(user.id_usr); };
+            editIcon.onclick = function () {  redirectToView("../views/modificarUsuario.php", user.id_usr);         
+            };
             listItem.appendChild(editIcon);
 
             // Icono de eliminar
@@ -135,6 +136,52 @@ function Listado($ruta) {
     })
     .catch(error => console.error('Error:', error));
 }
+function modificarUsrCampos(usr_id) {
+    // Usar fetch para enviar los datos al servidor
+    fetch('../controllers/userDataById.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Indicar que los datos son JSON
+        },
+        body: JSON.stringify({ userId: usr_id }) // Enviar el ID del usuario como JSON
+    })
+    .then(response => response.json()) // Procesar la respuesta del servidor como JSON
+    .then(data => {
+        if (data.error) {
+            console.error(data.error);
+            document.getElementById("mensajeResultado").innerText = "Error en la consulta de usuario.";
+            return;
+        }
+
+        // Asignar los valores obtenidos del JSON a los campos del formulario
+        document.getElementById("user-info").textContent = data.nombrecompleto;
+
+        document.getElementById("inNames").value = data.nombre;
+        document.getElementById("inLastname").value = data.apellido;
+        document.getElementById("inCedula").value = data.ci;
+
+        // Asignar el rol seleccionando la opción correcta
+        document.getElementById("inRol").value = data.rol;
+
+        // Asignar la imagen de perfil si tienes la URL
+       // document.getElementById("profile-image").src = data.profile_image_url || '../assets/img/default-avatar.png'; // Si no hay imagen, mostrar una por defecto
+
+        console.log(data); // Verificar los datos recibidos en la consola
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('userData').style.display = 'none'; // Si tienes un elemento con ID 'userData'
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('userData').style.display = 'none';
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('userData').style.display = 'none';
