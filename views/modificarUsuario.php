@@ -16,7 +16,7 @@
                 <option value="administrador">Administrador</option>
             </select>
             <p id="mensajeResultado"></p>
-            <button type="button" onclick="guardarCambios()" class="save-button">GUARDAR CAMBIOS</button>
+            <button type="button" onclick="guardarCambios(param)" class="save-button">GUARDAR CAMBIOS</button>
         </form>
     </div>
     <script src="../assets/js/modificarUsr.js" ></script>

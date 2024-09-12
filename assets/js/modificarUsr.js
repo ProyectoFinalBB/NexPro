@@ -18,7 +18,6 @@ if (param) {
 
 function modificarUsrCampos(usr_id) {
     usr_id = parseInt(usr_id, 10)
-    console.log(usr_id);
     // Usar fetch para enviar los datos al servidor
     fetch('../controllers/userDataById.php', {
         method: 'POST',
@@ -80,8 +79,10 @@ document.getElementById("inLastname").value = apellido;
     });
 }
 console.log("tamo activo")
-function guardarCambios() {
 
+function guardarCambios(id) {
+
+console.log(id = parseInt(id));
 
     // Capturar los valores del formulario
     const nombre = document.getElementById("inNames").value;
@@ -90,38 +91,36 @@ function guardarCambios() {
     const rol = document.getElementById("inRol").value;
 
     // Validar si los campos están completos
-    if (!nombre || !apellido || !ci || !rol) {
+    if (!nombre || !apellido || !ci || !rol || !id) {
         document.getElementById("mensajeResultado").innerText = "Todos los campos son obligatorios.";
         return;
     }
 
     // Crear un objeto con los datos del formulario
     const datos = {
+        id_usr: id,
         nombre: nombre,
         apellido: apellido,
         ci: ci,
         rol: rol
     };
+    console.log(datos)
 
-    // Usar fetch para enviar los datos a un archivo PHP
-    fetch('../controllers/modificarUsuario.php', {
+    
+    // Usar fetch para enviar los datos al servidor
+    fetch('../controllers/registroUsuario.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Indicar que los datos son JSON
         },
         body: JSON.stringify(datos) // Convertir el objeto de datos a JSON
     })
-    .then(response => response.json()) // Procesar la respuesta del servidor como JSON
+    .then(response => response.text()) // Procesar la respuesta del servidor como texto
     .then(data => {
-        // Verificar la respuesta del servidor y mostrar el mensaje adecuado
-        if (data.success) {
-            document.getElementById("mensajeResultado").innerText = "Cambios guardados exitosamente.";
-        } else {
-            document.getElementById("mensajeResultado").innerText = "Error al guardar los cambios.";
-        }
+        document.getElementById("mensajeResultado").innerText = data;
     })
     .catch(error => {
         console.error('Error:', error);
-        document.getElementById("mensajeResultado").innerText = "Ocurrió un error al guardar los cambios.";
+        document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
     });
 }
