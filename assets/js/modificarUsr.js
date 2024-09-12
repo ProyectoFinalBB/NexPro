@@ -108,7 +108,7 @@ console.log(id = parseInt(id));
 
     
     // Usar fetch para enviar los datos al servidor
-    fetch('../controllers/registroUsuario.php', {
+    fetch('../controllers/modificarUsuario.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Indicar que los datos son JSON

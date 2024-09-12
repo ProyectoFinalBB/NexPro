@@ -1,10 +1,11 @@
 <?php
+
 // Recibir los datos enviados desde el frontend
 $data = json_decode(file_get_contents('php://input'), true);
-
+include('../includes/conexion.php');
+$conn = conectar_bd();
 if (isset($data['nombre'], $data['apellido'], $data['ci'], $data['rol'])) {
     // Conectar a la base de datos
-    include('../includes/conexion.php');
 
     // Limpiar y asignar los datos recibidos
     $nombre = $data['nombre'];
