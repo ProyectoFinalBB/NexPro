@@ -18,7 +18,7 @@ body {
 }
 
 .logo-img {
-    height: 50px;
+    height: 130px;
     margin-right: 10px;
 }
 
@@ -75,17 +75,15 @@ body {
 
 
 /* Trabajo de Lucas*/
-
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 98%;
-    max-width: 1200px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    margin: 30px;
 }
 
 .form-container {
@@ -284,7 +282,11 @@ input:checked + .slider:before {
     align-items: center;
     color: white;
     font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100vw;
 }
+
 
 .footer-content {
     display: flex;
@@ -292,7 +294,12 @@ input:checked + .slider:before {
     align-items: center;
     width: 100%;
     max-width: 1200px;
+    flex-wrap: wrap; /* Permite que los elementos se distribuyan en varias líneas */
+    padding: 10px; /* Ajusta el padding para pantallas pequeñas */
 }
+
+ 
+
 
 .footer-text {
     margin: 0;
@@ -320,9 +327,10 @@ input:checked + .slider:before {
 
 .headerCTRLUSR {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
+    background-color: #f9f5fc;
+
 }
 
 .logoCTRLUSR {
@@ -331,13 +339,14 @@ input:checked + .slider:before {
 }
 
 .logo-imgCTRLUSR {
-    width: 40px; /* Ajusta el tamaño según necesites */
-    height: auto;
+    width: 55%;
+  height: auto; /* Mantiene la proporción de la imagen */
 }
 
 
+
 .titleCTRLUSR {
-    flex-grow: 1;
+    flex-grow: 0.70;
     text-align: center;
     font-size: 18px;
     color: #000000;
@@ -359,13 +368,11 @@ input:checked + .slider:before {
     list-style: none;
     padding: 0;
     margin: 0;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
 }
 
-.nav-item {
-    margin: 0 20px;
-}
 
-.nav-link {
+.nav-item .nav-link {
     text-decoration: none;
     color: #000000;
     font-size: 16px;
@@ -374,6 +381,12 @@ input:checked + .slider:before {
     border-bottom: 2px solid transparent;
     display: block;
 }
+
+.nav-item.active .nav-link {
+    color: #1d72b8;
+    border-bottom: 2px solid #1d72b8;
+}
+
 
 .nav-item.active .nav-link {
     color: #1d72b8;
@@ -438,4 +451,38 @@ input, select {
     border-radius: 50%;
     margin-bottom: 10px;
 }
+ul {
+    display: block;
+    list-style-type: disc;
+    margin: 1em auto; /* Centra el bloque y agrega márgenes verticales */
+    padding-inline-start: 40px;
+    text-align: center; /* Centra el contenido de la lista */
+    unicode-bidi: isolate;
+    font-size: 1.5em;
+}
+
+ul li {
+    display: inline-block; /* Hace que los elementos de la lista se alineen horizontalmente */
+    margin: 0 10px; /* Agrega espacio entre los elementos de la lista */
+}
+.fa, .fa-brands, .fa-duotone, .fa-light, .fa-regular, .fa-solid, .fa-thin, .fab, .fad, .fal, .far, .fas, .fat {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    margin: 10px;
+}
+
+
+.user-item {
+    unicode-bidi: isolate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
 
