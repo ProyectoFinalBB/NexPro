@@ -168,3 +168,20 @@ document.getElementById('cerrarMenu').addEventListener('click', function() {
         }
         document.getElementById('menuPerfil').style.display = 'none';
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Obtener todos los enlaces del menú de navegación
+        const navLinks = document.querySelectorAll('.nav-link');
+    
+        // Agregar un evento de clic a cada enlace de la navegación
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Remover la clase 'active' de todos los elementos
+                navLinks.forEach(nav => nav.parentElement.classList.remove('active'));
+    
+                // Agregar la clase 'active' al elemento clicado
+                this.parentElement.classList.add('active');
+            });
+        });
+    });
+    
