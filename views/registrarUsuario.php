@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     
-<form method="post" id="registroUsuarioForm">
+<form id="registroUsuarioForm">
     <div>
         <img src="" alt="">
         <h1>Registra un Usuario</h1>
@@ -28,5 +21,4 @@
 </form>
 <div id="mensajeResultado"></div> <!-- Para mostrar mensajes de éxito o error -->
 
-</body>
-</html>
+<script src="../assets/js/registrarUsr.js"></script>

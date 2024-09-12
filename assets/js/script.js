@@ -5,6 +5,11 @@
     document.getElementById('menuCTRLUsuario').style.display = 'none';
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('userData').style.display = 'none'; // Si tienes un elemento con ID 'userData'
+});
+
+
 function redirectToView(ruta, param) {
     const baseURL = '../controllers/viewController.php?param='+param;
     
@@ -13,43 +18,6 @@ function redirectToView(ruta, param) {
     url.searchParams.append('ruta', ruta);
 
     window.location.href = url;
-}
-function registrarUsuario() {
-    // Prevenir que el formulario se envíe de manera tradicional
-    event.preventDefault();
-
-    // Capturar los datos del formulario
-    var nombre = document.getElementById("nombreUsrRegistro").value;
-    var apellido = document.getElementById("apellidoUsrRegistro").value;
-    var ci = document.getElementById("ciUsrRegistro").value;
-    var rol = document.getElementById("rolRegistro").value;
-
-    // Crear un objeto con los datos
-    var datos = {
-        nombreUsrRegistro: nombre,
-        apellidoUsrRegistro: apellido,
-        ciUsrRegistro: ci,
-        rolRegistro: rol,
-        registrarUsr: "registrarUsr"
-    };
-
-    // Usar fetch para enviar los datos al servidor
-    fetch('../controllers/registroUsuario.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' // Indicar que los datos son JSON
-        },
-        body: JSON.stringify(datos) // Convertir el objeto de datos a JSON
-    })
-    .then(response => response.text()) // Procesar la respuesta del servidor como texto
-    .then(data => {
-        // Mostrar el mensaje de resultado en la página
-        document.getElementById("mensajeResultado").innerText = data;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
-    });
 }
 
 function editUser(userId) {
@@ -136,56 +104,6 @@ function Listado($ruta) {
     })
     .catch(error => console.error('Error:', error));
 }
-function modificarUsrCampos(usr_id) {
-    // Usar fetch para enviar los datos al servidor
-    fetch('../controllers/userDataById.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' // Indicar que los datos son JSON
-        },
-        body: JSON.stringify({ userId: usr_id }) // Enviar el ID del usuario como JSON
-    })
-    .then(response => response.json()) // Procesar la respuesta del servidor como JSON
-    .then(data => {
-        if (data.error) {
-            console.error(data.error);
-            document.getElementById("mensajeResultado").innerText = "Error en la consulta de usuario.";
-            return;
-        }
-
-        // Asignar los valores obtenidos del JSON a los campos del formulario
-        document.getElementById("user-info").textContent = data.nombrecompleto;
-
-        document.getElementById("inNames").value = data.nombre;
-        document.getElementById("inLastname").value = data.apellido;
-        document.getElementById("inCedula").value = data.ci;
-
-        // Asignar el rol seleccionando la opción correcta
-        document.getElementById("inRol").value = data.rol;
-
-        // Asignar la imagen de perfil si tienes la URL
-       // document.getElementById("profile-image").src = data.profile_image_url || '../assets/img/default-avatar.png'; // Si no hay imagen, mostrar una por defecto
-
-        console.log(data); // Verificar los datos recibidos en la consola
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('userData').style.display = 'none'; // Si tienes un elemento con ID 'userData'
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('userData').style.display = 'none';
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('userData').style.display = 'none';
-});
 
 function confirmarEliminacion() {
     return confirm("¿Estás seguro de que deseas eliminar este usuario?");

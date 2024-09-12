@@ -15,8 +15,7 @@ if (isset($input['userId'])) {
     $userId = intval($mysqli->real_escape_string($input['userId']));
 
     // Consulta SQL para obtener los datos del usuario específico
-    $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci, 
-            usuarios.nombre, usuarios.apellido, roles.rol 
+    $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci, roles.rol
             FROM usuarios 
             INNER JOIN roles ON usuarios.id_usr = roles.id_usr
             WHERE usuarios.id_usr = '$userId'";
