@@ -30,6 +30,5 @@
         <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
     </div>
 </div>
-
 </body>
 </html>

@@ -16,7 +16,7 @@
             <option value="alumno">Alumno</option>
             <option value="profesor">Profesor</option>
         </select>
-        <button type="button" id="registrarUsrBtn" onclick="registrarUsuario()">Agregar Usuario</button>
+        <button type="button" id="registrarUsrBtn" onclick="registrarUsuario()">Registrar</button>
     </div>
 </form>
 <div id="mensajeResultado"></div> <!-- Para mostrar mensajes de éxito o error -->
