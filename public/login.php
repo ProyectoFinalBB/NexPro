@@ -17,6 +17,7 @@
             <input type="password" name="contrasenia" placeholder="CONTRASEÑA" class="input-contrasenia"><br>
             <input type="submit" name="envio" value="ENVIAR" class="boton-enviar"> 
         </form>
+        <a href="passChange.php">Cambiar Contraseña</a>
 
         <?php 
         if (!isset($_SESSION['ci']) && isset($_SESSION['err'])){

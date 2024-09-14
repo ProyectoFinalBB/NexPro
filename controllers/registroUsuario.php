@@ -1,5 +1,6 @@
 <?php
 include("../includes/conexion.php");
+include("existeUsr.php");
 $con = conectar_bd();
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -16,13 +17,6 @@ if(isset($data["registrarUsr"])) {
     registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_usr);
 }
 
-function consultar_existe_usr($con, $ci) {
-    $ci = mysqli_real_escape_string($con, $ci);
-    $consulta_existe_usr = "SELECT ci FROM usuarios WHERE ci = '$ci'";
-    $resultado_existe_usr = mysqli_query($con, $consulta_existe_usr);
-
-    return mysqli_num_rows($resultado_existe_usr) > 0;
-}
 
 function registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_usr) {
     if (!$existe_usr) {

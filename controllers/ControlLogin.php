@@ -23,18 +23,13 @@ function logear($con, $ci, $pass) {
 
     if ($resultado_login) {
         if (mysqli_num_rows($resultado_login) > 0) {
-            
-            // Se crea una variable con el objeto fetch_assoc para acceder a las columnas que necesite
             $fila = mysqli_fetch_assoc($resultado_login);
 
             
             $password_bd = $fila["contrasenia"];
             $id_usr = $fila["id_usr"]; 
-
-            // Uso la función password_verify para comparar lo que ingresa el usuario con lo que tengo en la BD
             if (password_verify($pass, $password_bd)) {
                 
-                // Consulta para obtener el rol del usuario desde la tabla 'roles'
                 $consulta_rol = "SELECT rol FROM roles WHERE id_usr = $id_usr";
                 $resultado_rol = mysqli_query($con, $consulta_rol);
 
@@ -42,11 +37,9 @@ function logear($con, $ci, $pass) {
                     $fila_rol = mysqli_fetch_assoc($resultado_rol);
                     $rol = $fila_rol["rol"];
 
-                    // Guardar el CI y el rol en la sesión
                     $_SESSION["ci"] = $ci;
                     $_SESSION["rol"] = $rol;
-                    
-                    // Redirigir a la página principal o al área de usuario
+
                     header("Location: ../public/index.php");
                     exit();
                 } else {
@@ -62,7 +55,6 @@ function logear($con, $ci, $pass) {
             header("Location: ../public/index.php");
         }
     } else {
-        // Manejo de errores en la consulta SQL
         $_SESSION["err"] = "Error en la consulta: " . mysqli_error($con);
         header("Location: ../public/index.php");
     }

@@ -1,15 +1,14 @@
 
 function registrarUsuario() {
-    // Prevenir que el formulario se envíe de manera tradicional
     event.preventDefault();
 
-    // Capturar los datos del formulario
+
     var nombre = document.getElementById("nombreUsrRegistro").value;
     var apellido = document.getElementById("apellidoUsrRegistro").value;
     var ci = document.getElementById("ciUsrRegistro").value;
     var rol = document.getElementById("rolRegistro").value;
 
-    // Crear un objeto con los datos
+  
     var datos = {
         nombreUsrRegistro: nombre,
         apellidoUsrRegistro: apellido,
@@ -18,17 +17,16 @@ function registrarUsuario() {
         registrarUsr: "registrarUsr"
     };
 
-    // Usar fetch para enviar los datos al servidor
+
     fetch('../controllers/registroUsuario.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' // Indicar que los datos son JSON
+            'Content-Type': 'application/json' 
         },
-        body: JSON.stringify(datos) // Convertir el objeto de datos a JSON
+        body: JSON.stringify(datos) 
     })
-    .then(response => response.text()) // Procesar la respuesta del servidor como texto
+    .then(response => response.text()) 
     .then(data => {
-        // Mostrar el mensaje de resultado en la página
         document.getElementById("mensajeResultado").innerText = data;
     })
     .catch(error => {
