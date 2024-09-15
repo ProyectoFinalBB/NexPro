@@ -2,23 +2,20 @@
     
 <form id="registroUsuarioForm">
     <div>
-        <img src="" alt="">
-        <h1>Registra un Usuario</h1>
-        <label>Nombres</label>
-        <input type="text" id="nombreUsrRegistro" name="nombreUsrRegistro" required>
-        <label>Apellidos</label>
-        <input type="text" id="apellidoUsrRegistro" name="apellidoUsrRegistro" required>
-        <label>Cédula</label>
-        <input type="text" id="ciUsrRegistro" name="ciUsrRegistro" required>
+        <img src="../assets/css/styles.css" alt="">
+        <h2>Registra un Usuario</h2>
+        <input type="text" id="nombreUsrRegistro" name="nombreUsrRegistro" placeholder="NOMBRES" required>
+        <input type="text" id="apellidoUsrRegistro" name="apellidoUsrRegistro" placeholder="APELLIDOS" required>
+        <input type="text" id="ciUsrRegistro" name="ciUsrRegistro" placeholder="CEDULA" required>
         <label for="rol">Rol</label>
         <select id="rolRegistro" name="rolRegistro" required>
             <option value="administrador">Administrador</option>
             <option value="alumno">Alumno</option>
             <option value="profesor">Profesor</option>
         </select>
-        <button type="button" id="registrarUsrBtn" onclick="registrarUsuario()">Agregar Usuario</button>
+        <button type="submit" class="boton-enviar" id="registrarUsrBtn" onclick="registrarUsuario()">Agregar Usuario</button>
     </div>
 </form>
-<div id="mensajeResultado"></div> <!-- Para mostrar mensajes de éxito o error -->
+<div id="mensajeResultado"></div> 
 
 <script src="../assets/js/registrarUsr.js"></script>

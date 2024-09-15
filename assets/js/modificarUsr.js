@@ -57,9 +57,8 @@ document.getElementById("inLastname").value = apellido;
         document.getElementById("inRol").value = data.rol;
         console.log(data.rol);
 
-        // Asignar la imagen de perfil si tienes la URL
-       // document.getElementById("profile-image").src = data.profile_image_url || '../assets/img/default-avatar.png'; // Si no hay imagen, mostrar una por defecto
-
+        // Asignar la imagen de perfil 
+    
         console.log(data);
     })
     .catch(error => {

@@ -1,6 +1,7 @@
 <?php
 include("../includes/conexion.php");
 include("existeUsr.php");
+include("validarCI.php");
 $con = conectar_bd();
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -14,7 +15,13 @@ if(isset($data["registrarUsr"])) {
 
     $existe_usr = consultar_existe_usr($con, $ci);
 
-    registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_usr);
+    if (validarCI($ci)){
+        registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_usr);
+    } else {
+        echo json_encode(['Cedula invalida']);
+    }
+
+  
 }
 
 
@@ -25,21 +32,21 @@ function registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_us
         $consulta_insertar = "INSERT INTO usuarios (nombrecompleto, ci, contrasenia) VALUES ('$nombreCompleto', '$ci', '$contrasenia')";
         if (mysqli_query($con, $consulta_insertar)) {
             $id_usr = mysqli_insert_id($con);
-            $mensaje = "Usuario registrado con éxito";
+            echo json_encode(['Usuario insertado correctamente']);
             $consulta_insertarRol = "INSERT INTO roles (id_usr, rol) VALUES ('$id_usr', '$rol')";
             if(mysqli_query($con, $consulta_insertarRol)) {
-                $mensaje .= " - Rol insertado correctamente";
-                echo $mensaje;
+                echo json_encode(['Rol insertado correctamente']);
             } else {
-                echo "Error al insertar el rol: " . mysqli_error($con); 
+                echo json_encode(['Error al insertar el rol']);
             }
         } else {
-            echo "Error al registrar el usuario: " . mysqli_error($con);
+            echo json_encode([ 'Error al insertar el usuario']);
         }
     } else {
-        echo "El usuario ya existe."; 
+        echo json_encode(['El usuario ya existe']);
     }
 }
+
 ?>
 
 

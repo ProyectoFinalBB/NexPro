@@ -8,7 +8,7 @@ function registrarUsuario() {
     var ci = document.getElementById("ciUsrRegistro").value;
     var rol = document.getElementById("rolRegistro").value;
 
-  
+
     var datos = {
         nombreUsrRegistro: nombre,
         apellidoUsrRegistro: apellido,
@@ -18,6 +18,15 @@ function registrarUsuario() {
     };
 
 
+     nombrecompleto = nombre + " " + apellido;
+
+     partes = nombrecompleto.split(' ');
+
+    if (partes.length <= 2 || partes.length >= 6) {
+        document.getElementById("mensajeResultado").innerText = "De be ingresar 1 o 2 nombres y 2 apellidos";
+    } else {
+       
+console.log(partes)
     fetch('../controllers/registroUsuario.php', {
         method: 'POST',
         headers: {
@@ -33,4 +42,6 @@ function registrarUsuario() {
         console.error('Error:', error);
         document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
     });
+    }
 }
+

@@ -6,9 +6,9 @@
         <div class="user-info" id="user-info"></div>
 
         <form >
-            <input id="inNames" type="text" placeholder="" value="" required>
-            <input id="inLastname" type="text" placeholder="" value="" required>
-            <input id="inCedula" type="text" placeholder="" value="" required>
+            <input id="inNames" type="text" placeholder="NOMBRES"  required>
+            <input id="inLastname" type="text" placeholder="APELLIDOS"  required>
+            <input id="inCedula" type="text" placeholder="CEDULA"  required>
             
             <select name="rol" id="inRol" required>
                 <option value="alumno">Estudiante</option>

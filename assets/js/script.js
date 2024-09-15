@@ -2,12 +2,10 @@
    document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('header').style.display = 'flex';
     document.getElementById('menuCTRLUsuario').style.display = 'none';
-});
-
-document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('userData').style.display = 'none'; 
-});
+    Listado('../controllers/listarEstudiante.php')
 
+});
 
 function redirectToView(ruta, param) {
     const baseURL = '../controllers/viewController.php?param='+param;
@@ -17,11 +15,6 @@ function redirectToView(ruta, param) {
     url.searchParams.append('ruta', ruta);
 
     window.location.href = url;
-}
-
-function editUser(userId) {
-    console.log('Editing user', userId);
-    
 }
 
 function deleteUser(userId) {

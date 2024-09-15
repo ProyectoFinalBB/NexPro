@@ -20,7 +20,7 @@ if ($result) {
     }
 } else {
  
-    echo json_encode(['error' => 'Error en la consulta']);
+    echo json_encode(['Error en la consulta']);
     exit;
 }
 
