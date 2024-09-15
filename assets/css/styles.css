@@ -74,52 +74,58 @@ body {
 }
 
 
-/* Trabajo de Lucas*/
+/*login*/
 .container {
-    display: flex; 
+    display: flex;
     height: 100vh;
-    width: 100vw; 
+    width: 100vw;
 }
 
 .form-container {
     padding: 20px;
     text-align: center;
-    width: 50%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .formulario {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; 
+    max-width: 500px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-
-
-.titulo-login {
+.titulo-pantalla {
     font-size: 20px;
-    color: #333333;
+    color: #333;
     margin-bottom: 15px;
 }
-
-.input-cedula, 
-.input-contrasenia {
-    width: 100%; 
+.input-login {
+    width: 100%;
+    max-width: 400px; 
     padding: 10px;
-    margin: 10px 0; 
-    border: 1px solid #cccccc;
+    margin: 10px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box; 
 }
 
 .boton-enviar {
     background-color: #4F80FF;
-    color: white;
-    padding: 12px 20px; 
-    border-radius: 8px; 
-    cursor: pointer;
-    width: auto;
-    font-size: 16px;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
     border: 1px solid black;
-    margin: 10px 0; 
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;
+    margin: 10px 0;
+    transition: background-color 0.3s;
 }
 
 .boton-enviar:hover {
@@ -132,13 +138,80 @@ body {
 }
 
 .container-frases {
-    width: 50%;
-    background-color: #e0e7ff; /* Fondo de color diferente para el contenedor de frases */
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50%;
     padding: 100px;
     background-color: #606db1;
+}
+
+.banner-utu {
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    height: auto;
+}
+
+.texto-pie {
+    bottom: 0;
+    left: 500px;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+.banner-utu,
+.texto-pie {
+    position: absolute;
+    margin: 10px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-container {
+        width: 150%;
+        height: auto; 
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .formulario {
+        width: 150%; 
+        max-width: none; 
+    }
+
+    .input-login {
+        width: auto; 
+    }
+
+    .boton-enviar {
+        width: auto;
+    }
+
+    .container-frases,
+    .banner-utu,
+    .texto-pie {
+        display: none; 
+    }
+}
+
+@media (max-width: 480px) {
+    .input-login {
+        width: auto; 
+        font-size: 16px;
+    }
+
+    .boton-enviar {
+        width: auto; 
+        font-size: 16px; 
+    }
 }
 
 
@@ -330,7 +403,7 @@ input:checked + .slider:before {
 
 .logo-imgCTRLUSR {
     width: 55%;
-  height: auto; /* Mantiene la proporción de la imagen */
+  height: auto;
 }
 
 
@@ -358,7 +431,7 @@ input:checked + .slider:before {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+    flex-wrap: wrap;
 }
 
 
@@ -388,91 +461,122 @@ input:checked + .slider:before {
 }
 
 
-/*Modificar usuarios*/
-
-.form-container {
-    background-color: white;
-    border-radius: 10px;
-    padding: 60px;
-    width: 40%; 
-    box-sizing: border-box; 
+/*Registrar usuarios*/
+.formulario-registro {
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
 }
 
-.form-container img {
-    width: 200px;
-    height: auto;
-    margin-bottom: 50px;
+.formulario-registro label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block; 
+}
+
+.input-registro,
+#rolRegistro {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+
+@media (max-width: 768px) {
+    .formulario-registro label {
+        font-size: 14px;
+        margin-bottom: 8px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario-registro label {
+        font-size: 12px;
+        margin-bottom: 6px; 
+    }
+}
+
+/*modificar*/
+.form-container-modificar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.logo-nexpro {
+    width: 150px; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+/* Estilo de la imagen de perfil */
+.profile-image {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%; 
+    margin-bottom: 20px; 
 }
 
 .user-info {
     font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    color: #666;
+    margin-bottom: 20px; 
 }
 
-input, select {
+.formulario-edicion {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    box-sizing: border-box;
+}
+
+.formulario-edicion label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px; 
+    display: block; 
+}
+
+.input-modificar,
+#inRol {
+    width: 100%; 
+    max-width: 400px;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
-}
-
-.save-button, #registrarUsrBtn{
-    background-color: #1d72b8;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.save-button:hover, #registrarUsrBtn{
-    background-color: #155a96;
-}
-
-.profile-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-ul {
-    display: block;
-    list-style-type: disc;
-    margin: 1em auto; /* Centra el bloque y agrega márgenes verticales */
-    padding-inline-start: 40px;
-    text-align: center; /* Centra el contenido de la lista */
-    unicode-bidi: isolate;
-    font-size: 1.5em;
-}
-
-ul li {
-    display: inline-block; /* Hace que los elementos de la lista se alineen horizontalmente */
-    margin: 0 10px; /* Agrega espacio entre los elementos de la lista */
-}
-.fa, .fa-brands, .fa-duotone, .fa-light, .fa-regular, .fa-solid, .fa-thin, .fab, .fad, .fal, .far, .fas, .fat {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    display: var(--fa-display, inline-block);
-    font-style: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-rendering: auto;
-    margin: 10px;
+    box-sizing: border-box; 
 }
 
 
-.user-item {
-    unicode-bidi: isolate;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
+@media (max-width: 768px) {
+    .formulario-edicion label {
+        font-size: 14px; 
+        margin-bottom: 8px;
+    }
 }
 
+@media (max-width: 480px) {
+    .formulario-edicion label {
+        font-size: 12px; 
+        margin-bottom: 6px; 
+    }
+}
 
