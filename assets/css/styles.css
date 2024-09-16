@@ -78,6 +78,13 @@ body {
     cursor: pointer;
 }
 
+.menu-img {
+    height: auto;
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+}
 /* Nav CSS */
 .menu {
     width: 300px;
@@ -92,6 +99,7 @@ body {
     transition: right 1s ease;
    right: -2000px;
     z-index: 1000;
+    left: auto;
 }
 
 .menu-header {
@@ -104,9 +112,11 @@ body {
     margin: 0;
 }
 
-
-
-
+.h-conten {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
 
 .cerrar {
     background: none;
@@ -295,7 +305,8 @@ input:checked + .slider:before {
     }
 
     .menu {
-    
+        right: auto;
+        transition: left 1s ease;
 left: -2000px;
     }
 
@@ -499,6 +510,9 @@ left: -2000px;
 }
 
 @media (max-width: 768px) {
+    .menu-img {
+        display: block;
+    }
     .container {
         flex-direction: column;
         align-items: center;

@@ -12,10 +12,11 @@
 <body>
 
     <header class="header" id="header">
+
+    <div class="h-conten">
     <div class="menuImgDiv">
-    <img src="../assets/img/menuIcon.png" alt="Perfil" class="menu-img" >
+    <img src="../assets/img/menuIcon.png" alt="Perfil" class="menu-img" id="menu-img">
     </div>
-    <div class="logo">
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-img">
     </div>
     <div class="search-bar">

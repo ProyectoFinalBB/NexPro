@@ -95,13 +95,27 @@ function confirmarEliminacion() {
 function confirmarModificación() {
     return confirm("¿Estás seguro de que deseas modificar este usuario?");
 }
+function esMovil() {
+    return window.innerWidth <= 768; 
+}
+
 document.getElementById('cerrarMenu').addEventListener('click', function() {
-    document.getElementById('menuPerfil').style.right = '-2000px';
+    const menuPerfil = document.getElementById('menuPerfil');
+    
+    if (esMovil()) {
+        menuPerfil.style.left = '-2000px';
+    } else {
+        menuPerfil.style.right = '-2000px';
+    }
 });
 
  document.getElementById('nav-btn').addEventListener('click', function() {
     document.getElementById('menuPerfil').style.right = '0px';
 });
+document.getElementById('menu-img').addEventListener('click', function() {
+    document.getElementById('menuPerfil').style.left = '0px';
+});
+
 
     function toggleMenu() {
         const header = document.getElementById('header');
