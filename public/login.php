@@ -12,13 +12,14 @@
 <div class="container">
     <div class="form-container">
         <form action="../controllers/ControlLogin.php" method="post" class="formulario">
-            <img src="../assets/img/logo.png" alt="Logo de NexPro" class="logo1">
+            <img src="../assets/img/logo.png" alt="Logo de NexPro">
             <h3 class="titulo-login">INICIO DE SESION</h3>
-            <input type="number" name="ci" placeholder="CEDULA" class="input-cedula" minlength="8" maxlength="8"  required>
-            <input type="password" name="contrasenia" placeholder="CONTRASEÑA" class="input-contrasenia"  required >
+            <input type="number" name="ci" placeholder="CEDULA" class="input-login" minlength="8" maxlength="8"  required>
+            <input type="password" name="contrasenia" placeholder="CONTRASEÑA" class="input-login"  required>
+            <a href="passChange.php" class="texto-contrasena">Cambiar Contraseña</a>
             <input type="submit" name="envio" value="ENVIAR" class="boton-enviar"> 
         </form>
-        <a href="passChange.php">Cambiar Contraseña</a>
+
 
         <?php 
         if (!isset($_SESSION['ci']) && isset($_SESSION['err'])){

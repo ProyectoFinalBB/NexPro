@@ -20,7 +20,6 @@ if (isset($_GET['ruta'])) {
     <link rel="stylesheet" href="../assets/css/styles.css"> 
 </head>
 <body>
-<button onclick="window.history.back();" class="boton-retroceder"><--</button>
 <div class="container">
 <div class="form-container">
 <?php include($ruta); ?>
