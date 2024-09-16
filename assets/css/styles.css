@@ -81,15 +81,16 @@ body {
 /* Nav CSS */
 .menu {
     width: 300px;
+    height: 100%;
     padding: 20px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
     position: fixed;
-    top: 10%;
-    right: 5%;
-    display: none;
+    top: 0%;
+    transition: right 1s ease;
+   right: -2000px;
     z-index: 1000;
 }
 
@@ -102,6 +103,10 @@ body {
 .menu-header h2 {
     margin: 0;
 }
+
+
+
+
 
 .cerrar {
     background: none;
@@ -290,12 +295,8 @@ input:checked + .slider:before {
     }
 
     .menu {
-        display: block; 
-        width: 100%;
-        height: 100%;
-        top: 0;
-        right: 0;
-        padding: 20px;
+    
+left: -2000px;
     }
 
     .menu-header h2 {
@@ -409,39 +410,7 @@ input:checked + .slider:before {
 }
 
 /* Media Queries */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
 
-    .form-container {
-        width: 150%;
-        height: auto; 
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .formulario {
-        width: 150%; 
-        max-width: none; 
-    }
-
-    .input-login {
-        width: auto; 
-    }
-
-    .boton-enviar {
-        width: auto;
-    }
-
-    .container-frases,
-    .banner-utu,
-    .texto-pie {
-        display: none; 
-    }
-}
 
 @media (max-width: 480px) {
     .input-login {
@@ -530,6 +499,38 @@ input:checked + .slider:before {
 }
 
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-container {
+        width: 150%;
+        height: auto; 
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .formulario {
+        width: 150%; 
+        max-width: none; 
+    }
+
+    .input-login {
+        width: auto; 
+    }
+
+    .boton-enviar {
+        width: auto;
+    }
+
+    .container-frases,
+    .banner-utu,
+    .texto-pie {
+        display: none; 
+    }
+    
     .headerCTRLUSR {
         flex-direction: column; 
         align-items: center; 

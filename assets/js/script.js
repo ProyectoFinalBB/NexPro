@@ -96,11 +96,11 @@ function confirmarModificación() {
     return confirm("¿Estás seguro de que deseas modificar este usuario?");
 }
 document.getElementById('cerrarMenu').addEventListener('click', function() {
-    document.getElementById('menuPerfil').style.display = 'none';
+    document.getElementById('menuPerfil').style.right = '-2000px';
 });
 
  document.getElementById('nav-btn').addEventListener('click', function() {
-    document.getElementById('menuPerfil').style.display = 'block';
+    document.getElementById('menuPerfil').style.right = '0px';
 });
 
     function toggleMenu() {

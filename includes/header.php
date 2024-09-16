@@ -12,6 +12,9 @@
 <body>
 
     <header class="header" id="header">
+    <div class="menuImgDiv">
+    <img src="../assets/img/menuIcon.png" alt="Perfil" class="menu-img" >
+    </div>
     <div class="logo">
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-img">
     </div>
@@ -25,6 +28,7 @@
     <div class="profile" id="nav-btn">
         <img src="https://i.pinimg.com/564x/c6/89/95/c68995aa24906a1320b4d7d10aa374b2.jpg" alt="Perfil" class="profile-img">
     </div>
+
 </header>
 
 <div class="menuCTRLUsuario" id="menuCTRLUsuario">
