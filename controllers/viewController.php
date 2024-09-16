@@ -19,7 +19,6 @@ if (isset($_GET['ruta'])) {
     <link rel="stylesheet" href="../assets/css/styles.css"> 
 </head>
 <body>
-<input type="text" value="">
 <div class="container">
 <div class="form-container">
 <?php include($ruta); ?>

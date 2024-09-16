@@ -5,9 +5,9 @@
     <div class="user-info" id="user-info"></div>
 
         <form class="formulario-edicion">
-            <input id="inNames" type="text" placeholder="" value="" required class="input-modificar">
-            <input id="inLastname" type="text" placeholder="" value="" required class="input-modificar">
-            <input id="inCedula" type="text" placeholder="" value="" required class="input-modificar">
+            <input type="text" placeholder="" value="" required class="input-modificar">
+            <input type="text" placeholder="" value="" required class="input-modificar">
+            <input type="text" placeholder="" value="" required class="input-modificar">
             
             <select name="rol" id="inRol" required>
                 <option value="alumno">Estudiante</option>
