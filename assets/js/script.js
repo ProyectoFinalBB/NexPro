@@ -5,6 +5,8 @@
     document.getElementById('userData').style.display = 'none'; 
     Listado('../controllers/listarEstudiante.php')
 
+
+
 });
 
 function redirectToView(ruta, param) {
@@ -99,22 +101,47 @@ function esMovil() {
     return window.innerWidth <= 768; 
 }
 
-document.getElementById('cerrarMenu').addEventListener('click', function() {
+function abrirMenu() {
     const menuPerfil = document.getElementById('menuPerfil');
-    
     if (esMovil()) {
-        menuPerfil.style.left = '-2000px';
-    } else {
-        menuPerfil.style.right = '-2000px';
-    }
-});
+        menuPerfil.classList.add('menu-abierto-movil');
+        menuPerfil.classList.remove('menu-cerrado-movil');
 
- document.getElementById('nav-btn').addEventListener('click', function() {
-    document.getElementById('menuPerfil').style.right = '0px';
-});
-document.getElementById('menu-img').addEventListener('click', function() {
-    document.getElementById('menuPerfil').style.left = '0px';
-});
+        menuPerfil.classList.remove('menu-abierto-pc');
+        menuPerfil.classList.remove('menu-cerrado-pc');
+    } else {
+        menuPerfil.classList.add('menu-abierto-pc');
+        menuPerfil.classList.remove('menu-cerrado-pc');
+
+        menuPerfil.classList.remove('menu-cerrado-movil');
+        menuPerfil.classList.remove('menu-abierto-movil');
+    }
+}
+
+function cerrarMenu() {
+    const menuPerfil = document.getElementById('menuPerfil');
+    if (esMovil()) {
+        menuPerfil.classList.add('menu-cerrado-movil');
+        menuPerfil.classList.remove('menu-abierto-movil');
+
+        menuPerfil.classList.remove('menu-abierto-pc');
+        menuPerfil.classList.remove('menu-cerrado-pc');
+    } else {
+        menuPerfil.classList.add('menu-cerrado-pc');
+        menuPerfil.classList.remove('menu-abierto-pc');
+
+        menuPerfil.classList.remove('menu-cerrado-movil');
+        menuPerfil.classList.remove('menu-abierto-movil');
+    }
+}
+
+
+// Listeners para abrir y cerrar el menú
+document.getElementById('cerrarMenu').addEventListener('click', cerrarMenu);
+document.getElementById('nav-btn').addEventListener('click', abrirMenu);
+document.getElementById('menu-img').addEventListener('click', abrirMenu);
+
+
 
 
     function toggleMenu() {
