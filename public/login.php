@@ -11,7 +11,7 @@
 <div class="container">
     <div class="form-container">
         <form action="../controllers/ControlLogin.php" method="post" class="formulario">
-            <img src="../assets/img/logo.png" alt="Logo de NexPro" class="logo1">
+            <img src="../assets/img/logo.png" alt="Logo de NexPro" class="logo-login">
             <h3 class="titulo-pantalla">INICIO DE SESION</h3>
             <input type="text" name="ci" placeholder="CEDULA" class="input-login">
             <input type="password" name="contrasenia" placeholder="CONTRASEÑA" class="input-login"><br>

@@ -1,6 +1,6 @@
 <form id="registroUsuarioForm" class="formulario-registro">
     <div>
-        <img src="../assets/img/logo.png" alt="NexPro Logo">
+        <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
         <h1 class="titulo-pantalla">Registra un Usuario</h1>
         <label for="nombreUsrRegistro">Nombres</label>
         <input type="text" id="nombreUsrRegistro" name="nombreUsrRegistro" required class="input-registro">
@@ -19,5 +19,6 @@
 </form>
 <div class="mensaje-error"></div> <!-- Para mostrar mensajes de éxito o error -->
 
-
+<p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
+<img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
 <script src="../assets/js/registrarUsr.js"></script>

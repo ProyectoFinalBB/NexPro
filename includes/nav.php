@@ -89,5 +89,6 @@ if ($rol === 'alumno'): ?>
     </div>
     <button class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
 </div>
+
 <?php endif; ?>
 
