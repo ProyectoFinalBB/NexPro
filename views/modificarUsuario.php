@@ -1,9 +1,8 @@
-
-<div class="form-container">
-        <img src="../assets/img/logo.png" alt="NexPro Logo">
-        <h1>EDITAR UN PERFIL</h1>
-        <img class="profile-image" id="profile-image" src="" alt="User Image">
-        <div class="user-info" id="user-info"></div>
+<div class="form-container-modificar">
+    <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
+    <h1 class="titulo-pantalla">EDITAR UN PERFIL</h1>
+    <img class="profile-image" src="../assets/img/PerfilM.png" alt="User Image">
+    <div class="user-info" id="user-info"></div>
 
         <form >
             <input id="inNames" type="text" placeholder="NOMBRES"  required>
@@ -16,9 +15,9 @@
                 <option value="administrador">Administrador</option>
             </select>
             <p id="mensajeResultado"></p>
-            <button type="button" onclick="guardarCambios(param)" class="save-button">GUARDAR CAMBIOS</button>
+            <button type="button" onclick="guardarCambios(param)" class="boton-enviar">GUARDAR CAMBIOS</button>
         </form>
     </div>
+    <p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
+<img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
     <script src="../assets/js/modificarUsr.js" ></script>
-
-

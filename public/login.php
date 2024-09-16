@@ -29,9 +29,12 @@
     </div>
 
     <div class="container-frases">
-        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
-    </div>
+    <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
+    <p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
+    <img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
 </div>
 
+
+</div>
 </body>
 </html>
