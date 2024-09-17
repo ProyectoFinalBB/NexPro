@@ -7,6 +7,8 @@
     <title>NexPro</title>
     <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
     <link rel="stylesheet" href="../assets/css/styles.css"> 
 </head>
 <body>
@@ -15,7 +17,7 @@
 
     <div class="h-conten">
     <div class="menuImgDiv">
-    <img src="../assets/img/menuIcon.png" alt="Perfil" class="menu-img" id="menu-img">
+    <img src="../assets/img/icon-menu.webp" alt="Perfil" class="menu-img" id="menu-img">
     </div>
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-img">
     </div>

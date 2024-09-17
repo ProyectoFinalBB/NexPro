@@ -1,9 +1,15 @@
+<?php
+if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
+    header('Location: ../public/login.php'); 
+    exit();
+}
+?>
 <div class="form-container-modificar">
 <div class="logo-boton">
-        <button onclick="window.history.back();" class="boton-retroceder">⭠</button>
+        
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
 </div>
-    <h1 class="titulo-pantalla">EDITAR UN PERFIL</h1>
+    <h2 class="titulo-pantalla">EDITAR UN PERFIL</h2>
     <img class="profile-image" src="../assets/img/PerfilM.png" alt="User Image">
     <div class="user-info" id="user-info"></div>
 
@@ -21,6 +27,5 @@
             <button type="button" onclick="guardarCambios(param)" class="boton-enviar">GUARDAR CAMBIOS</button>
         </form>
     </div>
-    <p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
-<img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
+
     <script src="../assets/js/modificarUsr.js" ></script>

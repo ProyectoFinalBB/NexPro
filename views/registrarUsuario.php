@@ -1,7 +1,13 @@
+<?php
+if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
+    header('Location: ../public/login.php'); 
+    exit();
+}
+?>
 <form id="registroUsuarioForm" class="formulario-registro">
     <div>
         <div class="logo-boton">
-        <button onclick="window.history.back();" class="boton-retroceder">⭠</button>
+
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
 </div>
         <h2 class="titulo-pantalla">Registra un Usuario</h2>
@@ -18,9 +24,6 @@
     </div>
 </form>
 <div id="mensajeResultado"></div> 
-
-<p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
-<img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
 <script src="../assets/js/registrarUsr.js"></script>   
 
 
