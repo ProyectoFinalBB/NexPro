@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
+    header('Location: ../public/login.php'); 
+    exit();
+}
+
 include("../includes/conexion.php");
 $con = conectar_bd();
 

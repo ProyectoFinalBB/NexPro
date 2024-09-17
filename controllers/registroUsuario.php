@@ -2,6 +2,12 @@
 include("../includes/conexion.php");
 include("existeUsr.php");
 include("validarCI.php");
+session_start();
+if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
+    header('Location: ../public/login.php'); 
+    exit();
+}
+
 $con = conectar_bd();
 $data = json_decode(file_get_contents('php://input'), true);
 

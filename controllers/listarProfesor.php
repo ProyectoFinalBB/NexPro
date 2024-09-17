@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
+    header('Location: ../public/login.php'); 
+    exit();
+}
+
 header('Content-Type: application/json');
 
 include("../includes/conexion.php");

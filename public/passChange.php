@@ -26,15 +26,18 @@
             <button type="submit" onclick="cambiarContraseña()" class="boton-enviar">CAMBIAR</button>
         </form>
 
-<div id="mensajeResultado"></div> 
-    </div>
 
+        </div>
     <div class="container-frases">
-        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
+        <div class="foot-form" >
         <p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
-<img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
+        <img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
+        </div>
+
+        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
     </div>
 </div>
+<div id="mensajeResultado"></div> 
 <script src="../assets/js/passChange.js"></script>
 </body>
 </html>
