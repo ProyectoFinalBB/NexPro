@@ -1,9 +1,5 @@
 <?php 
-session_start();
-if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
-    header('Location: ../public/login.php'); 
-    exit();
-}
+
 
 function consultar_existe_usr($con, $ci) {
     $ci = mysqli_real_escape_string($con, $ci);

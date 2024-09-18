@@ -24,6 +24,7 @@
             <input type="password" id="newPass2" placeholder="REPITE LA CONTRASEÑA" class="input-login" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
             title="La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y un número.">
             <button type="submit" onclick="cambiarContraseña()" class="boton-enviar">CAMBIAR</button>
+            <div id="mensajeResultado"></div> 
         </form>
 
 
@@ -37,7 +38,7 @@
         <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
     </div>
 </div>
-<div id="mensajeResultado"></div> 
+
 <script src="../assets/js/passChange.js"></script>
 </body>
 </html>

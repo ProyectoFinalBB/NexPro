@@ -28,25 +28,25 @@ if (isset($data['ci'], $data['oldPass'], $data['newPass'])) {
                 $result = $conn->query($sql);
 
                 if ($result) {
-                    echo json_encode(['Contraseña actualizada correctamente']);
+                    echo json_encode('Actualizada correctamente');
                 } else {
-                    echo json_encode(['Error en la actualización de la contraseña']);
+                    echo json_encode('Error en la actualización de la contraseña');
                 }
 
             } else {
-                echo json_encode(['La contraseña antigua no coincide']);
+                echo json_encode('La contraseña antigua no coincide');
             }
 
         } else {
-            echo json_encode(['El usuario con esa cédula no existe']);
+            echo json_encode('El usuario con esa cedula no existe');
         }
 
     } else {
-        echo json_encode(['El usuario con esa cédula no existe']);
+        echo json_encode('El usuario con esa cedula no existe');
     }
 
 } else {
-    echo json_encode(['Datos incompletos']);
+    echo json_encode('Datos incompletos');
 }
 
 $conn->close();
