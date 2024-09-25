@@ -2,26 +2,25 @@ function enviarLogin() {
     const ci = document.getElementById('ci').value;
     const contrasenia = document.getElementById('contrasenia').value;
 
-    // Crear el objeto que se enviará al servidor
     const datosLogin = { ci: ci, contrasenia: contrasenia };
 
     fetch('../controllers/controlLogin.php', {
         method: 'POST', // Aseguramos que es un POST
         headers: {
-            'Content-Type': 'application/json' // Especificar que enviamos JSON
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(datosLogin) // Convertir los datos a formato JSON
+        body: JSON.stringify(datosLogin) 
     })
     .then(response => {
-        console.log("Estado de la respuesta:", response.status); // Verificar el estado HTTP
-        return response.json(); // Convertir la respuesta a JSON
+        console.log("Estado de la respuesta:", response.status); 
+        return response.json(); 
     })
     .then(data => {
-        console.log("Respuesta del servidor:", data); // Verificar la respuesta recibida del servidor
+        console.log("Respuesta del servidor:", data); 
         if (data.success) {
-            window.location.href = '../public/index.php'; // Redirigir si el login es exitoso
+            window.location.href = '../public/index.php';
         } else {
-            document.getElementById('mensajeResultado').innerText = data.message; // Mostrar error si existe
+            document.getElementById('mensajeResultado').innerText = data.message; 
         }
     })
     .catch(error => {
