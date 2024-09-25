@@ -10,7 +10,7 @@ if ($rol === 'alumno'): ?>
     <div class="perfil-info">
         <img src="https://i.pinimg.com/564x/c6/89/95/c68995aa24906a1320b4d7d10aa374b2.jpg" alt="Perfil" class="perfil-img">
         <p>nombreDinamico</p>
-        <button class="btn-subir">Subir Proyecto</button>
+        <button class="btn-subir" onclick="redirectToView('../views/subirProyectos.php')" >Subir Proyecto</button>
     </div>
     <div class="configuracion">
         <div class="opcion">
