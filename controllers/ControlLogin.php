@@ -1,23 +1,18 @@
-
-<?php 
+<?php
 require("../includes/conexion.php");
 $con = conectar_bd();
-  
-
 
 if (isset($_POST["envio"])) {
-
     $ci = $_POST["ci"];
     $pass = $_POST["contrasenia"];
-
 
     logear($con, $ci, $pass);
 }
 
-
 function logear($con, $ci, $pass) {
     session_start();
 
+    // Modificar la consulta para también obtener el nombre
     $consulta_login = "SELECT * FROM usuarios WHERE ci = '$ci'";
     $resultado_login = mysqli_query($con, $consulta_login);
 
@@ -25,11 +20,11 @@ function logear($con, $ci, $pass) {
         if (mysqli_num_rows($resultado_login) > 0) {
             $fila = mysqli_fetch_assoc($resultado_login);
 
-            
             $password_bd = $fila["contrasenia"];
-            $id_usr = $fila["id_usr"]; 
+            $id_usr = $fila["id_usr"];
+            $nombre = $fila["nombrecompleto"]; 
             if (password_verify($pass, $password_bd)) {
-                
+
                 $consulta_rol = "SELECT rol FROM roles WHERE id_usr = $id_usr";
                 $resultado_rol = mysqli_query($con, $consulta_rol);
 
@@ -39,6 +34,7 @@ function logear($con, $ci, $pass) {
 
                     $_SESSION["ci"] = $ci;
                     $_SESSION["rol"] = $rol;
+                    $_SESSION["nombrecompleto"] = $nombre; 
 
                     header("Location: ../public/index.php");
                     exit();
@@ -59,6 +55,4 @@ function logear($con, $ci, $pass) {
         header("Location: ../public/index.php");
     }
 }
-
-
 ?>
