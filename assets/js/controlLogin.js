@@ -5,9 +5,6 @@ function enviarLogin() {
     // Crear el objeto que se enviará al servidor
     const datosLogin = { ci: ci, contrasenia: contrasenia };
 
-    // Mostrar los datos enviados en la consola para verificar
-    console.log("Datos enviados:", datosLogin);
-
     fetch('../controllers/controlLogin.php', {
         method: 'POST', // Aseguramos que es un POST
         headers: {
