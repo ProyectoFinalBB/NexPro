@@ -2,6 +2,7 @@
    document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('header').style.display = 'flex';
     document.getElementById('menuCTRLUsuario').style.display = 'none';
+    document.getElementById('menuSolicitudProyectos').style.display = 'none';
     document.getElementById('userData').style.display = 'none'; 
     Listado('../controllers/listarEstudiante.php')
 
@@ -90,6 +91,48 @@ function Listado($ruta) {
     })
     .catch(error => console.error('Error:', error));
 }
+ 
+function ListadoProyectosPendientes() {
+    fetch('../controllers/listadoSolicitudesProy.php')
+        .then(response => response.json())
+        .then(data => {
+            const proyectosList = document.getElementById('proyectosPendientesList');
+            proyectosList.innerHTML = ''; // Limpiar la lista antes de agregar los proyectos
+
+            data.forEach(proyecto => {
+                const listItem = document.createElement('li'); // Crear un elemento de lista
+
+                const proyectoInfo = document.createElement('span');
+                proyectoInfo.textContent = `${proyecto.titulo} - ${proyecto.descripcion}`;
+                proyectoInfo.className = 'proyecto-info';
+                listItem.appendChild(proyectoInfo);
+
+                const aceptarBtn = document.createElement('button');
+                aceptarBtn.textContent = 'Aceptar';
+                aceptarBtn.className = 'aceptar-btn';
+                aceptarBtn.onclick = function () {
+                    // Aquí puedes manejar el evento para aceptar el proyecto
+                    aceptarProyecto(proyecto.id);
+                };
+                listItem.appendChild(aceptarBtn);
+
+                const denegarBtn = document.createElement('button');
+                denegarBtn.textContent = 'Denegar';
+                denegarBtn.className = 'denegar-btn';
+                denegarBtn.onclick = function () {
+                    // Aquí puedes manejar el evento para denegar el proyecto
+                    denegarProyecto(proyecto.id);
+                };
+                listItem.appendChild(denegarBtn);
+
+                proyectosList.appendChild(listItem);
+            });
+
+            document.getElementById('proyectosPendientes').style.display = 'block';
+        })
+        .catch(error => console.error('Error al cargar los proyectos:', error));
+}
+
 
 function confirmarEliminacion() {
     return confirm("¿Estás seguro de que deseas eliminar este usuario?");
@@ -136,27 +179,31 @@ function cerrarMenu() {
 }
 
 
-// Listeners para abrir y cerrar el menú
+
 document.getElementById('cerrarMenu').addEventListener('click', cerrarMenu);
 document.getElementById('nav-btn').addEventListener('click', abrirMenu);
 document.getElementById('menu-img').addEventListener('click', abrirMenu);
 
 
+function toggleMenu(menu) {
+    const header = document.getElementById('header');
+    const menuCTRLUsuario = document.getElementById('menuCTRLUsuario');
+    const menuSolicitudProyectos = document.getElementById('menuSolicitudProyectos');
 
+    header.style.display = 'none';
+    menuCTRLUsuario.style.display = 'none';
+    menuSolicitudProyectos.style.display = 'none';
 
-    function toggleMenu() {
-        const header = document.getElementById('header');
-        const menuCTRLUsuario = document.getElementById('menuCTRLUsuario');
-    
-        if (header.style.display === 'none') {
-            header.style.display = 'flex';
-            menuCTRLUsuario.style.display = 'none';
-        } else {
-            header.style.display = 'none';
-            menuCTRLUsuario.style.display = 'block';
-        }
-        document.getElementById('menuPerfil').style.display = 'none';
+    if (menu === 'controlUsuarios') {
+        menuCTRLUsuario.style.display = 'block';
+    } else if (menu === 'solicitudProyectos') {
+        menuSolicitudProyectos.style.display = 'block';
+    }  else if (menu === 'headerInicio') {
+        header.style.display = 'flex';
     }
+
+    document.getElementById('menuPerfil').style.display = 'none';
+}
 
     document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.nav-link');

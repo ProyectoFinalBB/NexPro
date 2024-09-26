@@ -13,7 +13,7 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="alumno") {
         <input type="text" id="nombreProyecto" name="nombreProyecto" placeholder="Nombre del Proyecto" required class="input-proyecto">
         <textarea name="descProyecto" id="descProyecto"  placeholder="Descripción del proyecto" required class="input-proyecto"></textarea>
         <label for="tagsProyecto">Selecciona los tags del proyecto:</label>
-    <select id="tagsProyecto" name="project-tags[]" multiple class="input-proyecto" required>
+        <select id="tagsProyecto" name="project-tags[]" multiple class="input-proyecto" required>
         <option value="Ciencia">Ciencia</option>
         <option value="Tecnología">Tecnología</option>
         <option value="Robótica">Robótica</option>

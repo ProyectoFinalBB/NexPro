@@ -67,8 +67,9 @@ if ($rol === 'alumno'): ?>
     <div class="perfil-info">
         <img src="https://i.pinimg.com/564x/c6/89/95/c68995aa24906a1320b4d7d10aa374b2.jpg" alt="Perfil" class="perfil-img">
         <p>nombreDinamico</p>
-        <button class="btn-subir" onclick="toggleMenu()">Control de Usuarios</button>
-        <button class="btn-subir" onclick="">Solicitudes de Proyectos</button>
+        <button class="btn-subir" onclick="toggleMenu('controlUsuarios')">Control de Usuarios</button>
+<button class="btn-subir" onclick="toggleMenu('solicitudProyectos')">Solicitudes de Proyectos</button>
+
 
     </div>
     <div class="configuracion">

@@ -33,3 +33,11 @@ document.getElementById('formularioProyecto').addEventListener('submit', functio
 
     xhr.send(formData); 
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const tagsProyecto = new Choices('#tagsProyecto', {
+        removeItemButton: true,   
+        searchResultLimit: 5,     
+        placeholderValue: 'Selecciona o escribe tags', 
+        searchEnabled: true,     
+    });
+});

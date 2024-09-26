@@ -481,7 +481,15 @@ input:checked + .slider:before {
     color: #1d72b8;
 }
 
-
+/*Solicitudes de Proyectos*/
+.headerSoli {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f5fc;
+    position: relative;
+}
 /*Registrar usuarios*/
 .formulario-registro {
     padding: 20px;
