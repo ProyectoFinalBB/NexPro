@@ -5,7 +5,7 @@
     document.getElementById('menuSolicitudProyectos').style.display = 'none';
     document.getElementById('userData').style.display = 'none'; 
     Listado('../controllers/listarEstudiante.php')
-
+    ListadoProyectosPendientes()
 
 
 });
@@ -97,10 +97,10 @@ function ListadoProyectosPendientes() {
         .then(response => response.json())
         .then(data => {
             const proyectosList = document.getElementById('proyectosPendientesList');
-            proyectosList.innerHTML = ''; // Limpiar la lista antes de agregar los proyectos
+            proyectosList.innerHTML = ''; 
 
             data.forEach(proyecto => {
-                const listItem = document.createElement('li'); // Crear un elemento de lista
+                const listItem = document.createElement('li');
 
                 const proyectoInfo = document.createElement('span');
                 proyectoInfo.textContent = `${proyecto.titulo} - ${proyecto.descripcion}`;
@@ -111,7 +111,7 @@ function ListadoProyectosPendientes() {
                 aceptarBtn.textContent = 'Aceptar';
                 aceptarBtn.className = 'aceptar-btn';
                 aceptarBtn.onclick = function () {
-                    // Aquí puedes manejar el evento para aceptar el proyecto
+                  
                     aceptarProyecto(proyecto.id);
                 };
                 listItem.appendChild(aceptarBtn);
@@ -120,7 +120,7 @@ function ListadoProyectosPendientes() {
                 denegarBtn.textContent = 'Denegar';
                 denegarBtn.className = 'denegar-btn';
                 denegarBtn.onclick = function () {
-                    // Aquí puedes manejar el evento para denegar el proyecto
+           
                     denegarProyecto(proyecto.id);
                 };
                 listItem.appendChild(denegarBtn);
