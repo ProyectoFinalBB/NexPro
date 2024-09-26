@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-08-2024 a las 15:51:16
+-- Tiempo de generación: 26-09-2024 a las 22:11:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -24,20 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `proyectos`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usr` int(10) NOT NULL,
-  `nombrecompleto` varchar(100) NOT NULL,
-  `ci` int(8) NOT NULL,
-  `contrasenia` varchar(255) DEFAULT NULL
+CREATE TABLE `proyectos` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
+  `descripcion` text NOT NULL,
+  `ruta` varchar(255) NOT NULL,
+  `id_integrantes` text NOT NULL,
+  `tags` varchar(255) NOT NULL,
+  `fecha_subida` timestamp NOT NULL DEFAULT current_timestamp(),
+  `estado` enum('pendiente','aceptado','denegado') DEFAULT 'pendiente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `proyectos`
 --
-
 
 
 --
@@ -45,20 +48,20 @@ CREATE TABLE `usuarios` (
 --
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `proyectos`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usr`);
+ALTER TABLE `proyectos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `proyectos`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id_usr` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+ALTER TABLE `proyectos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
