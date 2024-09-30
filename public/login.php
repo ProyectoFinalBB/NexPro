@@ -6,13 +6,13 @@
     <title>NexPro</title>
     <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <script src="../assets/js/controlLogin.js"></script> <!-- Agregar el archivo JS para manejar AJAX -->
+    
 </head>
 <body>
 
 <div class="container">
     <div class="form-container">
-        <!-- Modificar el form para evitar la recarga y usar AJAX -->
+       
         <form onsubmit="enviarLogin(); return false;" class="formulario">
             <img src="../assets/img/logo.png" alt="Logo de NexPro">
             <h3 class="titulo-login">INICIO DE SESION</h3>
@@ -39,5 +39,6 @@
         <img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
     </div>
 </div>
+<script src="../assets/js/controlLogin.js"></script> 
 </body>
 </html>

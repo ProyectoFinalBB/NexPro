@@ -2,7 +2,7 @@
 require("../includes/conexion.php");
 $con = conectar_bd();
 
-$data = json_decode(file_get_contents('php://input'), true); // Recibir los datos en formato JSON
+$data = json_decode(file_get_contents('php://input'), true); 
 
 if (isset($data['ci'], $data['contrasenia'])) {
     $ci = $data['ci'];

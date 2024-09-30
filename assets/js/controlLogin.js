@@ -5,7 +5,7 @@ function enviarLogin() {
     const datosLogin = { ci: ci, contrasenia: contrasenia };
 
     fetch('../controllers/controlLogin.php', {
-        method: 'POST', // Aseguramos que es un POST
+        method: 'POST', 
         headers: {
             'Content-Type': 'application/json'
         },
