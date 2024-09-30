@@ -242,6 +242,11 @@ input:checked + .slider:before {
     margin: 20px auto 0;
 }
 
+.cerrar-sesion a{
+    color: black;
+    text-decoration: none;
+}
+
 /* Footer CSS */
 .footer {
     background-color: #1d72b8;
@@ -278,7 +283,7 @@ input:checked + .slider:before {
 }
 
 .social-icons a:hover {
-    color: #1d72b8; 
+    color: #585858; 
 }
 
 
@@ -574,6 +579,12 @@ input:checked + .slider:before {
     box-sizing: border-box; 
 }
 
+.texto-contrasena{
+    color: black;
+    text-decoration: none;
+}
+
+
 
 /* Media Queries*/
 @media (max-width: 1024px) {
@@ -821,3 +832,4 @@ input:checked + .slider:before {
         margin-bottom: 6px; 
     }
 }
+
