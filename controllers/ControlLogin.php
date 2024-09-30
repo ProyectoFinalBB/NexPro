@@ -2,14 +2,18 @@
 require("../includes/conexion.php");
 $con = conectar_bd();
 
-if (isset($_POST["envio"])) {
-    $ci = $_POST["ci"];
-    $pass = $_POST["contrasenia"];
+$input = file_get_contents("php://input");
+$data = json_decode($input, true);
+
+if (isset($data["ci"]) && isset($data["contrasenia"])) {
+    $ci = $data["ci"];
+    $pass = $data["contrasenia"];
 
     logear($con, $ci, $pass);
 } else {
     echo json_encode(['success' => false, 'message' => 'No se recibieron datos en el formato esperado.']);
 }
+
 
 function logear($con, $ci, $pass) {
     session_start();
