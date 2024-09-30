@@ -37,7 +37,7 @@
 <div class="menuCTRLUsuario" id="menuCTRLUsuario">
 <header class="headerCTRLUSR">
         <div class="logoCTRLUSR">
-            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu()" class="logo-imgCTRLUSR">
+            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu('headerInicio')" class="logo-imgCTRLUSR">
         </div>
         <h2 class="titleCTRLUSR">CONTROL DE USUARIOS</h2>
         <div class="user-iconCTRLUSR">
