@@ -137,10 +137,17 @@ body {
     align-items: center;
 }
 
-.menu-header h2 {
-    margin: 0;
-}
-
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .menu-header h2 {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
 .cerrar {
     background: none;
     border: none;
