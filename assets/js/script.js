@@ -6,6 +6,7 @@
     document.getElementById('userData').style.display = 'none'; 
     Listado('../controllers/listarEstudiante.php')
     ListadoProyectosPendientes()
+    ListadoProyectosAceptados()
 
 
 });
@@ -171,6 +172,28 @@ function denegarProyecto(id) {
         }
     })
     .catch(error => console.error('Error:', error));
+}
+function ListadoProyectosAceptados() {
+    fetch('../controllers/listadoProyectosAceptados.php')
+        .then(response => response.json())
+        .then(data => {
+            const proyectosList = document.getElementById('proyectosAceptadosList');
+            proyectosList.innerHTML = ''; // Limpiar la lista antes de agregar los proyectos
+
+            data.forEach(proyecto => {
+                const listItem = document.createElement('li'); // Crear un elemento de lista
+
+                const proyectoInfo = document.createElement('span');
+                proyectoInfo.textContent = `${proyecto.titulo} - ${proyecto.descripcion}`;
+                proyectoInfo.className = 'proyecto-info';
+                listItem.appendChild(proyectoInfo);
+
+                proyectosList.appendChild(listItem);
+            });
+
+            document.getElementById('proyectosAceptados').style.display = 'block';
+        })
+        .catch(error => console.error('Error al cargar los proyectos aceptados:', error));
 }
 
 

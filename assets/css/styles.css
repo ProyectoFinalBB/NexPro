@@ -3,13 +3,20 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.inicioConten {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
     background-color: #f9f5fc;
     border-bottom: 1px solid #ddd;
+    width: 100%;
 }
 
 .logo-nexpro {

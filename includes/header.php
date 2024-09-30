@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../assets/css/styles.css"> 
 </head>
 <body>
-
-    <header class="header" id="header">
+<div id="header" class="inicioConten">
+<header class="header" >
 
     <div class="h-conten">
     <div class="menuImgDiv">
@@ -33,6 +33,14 @@
     </div>
 
 </header>
+
+<div id="proyectosAceptados">
+    <ul id="proyectosAceptadosList">
+        <!-- Aquí se insertarán los proyectos aceptados -->
+    </ul>
+</div>
+</div>
+    
 
 <div class="menuCTRLUsuario" id="menuCTRLUsuario">
 <header class="headerCTRLUSR">
