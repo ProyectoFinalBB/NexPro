@@ -133,6 +133,46 @@ function ListadoProyectosPendientes() {
         .catch(error => console.error('Error al cargar los proyectos:', error));
 }
 
+function aceptarProyecto(id) {
+    fetch('../controllers/cambiarEstadoProyecto.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: id, estado: 'aceptado' }) 
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Proyecto aceptado exitosamente');
+            ListadoProyectosPendientes(); 
+        } else {
+            alert('Error al aceptar el proyecto');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function denegarProyecto(id) {
+    fetch('../controllers/cambiarEstadoProyecto.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: id, estado: 'denegado' })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Proyecto denegado exitosamente');
+            ListadoProyectosPendientes(); 
+        } else {
+            alert('Error al denegar el proyecto');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
 
 function confirmarEliminacion() {
     return confirm("¿Estás seguro de que deseas eliminar este usuario?");
