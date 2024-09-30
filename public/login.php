@@ -6,20 +6,24 @@
     <title>NexPro</title>
     <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/controlLogin.js"></script> <!-- Agregar el archivo JS para manejar AJAX -->
 </head>
 <body>
 
 <div class="container">
     <div class="form-container">
-        <form action="../controllers/ControlLogin.php" method="post" class="formulario">
+        <!-- Modificar el form para evitar la recarga y usar AJAX -->
+        <form onsubmit="enviarLogin(); return false;" class="formulario">
             <img src="../assets/img/logo.png" alt="Logo de NexPro">
             <h3 class="titulo-login">INICIO DE SESION</h3>
-            <input type="number" name="ci" placeholder="CEDULA" class="input-login" minlength="8" maxlength="8"  required>
-            <input type="password" name="contrasenia" placeholder="CONTRASEÑA" class="input-login"  required>
+            <input type="number" id="ci" placeholder="CEDULA" class="input-login" minlength="8" maxlength="8" required>
+            <input type="password" id="contrasenia" placeholder="CONTRASEÑA" class="input-login" required>
             <a href="passChange.php" class="texto-contrasena">Cambiar Contraseña</a>
-            <input type="submit" name="envio" value="ENVIAR" class="boton-enviar"> 
+            <button type="submit" class="boton-enviar">ENVIAR</button> 
         </form>
 
+        <!-- Mensaje para mostrar los errores -->
+        <div id="mensajeResultado" class="mensaje-error"></div>
 
         <?php 
         if (!isset($_SESSION['ci']) && isset($_SESSION['err'])){
@@ -30,17 +34,10 @@
     </div>
 
     <div class="container-frases">
-        <div class="foot-form" >
+        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
         <p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
         <img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
-        </div>
-
-        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
     </div>
-</div>
-</div>
-
-
 </div>
 </body>
 </html>
