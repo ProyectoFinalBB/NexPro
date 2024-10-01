@@ -92,7 +92,6 @@ function Listado($ruta) {
     })
     .catch(error => console.error('Error:', error));
 }
- 
 function ListadoProyectosPendientes() {
     fetch('../controllers/listadoSolicitudesProy.php')
         .then(response => response.json())
@@ -102,29 +101,34 @@ function ListadoProyectosPendientes() {
 
             data.forEach(proyecto => {
                 const listItem = document.createElement('li');
+                listItem.className = 'proyecto-item'; 
 
-                const proyectoInfo = document.createElement('span');
-                proyectoInfo.textContent = `${proyecto.titulo} - ${proyecto.descripcion}`;
+                const pdfIcon = document.createElement('img');
+                pdfIcon.src = '../assets/img/pdfimg.png'; 
+                pdfIcon.className = 'pdf-icon';
+                listItem.appendChild(pdfIcon);
+
+        
+                const proyectoInfo = document.createElement('div');
                 proyectoInfo.className = 'proyecto-info';
+
+                const proyectoTitulo = document.createElement('h3');
+                proyectoTitulo.textContent = proyecto.titulo;
+                proyectoInfo.appendChild(proyectoTitulo);
+
+                const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
+                    ? `Miembros: ${proyecto.miembros.join(', ')}` 
+                    : 'Miembros: No especificados';
+
+                const miembros = document.createElement('p');
+                miembros.textContent = miembrosText;
+                proyectoInfo.appendChild(miembros);
+
                 listItem.appendChild(proyectoInfo);
 
-                const aceptarBtn = document.createElement('button');
-                aceptarBtn.textContent = 'Aceptar';
-                aceptarBtn.className = 'aceptar-btn';
-                aceptarBtn.onclick = function () {
-                  
-                    aceptarProyecto(proyecto.id);
+                listItem.onclick = function() {
+                    mostrarModal(proyecto);  
                 };
-                listItem.appendChild(aceptarBtn);
-
-                const denegarBtn = document.createElement('button');
-                denegarBtn.textContent = 'Denegar';
-                denegarBtn.className = 'denegar-btn';
-                denegarBtn.onclick = function () {
-           
-                    denegarProyecto(proyecto.id);
-                };
-                listItem.appendChild(denegarBtn);
 
                 proyectosList.appendChild(listItem);
             });
@@ -133,6 +137,61 @@ function ListadoProyectosPendientes() {
         })
         .catch(error => console.error('Error al cargar los proyectos:', error));
 }
+
+function mostrarModal(proyecto) {
+   
+    document.getElementById('nombreProyecto').textContent = proyecto.titulo;
+
+    const miembrosList = document.getElementById('miembrosProyecto');
+    miembrosList.innerHTML = ''; 
+
+    if (proyecto.miembros && Array.isArray(proyecto.miembros)) {
+        proyecto.miembros.forEach(miembro => {
+            const listItem = document.createElement('li');
+            listItem.textContent = miembro;
+            miembrosList.appendChild(listItem);
+        });
+    } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'Miembros: No especificados';
+        miembrosList.appendChild(listItem);
+    }
+
+    const aprobarBtn = document.getElementById('aprobarBtn');
+    const rechazarBtn = document.getElementById('rechazarBtn');
+
+
+    aprobarBtn.onclick = null;
+    rechazarBtn.onclick = null;
+
+    aprobarBtn.onclick = function() {
+        aceptarProyecto(proyecto.id);
+        cerrarModal(); 
+    };
+
+    rechazarBtn.onclick = function() {
+        denegarProyecto(proyecto.id); 
+        cerrarModal(); 
+    };
+
+    const modal = document.getElementById('modalProyecto');
+    modal.style.display = 'block';
+}
+
+
+function cerrarModal() {
+    const modal = document.getElementById('modalProyecto');
+    modal.style.display = 'none';
+}
+
+document.querySelector('.close').onclick = cerrarModal;
+window.onclick = function(event) {
+    const modal = document.getElementById('modalProyecto');
+    if (event.target == modal) {
+        cerrarModal();
+    }
+}
+
 
 function aceptarProyecto(id) {
     fetch('../controllers/cambiarEstadoProyecto.php', {
@@ -173,28 +232,100 @@ function denegarProyecto(id) {
     })
     .catch(error => console.error('Error:', error));
 }
+
+
 function ListadoProyectosAceptados() {
     fetch('../controllers/listadoProyectosAceptados.php')
-        .then(response => response.json())
-        .then(data => {
-            const proyectosList = document.getElementById('proyectosAceptadosList');
-            proyectosList.innerHTML = ''; // Limpiar la lista antes de agregar los proyectos
+    .then(response => response.json())
+    .then(data => {
+        const proyectosList = document.getElementById('proyectosAceptadosList');
+        proyectosList.innerHTML = ''; // Limpiar la lista antes de agregar los proyectos
 
-            data.forEach(proyecto => {
-                const listItem = document.createElement('li'); // Crear un elemento de lista
+        data.forEach(proyecto => {
+            const listItem = document.createElement('li'); // Crear un elemento de lista
 
-                const proyectoInfo = document.createElement('span');
-                proyectoInfo.textContent = `${proyecto.titulo} - ${proyecto.descripcion}`;
+                listItem.className = 'proyecto-item'; 
+
+                const pdfIcon = document.createElement('img');
+                pdfIcon.src = '../assets/img/pdfimg.png'; 
+                pdfIcon.className = 'pdf-icon';
+                listItem.appendChild(pdfIcon);
+
+        
+                const proyectoInfo = document.createElement('div');
                 proyectoInfo.className = 'proyecto-info';
+
+                const proyectoTitulo = document.createElement('h3');
+                proyectoTitulo.textContent = proyecto.titulo;
+                proyectoInfo.appendChild(proyectoTitulo);
+
+                const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
+                    ? `Miembros: ${proyecto.miembros.join(', ')}` 
+                    : 'Miembros: No especificados';
+
+                const miembros = document.createElement('p');
+                miembros.textContent = miembrosText;
+                proyectoInfo.appendChild(miembros);
+
                 listItem.appendChild(proyectoInfo);
+
+                listItem.onclick = function() {
+                    mostrarModalInicio(proyecto);  
+                };
 
                 proyectosList.appendChild(listItem);
             });
 
-            document.getElementById('proyectosAceptados').style.display = 'block';
+            document.getElementById('proyectosAceptadosList').style.display = 'block';
         })
-        .catch(error => console.error('Error al cargar los proyectos aceptados:', error));
+        .catch(error => console.error('Error al cargar los proyectos:', error));
 }
+
+
+
+function mostrarModalInicio(proyecto) {
+   
+    document.getElementById('nombreProyecto').textContent = proyecto.titulo;
+
+    const miembrosList = document.getElementById('miembrosProyecto');
+    miembrosList.innerHTML = ''; 
+
+    if (proyecto.miembros && Array.isArray(proyecto.miembros)) {
+        proyecto.miembros.forEach(miembro => {
+            const listItem = document.createElement('li');
+            listItem.textContent = miembro;
+            miembrosList.appendChild(listItem);
+        });
+    } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'Miembros: No especificados';
+        miembrosList.appendChild(listItem);
+    }
+
+
+
+    const modal = document.getElementById('modalProyectoInicio');
+    modal.style.display = 'block';
+}
+
+function cerrarModalInicio() {
+    const modal = document.getElementById('modalProyectoInicio');
+    modal.style.display = 'none';
+}
+
+document.querySelector('.closeI').onclick = cerrarModalInicio;
+window.onclick = function(event) {
+    const modal = document.getElementById('modalProyectoInicio');
+    if (event.target == modal) {
+        cerrarModalInicio();
+    }
+}
+
+
+
+
+
+
 
 
 function confirmarEliminacion() {

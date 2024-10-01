@@ -82,6 +82,48 @@
 
 </div>
 
+<!-- Contenedor del Modal (oculto por defecto) -->
+<div id="modalProyecto" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Visualización del Proyecto</h2>
+        <div class="modal-body">
+           
+            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon">
+           
+            <div class="modal-data">
+            <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+            <p>MIEMBROS:</p>
+            <ul id="miembrosProyecto"></ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="aprobarBtn">Aprobar</button>
+            <button id="rechazarBtn">Rechazar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Contenedor del Modal INICIO (oculto por defecto) -->
+<div id="modalProyectoInicio" class="modal">
+    <div class="modal-content">
+        <span class="closeI">&times;</span>
+        <h2>Visualización del Proyecto</h2>
+        <div class="modal-body">
+           
+            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon">
+           
+            <div class="modal-data">
+            <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+            <p>MIEMBROS:</p>
+            <ul id="miembrosProyecto"></ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
 
 
 
