@@ -114,9 +114,9 @@
             <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon">
            
             <div class="modal-data">
-            <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+            <p>NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
             <p>MIEMBROS:</p>
-            <ul id="miembrosProyecto"></ul>
+            <ul id="miembrosProyectoInicio"></ul>
             </div>
         </div>
 
