@@ -39,6 +39,7 @@ function logear($con, $ci, $pass) {
 
                     $_SESSION["ci"] = $ci;
                     $_SESSION["rol"] = $rol;
+                    $_SESSION['id_usr'] = $id_usr;
 
                     header("Location: ../public/index.php");
                     exit();

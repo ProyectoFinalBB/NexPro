@@ -41,3 +41,55 @@ document.addEventListener('DOMContentLoaded', function () {
         searchEnabled: true,     
     });
 });
+document.getElementById('integrantesProyecto').addEventListener('input', function () {
+    let query = this.value;
+
+    if (query.length > 2) { 
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '../controllers/buscarIntegrantes.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                document.getElementById('resultadosIntegrantes').innerHTML = xhr.responseText;
+                agregarEventoSeleccionIntegrante();  
+            } else {
+                document.getElementById('resultadosIntegrantes').innerHTML = 'Error en la búsqueda.';
+            }
+        };
+
+        xhr.send('query=' + encodeURIComponent(query));
+    } else {
+        document.getElementById('resultadosIntegrantes').innerHTML = '';
+    }
+});
+
+function agregarEventoSeleccionIntegrante() {
+    document.querySelectorAll('.integrante-item').forEach(function (item) {
+        item.addEventListener('click', function () {
+            let integranteID = this.getAttribute('data-id');
+            let nombreIntegrante = this.textContent;
+
+         
+            if (!document.querySelector(`input[value="${integranteID}"]`)) {
+                let listaSeleccionados = document.getElementById('integrantesSeleccionados');
+
+        
+                let li = document.createElement('li');
+                li.textContent = nombreIntegrante;
+                listaSeleccionados.appendChild(li);
+
+        
+                let hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'integrantesIDs[]';  
+                hiddenInput.value = integranteID;
+                document.getElementById('formularioProyecto').appendChild(hiddenInput);
+
+             
+                document.getElementById('integrantesProyecto').value = '';
+                document.getElementById('resultadosIntegrantes').innerHTML = '';
+            }
+        });
+    });
+}

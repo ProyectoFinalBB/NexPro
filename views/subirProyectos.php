@@ -14,15 +14,33 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="alumno") {
         <textarea name="descProyecto" id="descProyecto"  placeholder="Descripción del proyecto" required class="input-proyecto"></textarea>
         <label for="tagsProyecto">Selecciona los tags del proyecto:</label>
         <select id="tagsProyecto" name="project-tags[]" multiple class="input-proyecto" required>
+        <option value="Finanzas">Finanzas</option>
+        <option value="Marketing">Marketing</option>
         <option value="Ciencia">Ciencia</option>
         <option value="Tecnología">Tecnología</option>
-        <option value="Robótica">Robótica</option>
-        <option value="Ingeniería">Ingeniería</option>
         <option value="Programación">Programación</option>
+        <option value="Investigación">Investigación</option>
+        <option value="Ciber seguridad">Ciber seguridad</option>
+        <option value="Videojuegos">Videojuegos</option>
+        <option value="Educación">Educación</option>
+        <option value="Entretenimiento">Entretenimiento</option>
+        <option value="Medios de comunicación">Medios de comunicación</option>
+        <option value="Redes sociales">Redes sociales</option>
+        <option value="Política">Política</option>
+        <option value="Salud">Salud</option>
+        <option value="Nutrición">Nutrición</option>
+        <option value="Deportes">Deportes</option>
+        <option value="Gastronomía">Gastronomía</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Medio ambiente">Medio ambiente</option>
+        <option value="Animales">Animales</option>
     </select>
         <input type="file" id="archivoProyecto" name="archivoProyecto" accept=".pdf" required class="input-proyecto">
-        <input type="text" id="integrantesProyecto" name="integrantesProyecto" placeholder="Etiquetar Integrantes" required class="input-proyecto">
-        
+        <input type="text" id="integrantesProyecto" name="integrantesProyecto" placeholder="Etiquetar Integrantes" class="input-proyecto">
+<ul id="resultadosIntegrantes" class="resultados-integrantes"></ul>
+<ul id="integrantesSeleccionados" class="integrantes-seleccionados"></ul>
+
+
         <button type="submit" class="boton-enviar" id="solicitarRevisionBtn">Solicitar Revisión</button>
     </div>
 </form>

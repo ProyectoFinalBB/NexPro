@@ -226,7 +226,7 @@ function ListadoProyectosAceptados() {
         })
         .catch(error => console.error('Error al cargar los proyectos:', error));
 }
-/*
+
 
 function mostrarModal(proyecto) {
    
@@ -321,78 +321,6 @@ window.onclick = function(event) {
     }
 }
 
-
-*/
-
-// Función para mostrar cualquier modal de proyecto
-function mostrarModal(proyecto, modalId, nombreId, miembrosId, aprobarBtnId, rechazarBtnId) {
-    // Asignar el título del proyecto
-    document.getElementById(nombreId).textContent = proyecto.titulo;
-
-    // Limpiar y llenar la lista de miembros
-    const miembrosList = document.getElementById(miembrosId);
-    miembrosList.innerHTML = ''; 
-
-    if (proyecto.miembros && Array.isArray(proyecto.miembros)) {
-        proyecto.miembros.forEach(miembro => {
-            const listItem = document.createElement('li');
-            listItem.textContent = miembro;
-            miembrosList.appendChild(listItem);
-        });
-    } else {
-        const listItem = document.createElement('li');
-        listItem.textContent = 'Miembros: No especificados';
-        miembrosList.appendChild(listItem);
-    }
-
-    // Botones de aprobar y rechazar
-    const aprobarBtn = document.getElementById(aprobarBtnId);
-    const rechazarBtn = document.getElementById(rechazarBtnId);
-
-    // Limpiar eventos previos de los botones
-    aprobarBtn.onclick = null;
-    rechazarBtn.onclick = null;
-
-    // Asignar acciones a los botones
-    aprobarBtn.onclick = function() {
-        aceptarProyecto(proyecto.id);
-        cerrarModal(modalId);
-    };
-
-    rechazarBtn.onclick = function() {
-        denegarProyecto(proyecto.id);
-        cerrarModal(modalId);
-    };
-
-    // Mostrar el modal
-    const modal = document.getElementById(modalId);
-    modal.style.display = 'block';
-}
-
-// Función para cerrar cualquier modal
-function cerrarModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = 'none';
-}
-
-// Asignar eventos a los botones de cerrar
-function asignarEventosCerrar(modalId, closeClass) {
-    document.querySelector(`.${closeClass}`).onclick = function() {
-        cerrarModal(modalId);
-    };
-
-    // Cerrar modal al hacer clic fuera de él
-    window.onclick = function(event) {
-        const modal = document.getElementById(modalId);
-        if (event.target === modal) {
-            cerrarModal(modalId);
-        }
-    };
-}
-
-// Asignar eventos de cierre para ambos modales
-asignarEventosCerrar('modalProyecto', 'close');
-asignarEventosCerrar('modalProyectoInicio', 'closeI');
 
 
 
