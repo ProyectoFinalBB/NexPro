@@ -26,11 +26,20 @@ body {
 }
 
 .boton-retroceder {
-    font-size: 15px;
+    border: none; 
+    background: none; 
+    padding: 0; 
+    cursor: pointer; 
     margin-right: 15px; 
     position: absolute;
-    left: 5%;
-    top: 20%;
+    left: 30px;
+    top: 70px;
+}
+
+.boton-retroceder img {
+    display: block; 
+    width: 20px; 
+    height: auto; 
 }
 
 .logo-img {
