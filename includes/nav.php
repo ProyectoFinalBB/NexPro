@@ -1,6 +1,6 @@
 <?php
 $rol = $_SESSION["rol"];
-$nombre = $_SESSION["nombrecompleto"]; // Obtener el nombre de la sesión
+$nombre = $_SESSION["nombrecompleto"]; 
 
 if ($rol === 'alumno'): ?>
 <div id="menuPerfil" class="menu">
