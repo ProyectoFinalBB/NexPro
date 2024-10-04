@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      $idLogueado = $_SESSION['id_usr'];  
 
 
-    $uploadDir = '../uploads/';
+    $uploadDir = '../uploads/pdfs/';
     $uploadFile = $uploadDir . basename($archivoProyecto['name']);
     
     if (move_uploaded_file($archivoProyecto['tmp_name'], $uploadFile)) {
