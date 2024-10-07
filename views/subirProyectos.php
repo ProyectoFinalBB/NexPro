@@ -1,9 +1,10 @@
 <?php
-if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="alumno") {
+if (!isset($_SESSION['ci']) || $_SESSION["rol"]!=="alumno") {
     header('Location: ../public/login.php'); 
     exit();
 }
 ?>
+
 <form id="formularioProyecto" class="formulario-proyecto">
     <div>
         <div class="logo-boton">
