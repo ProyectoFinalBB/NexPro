@@ -89,7 +89,7 @@
         <h2>Visualización del Proyecto</h2>
         <div class="modal-body">
            
-            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon">
+            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon">
            
             <div class="modal-data">
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
@@ -120,6 +120,14 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+
+<div id="modalPDF" class="modal-pdf">
+    <div class="modal-pdf-content">
+        <span class="close-pdf" onclick="cerrarModalPDF()">&times;</span>
+        <embed id="pdfFrame" class="pdf-frame" type="application/pdf" />
     </div>
 </div>
 
