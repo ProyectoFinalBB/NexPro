@@ -113,10 +113,10 @@ function ListadoProyectosAceptados() {
     .then(response => response.json())
     .then(data => {
         const proyectosList = document.getElementById('proyectosAceptadosList');
-        proyectosList.innerHTML = ''; // Limpiar la lista antes de agregar los proyectos
+        proyectosList.innerHTML = ''; 
 
         data.forEach(proyecto => {
-            const listItem = document.createElement('li'); // Crear un elemento de lista
+            const listItem = document.createElement('li'); 
 
                 listItem.className = 'proyecto-item'; 
 

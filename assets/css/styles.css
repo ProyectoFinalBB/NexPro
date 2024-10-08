@@ -712,20 +712,89 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 
-#proyectosPendientes {
-    margin-bottom: 100px;
+
+/* Listas */
+.menuSolicitudProyectos {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    width: 100%; 
 }
 
-#proyectosAceptados {
-    margin-bottom: 100px;
+#proyectosAceptados, #proyectosPendientes {
+    width: 80%; 
+    max-width: 900px; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; 
 }
 
-/*pdf*/
+#proyectosAceptadosList, #proyectosPendientesList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
+.proyecto-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.proyecto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.pdf-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.proyecto-info {
+    flex-grow: 1;
+}
+
+.proyecto-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.proyecto-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .proyecto-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pdf-icon {
+        margin-bottom: 10px;
+    }
+}
+
+/* pdf */
 .modal-pdf {
     display: none;
     position: fixed;
-    z-index: 10000;  
+    z-index: 10000;
     left: 0;
     top: 0;
     width: 100%;
@@ -755,6 +824,7 @@ input:checked + .slider:before {
     height: 600px;
     border: none;
 }
+
 
 /* Media Queries*/
 @media (max-width: 1024px) {

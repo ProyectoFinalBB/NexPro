@@ -35,7 +35,7 @@
 </header>
 
 <div id="proyectosAceptados">
-    <ul id="proyectosAceptadosList">
+    <ul id="proyectosAceptadosList" >
         <!-- Aquí se insertarán los proyectos aceptados -->
     </ul>
 </div>
