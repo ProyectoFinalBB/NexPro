@@ -47,16 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
         $integrantesStr = implode(",", $integrantes);
 
-        $sql = "INSERT INTO proyectos (titulo, descripcion, ruta, id_integrantes, tags, estado) VALUES (?, ?, ?, ?, ?, 'pendiente')";
+        $sql = "INSERT INTO proyectos (titulo, descripcion, ruta, id_integrantes, tags, estado, id_usr_creador) VALUES (?, ?, ?, ?, ?, 'pendiente', ?)";
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt === false) {
             echo "Error al preparar la consulta: " . mysqli_error($conn);
             exit;
         }
+        $id_usr_creador = $_SESSION['id_usr'] ;
 
-
-        mysqli_stmt_bind_param($stmt, 'sssss', $titulo, $descripcion, $archivoProyecto['name'], $integrantesStr, $tagsStr);
+        mysqli_stmt_bind_param($stmt, 'ssssss', $titulo, $descripcion, $archivoProyecto['name'], $integrantesStr, $tagsStr, $id_usr_creador);
         mysqli_stmt_execute($stmt);
 
         if (mysqli_stmt_affected_rows($stmt) > 0) {

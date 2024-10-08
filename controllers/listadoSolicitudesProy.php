@@ -11,17 +11,16 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener los proyectos aceptados junto con los integrantes y tags
-$sql = "SELECT id, titulo, descripcion, id_integrantes, tags, ruta FROM proyectos WHERE estado = 'aceptado'";
+$sql = "SELECT id, titulo, descripcion, id_integrantes, tags, ruta FROM proyectos WHERE estado = 'pendiente'";
 $result = $conn->query($sql);
 
 $proyectos = [];
 
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        // Convertir los IDs de los integrantes en un array
+  
         $integrantesIDs = explode(',', $row['id_integrantes']);
         
-        // Obtener los nombres completos de los integrantes
         $integrantesNombres = [];
         foreach ($integrantesIDs as $id) {
             $sqlIntegrantes = "SELECT nombrecompleto FROM usuarios WHERE id_usr = ?";
