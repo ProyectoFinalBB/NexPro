@@ -161,7 +161,12 @@ function ListadoProyectosAceptados() {
         function mostrarModalInicio(proyecto) {
    
             document.getElementById('nombreProyectoInicio').textContent = proyecto.titulo;
-        
+            pdfIcon = document.getElementById('pdf-icon-inicio')
+            pdfIcon.onclick = function() {
+                            
+                mostrarPDF(proyecto.ruta);  
+            };
+
             const miembrosList = document.getElementById('miembrosProyectoInicio');
             miembrosList.innerHTML = ''; 
         

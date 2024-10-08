@@ -111,7 +111,7 @@
         <h2>Visualización del Proyecto</h2>
         <div class="modal-body">
            
-            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon">
+            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon-inicio">
            
             <div class="modal-data">
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
