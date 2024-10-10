@@ -37,7 +37,5 @@ if (isset($_GET['ruta'])) {
 </div>
 <p id="mensajeResultado"></p>
 
-
-
 </body>
 </html>

@@ -15,9 +15,12 @@ body.dark{
     border-bottom: 1px solid #ddd;
 }
 
-.header.dark {
-    background-color: #232323;
-    border-bottom: #232323;
+.header.dark,
+.headerCTRLUSR.dark,
+.navCTRLUSR.dark {
+    background-color: rgb(28, 30, 31);
+    border-bottom-color: rgb(58, 62, 65);
+    color: #ffffff; 
 }
 
 .logo-nexpro {
@@ -200,7 +203,8 @@ body.dark{
     margin-top: 10px;
 }
 
-.btn-subir.dark {
+.btn-subir.dark,
+.boton-enviar.dark {
     background-color: #16436B;
 }
 
@@ -375,6 +379,12 @@ input:checked + .slider:before {
     margin-bottom: 15px;
 }
 
+.titulo-login.dark,
+.titulo-pantalla.dark,
+.dark.formulario-registro label {
+    color: #ffffff;
+}
+
 .input-login {
     width: 100%;
     max-width: 400px; 
@@ -383,6 +393,11 @@ input:checked + .slider:before {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box; 
+}
+.input-login.dark
+.input-registro.dark {
+    background-color: #E0E0E0;
+    border-color: #A4A4A4;
 }
 
 .boton-enviar {
@@ -414,6 +429,10 @@ input:checked + .slider:before {
     width: 50%;
     padding: 100px;
     background-color: #606db1;
+}
+
+.container-frases.dark {
+    background-color: #16436B;
 }
 
 .banner-utu {

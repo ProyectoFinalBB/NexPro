@@ -29,3 +29,4 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
     </div>
 
     <script src="../assets/js/modificarUsr.js" ></script>
+    <script src="../assets/js/darkMode.js"></script>
