@@ -69,9 +69,11 @@
 <div class="menuSolicitudProyectos" id="menuSolicitudProyectos">
 <header class="headerSoli">
         <div class="logoCTRLUSR">
-        <h2 class="titleCTRLUSR ">SOLICITUDES DE PROYECTOS</h2>
-            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu('headerInicio')"  class="logo-imgCTRLUSR">     
+       
+            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu('headerInicio')"  class="logo-imgCTRLUSR">    
+           
         </div>
+        <h2 class="titleCTRLUSR">SOLICITUDES DE PROYECTOS</h2> 
     </header>
   
     <div id="proyectosPendientes">
