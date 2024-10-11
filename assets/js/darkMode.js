@@ -15,8 +15,8 @@ const navCTRLUSR = document.querySelector('.navCTRLUSR');
 const inputRegistro = document.querySelectorAll('.input-registro');
 const tituloPantalla = document.querySelector('.titulo-pantalla');
 const formularioRegistro = document.querySelector('.formulario-registro');
-
-const elements = [header, btnFilters, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro];
+const iconImgCTRLUSR = document.querySelector('.icon-imgCTRLUSR');
+const elements = [header, btnFilters, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR];
 
 function toggleDarkMode() {
     elements.forEach(element => {

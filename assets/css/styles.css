@@ -2,9 +2,6 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
-body.dark{
-    background-color: #232323;
-}
 
 .header {
     display: flex;
@@ -13,14 +10,6 @@ body.dark{
     padding: 10px 20px;
     background-color: #f9f5fc;
     border-bottom: 1px solid #ddd;
-}
-
-.header.dark,
-.headerCTRLUSR.dark,
-.navCTRLUSR.dark {
-    background-color: rgb(28, 30, 31);
-    border-bottom-color: rgb(58, 62, 65);
-    color: #ffffff; 
 }
 
 .logo-nexpro {
@@ -76,11 +65,6 @@ body.dark{
     padding-right: 40px; 
 }
 
-.btn-filters.dark {
-    background-color: #232323;
-    border-color: white;
-    color: white;
-}
 
 .btn-search {
     background: none;
@@ -110,7 +94,7 @@ body.dark{
 }
 
 
-/* Nav CSS */
+/* ############################### NAV CSS ############################### */
 .menu {
     width: 300px;
     height: 100%;
@@ -125,11 +109,6 @@ body.dark{
     left: auto;
     transition: right 1s ease, left 1s ease;
     z-index: 1000;
-}
-
-.menu.dark {
-    background-color: #1A1A1A;
-    color: white;
 }
 
 .menu-abierto-pc {
@@ -177,10 +156,6 @@ body.dark{
     cursor: pointer;
 }
 
-.cerrar.dark {
-    color: white;
-}
-
 .perfil-info {
     text-align: center;
     margin-top: 20px;
@@ -201,11 +176,6 @@ body.dark{
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-}
-
-.btn-subir.dark,
-.boton-enviar.dark {
-    background-color: #16436B;
 }
 
 .configuracion {
@@ -264,25 +234,6 @@ input:checked + .slider:before {
     transform: translateX(20px);
 }
 
-/* Estilos para el slider en modo oscuro */
-.dark .slider {
-    background-color: #f2f2f2; /* Fondo claro del slider cuando está desactivado */
-}
-
-.dark .slider:before {
-    background-color: #757575; /* Color gris del círculo cuando está desactivado */
-    box-shadow: 0px 0px 3px #757575;
-}
-
-.dark input:checked + .slider {
-    background-color: #2C2C2C; /* Fondo oscuro cuando está activado */
-}
-
-.dark input:checked + .slider:before {
-    background-color: white; /* Color blanco del círculo cuando está activado */
-}
-
-
 .cerrar-sesion {
     background: none;
     border: none;
@@ -292,7 +243,7 @@ input:checked + .slider:before {
     margin: 20px auto 0;
 }
 
-/* Footer CSS */
+/* ############################### FOOTER CSS ############################### */
 .footer {
     background-color: #1d72b8;
     padding: 10px 20px;
@@ -306,10 +257,6 @@ input:checked + .slider:before {
     max-width: 100vw;
     position: absolute;
     bottom: 0;
-}
-
-.footer.dark { 
-    background-color: #16436B;
 }
 
 .footer-content {
@@ -335,18 +282,11 @@ input:checked + .slider:before {
     color: #1d72b8; 
 }
 
-
-
-
 .social-icon img:hover {
     transform: scale(1.1);
 }
 
-
-
-
-
-/*login*/
+/* ############################### LOGIN ###############################*/
 .container {
     display: flex;
     height: 100vh;
@@ -379,12 +319,6 @@ input:checked + .slider:before {
     margin-bottom: 15px;
 }
 
-.titulo-login.dark,
-.titulo-pantalla.dark,
-.dark.formulario-registro label {
-    color: #ffffff;
-}
-
 .input-login {
     width: 100%;
     max-width: 400px; 
@@ -393,11 +327,6 @@ input:checked + .slider:before {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box; 
-}
-.input-login.dark
-.input-registro.dark {
-    background-color: #E0E0E0;
-    border-color: #A4A4A4;
 }
 
 .boton-enviar {
@@ -431,10 +360,6 @@ input:checked + .slider:before {
     background-color: #606db1;
 }
 
-.container-frases.dark {
-    background-color: #16436B;
-}
-
 .banner-utu {
     bottom: 0;
     right: 0;
@@ -454,7 +379,7 @@ input:checked + .slider:before {
 
 }
 
-/* Media Queries */
+/* ############################### MEDIA QUERYS ############################### */
 
 
 @media (max-width: 480px) {
@@ -471,7 +396,7 @@ input:checked + .slider:before {
 
 
 
-/* control de usuarios */
+/* ############################### CONTROL DE USUARIOS ############################### */
 
 .headerCTRLUSR {
     display: flex;
@@ -491,8 +416,6 @@ input:checked + .slider:before {
     width: 55%;
   height: auto;
 }
-
-
 
 .titleCTRLUSR {
     position: absolute;
@@ -532,6 +455,7 @@ input:checked + .slider:before {
         cursor: pointer;
         display: none;
     }
+
 .nav-item .nav-link {
     text-decoration: none;
     color: #000000;
@@ -547,18 +471,11 @@ input:checked + .slider:before {
     border-bottom: 2px solid #1d72b8;
 }
 
-
-.nav-item.active .nav-link {
-    color: #1d72b8;
-    border-bottom: 2px solid #1d72b8;
-}
-
 .nav-link:hover {
     color: #1d72b8;
 }
 
-
-/*Registrar usuarios*/
+/* ############################### Registrar usuarios ###############################*/
 .formulario-registro {
     padding: 20px;
     text-align: center;
@@ -589,7 +506,7 @@ input:checked + .slider:before {
 }
 
 
-/*modificar*/
+/*############################### modificar ###############################*/
 .form-container-modificar {
     display: flex;
     flex-direction: column;
@@ -644,15 +561,13 @@ input:checked + .slider:before {
 }
 
 
-/* Media Queries*/
+/* ############################### Media Queries ###############################*/
 @media (max-width: 1024px) {
     .container {
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-
-
 
     .formulario,
     .formulario-edicion,
@@ -710,10 +625,6 @@ input:checked + .slider:before {
         width: auto; 
     }
 
-
-
-
-    
     .headerCTRLUSR {
         display: flex;
         position: static; 
@@ -788,9 +699,6 @@ input:checked + .slider:before {
         width: auto; 
     }
 
-
-
-
     .footer {
         display: none;
     }
@@ -834,8 +742,6 @@ input:checked + .slider:before {
     .profile {
         display: none; 
     }
-
-
 
     .menu-header h2 {
         font-size: 24px;
@@ -889,4 +795,73 @@ input:checked + .slider:before {
         font-size: 12px; 
         margin-bottom: 6px; 
     }
+}
+
+/* ################# MODO OSCURO ################# */
+
+body.dark{
+    background-color: #232323;
+}
+
+.header.dark,
+.dark .headerCTRLUSR {
+    background-color: rgb(28, 30, 31);
+    border-bottom-color: rgb(58, 62, 65);
+    color: #ffffff; 
+}
+
+.btn-filters.dark {
+    background-color: #232323;
+    border-color: white;
+    color: white;
+}
+.menu.dark {
+    background-color: #1A1A1A;
+    color: white;
+}
+.cerrar.dark {
+    color: white;
+}
+.btn-subir.dark,
+.boton-enviar.dark,
+.footer.dark,
+.dark .container-frases {
+    background-color: #16436B;
+}
+
+.dark .slider {
+    background-color: #f2f2f2; 
+}
+
+.dark .slider:before {
+    background-color: #757575; 
+    box-shadow: 0px 0px 3px #757575;
+}
+
+.dark input:checked + .slider {
+    background-color: #2C2C2C; 
+}
+
+.dark input:checked + .slider:before {
+    background-color: white; 
+}
+
+.titulo-login.dark,
+.titulo-pantalla.dark,
+.dark .nav-link,
+.dark.formulario-registro label {
+    color: #ffffff;
+}
+.input-login.dark
+.input-registro.dark {
+    background-color: #E0E0E0;
+    border-color: #A4A4A4;
+}
+
+.dark .user-iconCTRLUSR .icon-imgCTRLUSR{
+    filter: invert(100%);
+}
+.navCTRLUSR.dark{
+    background-color: #232323;
+    border-bottom-color: rgb(58, 62, 65);
 }

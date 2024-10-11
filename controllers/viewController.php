@@ -36,6 +36,7 @@ if (isset($_GET['ruta'])) {
     </div>
 </div>
 <p id="mensajeResultado"></p>
+<script src="../assets/js/darkMode.js"></script>
 
 </body>
 </html>
