@@ -1,15 +1,33 @@
+/* body */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow: auto;
+}
+
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/*Header*/
+
+
+.inicioConten {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
     background-color: #f9f5fc;
     border-bottom: 1px solid #ddd;
+    width: 100%;
 }
 
 .logo-nexpro {
@@ -23,14 +41,6 @@ body {
     justify-content: center;
     width: 100%;
 
-}
-
-.boton-retroceder {
-    font-size: 15px;
-    margin-right: 15px; 
-    position: absolute;
-    left: 5%;
-    top: 20%;
 }
 
 .logo-img {
@@ -80,6 +90,20 @@ body {
     color: #ccc;
 }
 
+
+
+/*Extras*/
+
+.boton-retroceder {
+    font-size: 15px;
+    margin-right: 15px; 
+    position: absolute;
+    left: 5%;
+    top: 20%;
+}
+
+/*Nav menu*/
+
 .profile {
     display: flex;
     align-items: center;
@@ -92,8 +116,6 @@ body {
     cursor: pointer;
 }
 
-
-/* Nav CSS */
 .menu {
     width: 300px;
     height: 100%;
@@ -254,7 +276,7 @@ input:checked + .slider:before {
     width: 100%;
     box-sizing: border-box;
     max-width: 100vw;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 
@@ -281,15 +303,9 @@ input:checked + .slider:before {
     color: #1d72b8; 
 }
 
-
-
-
 .social-icon img:hover {
     transform: scale(1.1);
 }
-
-
-
 
 
 /*login*/
@@ -385,22 +401,6 @@ input:checked + .slider:before {
 
 }
 
-/* Media Queries */
-
-
-@media (max-width: 480px) {
-    .input-login {
-        width: auto; 
-        font-size: 16px;
-    }
-
-    .boton-enviar {
-        width: auto; 
-        font-size: 16px; 
-    }
-}
-
-
 
 /* control de usuarios */
 
@@ -424,7 +424,6 @@ input:checked + .slider:before {
 }
 
 
-
 .titleCTRLUSR {
     position: absolute;
     left: 50%;
@@ -432,6 +431,8 @@ input:checked + .slider:before {
     font-size: 24px;
     font-weight: bold;
 }
+
+
 
 .user-iconCTRLUSR .icon-imgCTRLUSR {
     width: 40px;
@@ -487,6 +488,7 @@ input:checked + .slider:before {
 .nav-link:hover {
     color: #1d72b8;
 }
+
 
 
 /*Registrar usuarios*/
@@ -574,6 +576,128 @@ input:checked + .slider:before {
     box-sizing: border-box; 
 }
 
+/* subir proyecto */
+.formulario-proyecto {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+.formulario-proyecto label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    display: block; 
+}
+
+.input-proyecto {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+
+
+
+.proyecto-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+
+
+.proyecto-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: black;
+}
+
+.proyecto-info p {
+    margin: 0;
+    color: #555;
+}
+
+/* Listas */
+
+
+#proyectosAceptados, #proyectosPendientes {
+    width: 80%; 
+    max-width: 900px; 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto; 
+}
+
+#proyectosAceptadosList, #proyectosPendientesList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.proyecto-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.proyecto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.pdf-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+}
+
+.proyecto-info {
+    flex-grow: 1;
+}
+
+.proyecto-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.proyecto-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .proyecto-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pdf-icon {
+        margin-bottom: 10px;
+    }
+}
 
 /* Media Queries*/
 @media (max-width: 1024px) {
@@ -625,13 +749,6 @@ input:checked + .slider:before {
         justify-content: center;
     }
 
-  /*  .form-container {
-        width: 150%;
-        height: auto; 
-        padding: 20px;
-        box-sizing: border-box;
-    }
-*/
     .formulario {
         width: 150%; 
         max-width: none; 
@@ -678,6 +795,9 @@ input:checked + .slider:before {
         transform: none;
     }
 
+.headerSoli {
+    flex-direction: column; 
+}
     .user-iconCTRLUSR {
         margin-top: 10px; 
     }
@@ -821,3 +941,241 @@ input:checked + .slider:before {
         margin-bottom: 6px; 
     }
 }
+
+
+
+@media (max-width: 480px) {
+    .input-login {
+        width: auto; 
+        font-size: 16px;
+    }
+
+    .boton-enviar {
+        width: auto; 
+        font-size: 16px; 
+    }
+}
+
+/*Modales*/
+
+/* Estilo general para los modales */
+.modal, .modal-pdf {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Estilo de la caja del contenido del modal */
+.modal-content, .modal-pdf-content {
+    background-color: #fff;
+    margin: 10% auto; 
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.4s ease;
+}
+
+/* Botón de cierre del modal */
+.close, .closeI, .close-pdf {
+    color: #333;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .closeI:hover, .close-pdf:hover {
+    color: #ff5a5a;
+}
+
+/* Encabezado del modal */
+.modal-content h2, .modal-pdf-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-body .pdf-icon {
+    width: 80px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.modal-body .modal-data {
+    flex-grow: 1;
+}
+
+/* Listado de miembros */
+.modal-body ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-body ul li {
+    background-color: #f4f4f4;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Estilo del footer (botones) */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.modal-footer button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#aprobarBtn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#rechazarBtn {
+    background-color: #f44336;
+    color: white;
+}
+
+#aprobarBtn:hover {
+    background-color: #45a049;
+}
+
+#rechazarBtn:hover {
+    background-color: #d73833;
+}
+
+/* Estilo para el modal PDF */
+.modal-pdf-content {
+    width: 90%;
+    max-width: 800px;
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 80vh; 
+    border: none;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* Lista de Usuarios */
+
+
+#userData {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#userList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.user-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.user-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+.icon {
+    font-size: 20px;
+    color: #555;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #333;
+}
+
+.user-info {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    flex-grow: 1;
+}
+
+.fa-pencil-alt {
+    color: #4CAF50;
+}
+
+.fa-pencil-alt:hover {
+    color: #45a049;
+}
+
+.fa-trash {
+    color: #f44336;
+}
+
+.fa-trash:hover {
+    color: #d73833;
+}
+
+/* Solicitudes de proyectos */
+
+.menuSolicitudProyectos {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    width: 100%; 
+}
+
+.headerSoli {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f5fc;
+    position: relative;
+}
+

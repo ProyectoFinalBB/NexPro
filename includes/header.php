@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../assets/css/styles.css"> 
 </head>
 <body>
-
-    <header class="header" id="header">
+<div id="header" class="inicioConten">
+<header class="header" >
 
     <div class="h-conten">
     <div class="menuImgDiv">
@@ -34,10 +34,18 @@
 
 </header>
 
+<div id="proyectosAceptados">
+    <ul id="proyectosAceptadosList" >
+        <!-- Aquí se insertarán los proyectos aceptados -->
+    </ul>
+</div>
+</div>
+    
+
 <div class="menuCTRLUsuario" id="menuCTRLUsuario">
 <header class="headerCTRLUSR">
         <div class="logoCTRLUSR">
-            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu()" class="logo-imgCTRLUSR">
+            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu('headerInicio')" class="logo-imgCTRLUSR">
         </div>
         <h2 class="titleCTRLUSR">CONTROL DE USUARIOS</h2>
         <div class="user-iconCTRLUSR">
@@ -57,6 +65,76 @@
         </ul>
     </div>
 </div>
+
+<div class="menuSolicitudProyectos" id="menuSolicitudProyectos">
+<header class="headerSoli">
+        <div class="logoCTRLUSR">
+       
+            <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu('headerInicio')"  class="logo-imgCTRLUSR">    
+           
+        </div>
+        <h2 class="titleCTRLUSR">SOLICITUDES DE PROYECTOS</h2> 
+    </header>
+  
+    <div id="proyectosPendientes">
+        <ul id="proyectosPendientesList">
+            
+        </ul>
+    </div>
+
+</div>
+
+<!-- Contenedor del Modal (oculto por defecto) -->
+<div id="modalProyecto" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Visualización del Proyecto</h2>
+        <div class="modal-body">
+           
+            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon">
+           
+            <div class="modal-data">
+            <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+            <p>MIEMBROS:</p>
+            <ul id="miembrosProyecto"></ul>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="aprobarBtn">Aprobar</button>
+            <button id="rechazarBtn">Rechazar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Contenedor del Modal INICIO (oculto por defecto) -->
+<div id="modalProyectoInicio" class="modal">
+    <div class="modal-content">
+        <span class="closeI">&times;</span>
+        <h2>Visualización del Proyecto</h2>
+        <div class="modal-body">
+           
+            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon-inicio">
+           
+            <div class="modal-data">
+            <p>NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
+            <p>MIEMBROS:</p>
+            <ul id="miembrosProyectoInicio"></ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="modalPDF" class="modal-pdf">
+    <div class="modal-pdf-content">
+        <span class="close-pdf" onclick="cerrarModalPDF()">&times;</span>
+        <embed id="pdfFrame" class="pdf-frame" type="application/pdf" />
+    </div>
+</div>
+
+
+
 
 
 
