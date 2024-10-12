@@ -41,6 +41,7 @@ function logear($con, $ci, $pass) {
                     $_SESSION["ci"] = $ci;
                     $_SESSION["rol"] = $rol;
                     $_SESSION['id_usr'] = $id_usr;
+                    $_SESSION["nombrecompleto"] = $nombre;
 
                     echo json_encode(['success' => true]);
                 } else {
