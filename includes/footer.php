@@ -11,5 +11,7 @@
 
 
 <script src="../assets/js/script.js"></script>
+<script src="../assets/js/darkMode.js"></script>
+
 </body>
 </html>

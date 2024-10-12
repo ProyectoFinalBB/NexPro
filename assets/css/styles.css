@@ -98,6 +98,7 @@ body::-webkit-scrollbar {
     padding-right: 40px; 
 }
 
+
 .btn-search {
     background: none;
     border: none;
@@ -150,6 +151,8 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 
+
+/* ############################### NAV CSS ############################### */
 .menu {
     width: 300px;
     height: 100%;
@@ -303,7 +306,12 @@ input:checked + .slider:before {
     text-decoration: none;
 }
 
-/* Footer CSS */
+.cerrar-sesion a{
+    color: black;
+    text-decoration: none;
+}
+
+/* ############################### FOOTER CSS ############################### */
 .footer {
     background-color: #1d72b8;
     padding: 10px 20px;
@@ -346,8 +354,7 @@ input:checked + .slider:before {
     transform: scale(1.1);
 }
 
-
-/*login*/
+/* ############################### LOGIN ###############################*/
 .container {
     display: flex;
     height: 100vh;
@@ -440,8 +447,24 @@ input:checked + .slider:before {
 
 }
 
+/* ############################### MEDIA QUERYS ############################### */
 
-/* control de usuarios */
+
+@media (max-width: 480px) {
+    .input-login {
+        width: auto; 
+        font-size: 16px;
+    }
+
+    .boton-enviar {
+        width: auto; 
+        font-size: 16px; 
+    }
+}
+
+
+
+/* ############################### CONTROL DE USUARIOS ############################### */
 
 .headerCTRLUSR {
     display: flex;
@@ -461,7 +484,6 @@ input:checked + .slider:before {
     width: 55%;
   height: auto;
 }
-
 
 .titleCTRLUSR {
     position: absolute;
@@ -503,6 +525,7 @@ input:checked + .slider:before {
         cursor: pointer;
         display: none;
     }
+
 .nav-item .nav-link {
     text-decoration: none;
     color: #000000;
@@ -518,19 +541,12 @@ input:checked + .slider:before {
     border-bottom: 2px solid #1d72b8;
 }
 
-
-.nav-item.active .nav-link {
-    color: #1d72b8;
-    border-bottom: 2px solid #1d72b8;
-}
-
 .nav-link:hover {
     color: #1d72b8;
 }
 
 
-
-/*Registrar usuarios*/
+/* ############################### Registrar usuarios ###############################*/
 .formulario-registro {
     padding: 20px;
     text-align: center;
@@ -561,7 +577,7 @@ input:checked + .slider:before {
 }
 
 
-/*modificar*/
+/*############################### modificar ###############################*/
 .form-container-modificar {
     display: flex;
     flex-direction: column;
@@ -751,15 +767,13 @@ input:checked + .slider:before {
     }
 }
 
-/* Media Queries*/
+/* ############################### Media Queries ###############################*/
 @media (max-width: 1024px) {
     .container {
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-
-
 
     .formulario,
     .formulario-edicion,
@@ -810,10 +824,6 @@ input:checked + .slider:before {
         width: auto; 
     }
 
-
-
-
-    
     .headerCTRLUSR {
         display: flex;
         position: static; 
@@ -891,9 +901,6 @@ input:checked + .slider:before {
         width: auto; 
     }
 
-
-
-
     .footer {
         display: none;
     }
@@ -937,8 +944,6 @@ input:checked + .slider:before {
     .profile {
         display: none; 
     }
-
-
 
     .menu-header h2 {
         font-size: 24px;
@@ -1231,3 +1236,72 @@ input:checked + .slider:before {
     position: relative;
 }
 
+
+/* ################# MODO OSCURO ################# */
+
+body.dark{
+    background-color: #232323;
+}
+
+.header.dark,
+.dark .headerCTRLUSR {
+    background-color: rgb(28, 30, 31);
+    border-bottom-color: rgb(58, 62, 65);
+    color: #ffffff; 
+}
+
+.btn-filters.dark {
+    background-color: #232323;
+    border-color: white;
+    color: white;
+}
+.menu.dark {
+    background-color: #1A1A1A;
+    color: white;
+}
+.cerrar.dark {
+    color: white;
+}
+.btn-subir.dark,
+.boton-enviar.dark,
+.footer.dark,
+.dark .container-frases {
+    background-color: #16436B;
+}
+
+.dark .slider {
+    background-color: #f2f2f2; 
+}
+
+.dark .slider:before {
+    background-color: #757575; 
+    box-shadow: 0px 0px 3px #757575;
+}
+
+.dark input:checked + .slider {
+    background-color: #2C2C2C; 
+}
+
+.dark input:checked + .slider:before {
+    background-color: white; 
+}
+
+.titulo-login.dark,
+.titulo-pantalla.dark,
+.dark .nav-link,
+.dark.formulario-registro label {
+    color: #ffffff;
+}
+.input-login.dark
+.input-registro.dark {
+    background-color: #E0E0E0;
+    border-color: #A4A4A4;
+}
+
+.dark .user-iconCTRLUSR .icon-imgCTRLUSR{
+    filter: invert(100%);
+}
+.navCTRLUSR.dark{
+    background-color: #232323;
+    border-bottom-color: rgb(58, 62, 65);
+}

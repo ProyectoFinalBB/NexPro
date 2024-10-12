@@ -24,7 +24,9 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
     </div>
 </form>
 <div id="mensajeResultado"></div> 
-<script src="../assets/js/registrarUsr.js"></script>   
+<script src="../assets/js/registrarUsr.js"></script> 
+<script src="../assets/js/darkMode.js"></script>
+
 
 
 

@@ -43,5 +43,6 @@
     </div>
 </div>
 <script src="../assets/js/controlLogin.js"></script> 
+<script src="../assets/js/darkMode.js"></script>
 </body>
 </html>
