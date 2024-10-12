@@ -27,7 +27,7 @@ if (isset($_GET['ruta'])) {
 <body>
 <div class="container">
 <div class="form-container">
-<button onclick="window.history.back();" class="boton-retroceder">⭠</button>
+<button type="button" onclick="window.history.back();" class="boton-retroceder"><img src="../assets/img/retroceso.png"></button>
 <?php include($ruta); ?>
 </div>
     <div class="container-frases">

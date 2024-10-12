@@ -43,6 +43,23 @@ body::-webkit-scrollbar {
 
 }
 
+.boton-retroceder {
+    border: none; 
+    background: none; 
+    padding: 0; 
+    cursor: pointer; 
+    margin-right: 15px; 
+    position: absolute;
+    left: 30px;
+    top: 70px;
+}
+
+.boton-retroceder img {
+    display: block; 
+    width: 20px; 
+    height: auto; 
+}
+
 .logo-img {
     height: 130px;
     margin-right: 10px;
@@ -264,6 +281,11 @@ input:checked + .slider:before {
     margin: 20px auto 0;
 }
 
+.cerrar-sesion a{
+    color: black;
+    text-decoration: none;
+}
+
 /* Footer CSS */
 .footer {
     background-color: #1d72b8;
@@ -300,7 +322,7 @@ input:checked + .slider:before {
 }
 
 .social-icons a:hover {
-    color: #1d72b8; 
+    color: #585858; 
 }
 
 .social-icon img:hover {
@@ -576,6 +598,18 @@ input:checked + .slider:before {
     box-sizing: border-box; 
 }
 
+.texto-contrasena{
+    color: black;
+    text-decoration: none;
+}
+
+
+.texto-contrasena{
+    color: black;
+    text-decoration: none;
+}
+
+
 /* subir proyecto */
 .formulario-proyecto {
     padding: 20px;
@@ -738,11 +772,11 @@ input:checked + .slider:before {
     
     .menu-img {
         display: block;
+        position: absolute;
+        left: 20px;
+        top:40px;
     }
 
-    .menu-img {
-        display: block;
-    }
     .container {
         flex-direction: column;
         align-items: center;
