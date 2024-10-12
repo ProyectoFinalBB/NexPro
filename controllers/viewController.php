@@ -28,7 +28,11 @@ if (isset($_GET['ruta'])) {
 <div class="container">
 <div class="form-container">
 <button type="button" onclick="window.history.back();" class="boton-retroceder"><img src="../assets/img/retroceso.png"></button>
+<div class="formContenedor">
 <?php include($ruta); ?>
+<p id="mensajeResultado"></p>
+</div>
+
 </div>
     <div class="container-frases">
         <div class="foot-form" >
@@ -39,7 +43,7 @@ if (isset($_GET['ruta'])) {
         <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
     </div>
 </div>
-<p id="mensajeResultado"></p>
+
 
 
 

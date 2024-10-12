@@ -1,9 +1,15 @@
 /* body */
+
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: auto;
+    margin: 0;          
+    padding: 0;             
+    width: 100%;            
+    height: 100%;           
+
 }
+
+
 
 
 
@@ -110,6 +116,17 @@ body::-webkit-scrollbar {
 
 
 /*Extras*/
+
+.formContenedor {
+    overflow-y: auto;         
+    overflow-x: hidden;        
+    scrollbar-width: none;    
+}
+
+.formContenedor::-webkit-scrollbar {
+    display: none;             
+}
+
 
 .boton-retroceder {
     font-size: 15px;
@@ -673,6 +690,7 @@ input:checked + .slider:before {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto; 
+    margin-bottom: 100px;
 }
 
 #proyectosAceptadosList, #proyectosPendientesList {
