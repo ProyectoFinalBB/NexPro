@@ -10,8 +10,17 @@ if ($rol === 'alumno'): ?>
         <button id="cerrarMenu" class="cerrar">✖</button>
     </div>
     <div class="perfil-info">
-        <img src="https://i.pinimg.com/564x/c6/89/95/c68995aa24906a1320b4d7d10aa374b2.jpg" alt="Perfil" class="perfil-img">
-        <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
+    <div class="perfil-info-imagen">
+        <img id="profileImage" class="perfil-img" src="../assets/img/sinIMg.jpg" alt="Foto de perfil">
+
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
+        <button id="uploadButton" class="upload-icon">
+            <img src="../assets/img/addimg.png" alt="Subir imagen">
+        </button>
+    </div>
+
+    <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
         <button class="btn-subir" onclick="redirectToView('../views/subirProyectos.php')" >Subir Proyecto</button>
     </div>
     <div class="configuracion">
@@ -39,8 +48,17 @@ if ($rol === 'alumno'): ?>
         <button id="cerrarMenu" class="cerrar">✖</button>
     </div>
     <div class="perfil-info">
-        <img src="https://i.pinimg.com/564x/c6/89/95/c68995aa24906a1320b4d7d10aa374b2.jpg" alt="Perfil" class="perfil-img">
-        <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
+    <div class="perfil-info-imagen">
+        <img id="profileImage" class="perfil-img" src="../assets/img/sinIMg.jpg" alt="Foto de perfil">
+
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+
+        <button id="uploadButton" class="upload-icon">
+            <img src="../assets/img/addimg.png" alt="Subir imagen">
+        </button>
+    </div>
+
+    <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
     </div>
     <div class="configuracion">
         <div class="opcion">
@@ -67,13 +85,22 @@ if ($rol === 'alumno'): ?>
         <button id="cerrarMenu" class="cerrar">✖</button>
     </div>
     <div class="perfil-info">
-        <img src="https://i.pinimg.com/564x/c6/89/95/c68995aa24906a1320b4d7d10aa374b2.jpg" alt="Perfil" class="perfil-img">
-        <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
-        <button class="btn-subir" onclick="toggleMenu('controlUsuarios')">Control de Usuarios</button>
-<button class="btn-subir" onclick="toggleMenu('solicitudProyectos')">Solicitudes de Proyectos</button>
+    <div class="perfil-info-imagen">
+        <img id="profileImage" class="perfil-img" src="../assets/img/sinIMg.jpg" alt="Foto de perfil">
 
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
 
+        <button id="uploadButton" class="upload-icon">
+            <img src="../assets/img/addimg.png" alt="Subir imagen">
+        </button>
     </div>
+
+    <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
+
+    <button class="btn-subir" onclick="toggleMenu('controlUsuarios')">Control de Usuarios</button>
+    <button class="btn-subir" onclick="toggleMenu('solicitudProyectos')">Solicitudes de Proyectos</button>
+</div>
+
     <div class="configuracion">
         <div class="opcion">
             <span>Tema Oscuro</span>
@@ -94,3 +121,5 @@ if ($rol === 'alumno'): ?>
 </div>
 
 <?php endif; ?>
+
+<script src="../assets/js/fotoPerfil.js" ></script>

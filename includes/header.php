@@ -27,7 +27,7 @@
         </button>
     </div>
     <div class="profile" id="nav-btn">
-        <img src="https://i.pinimg.com/564x/c6/89/95/c68995aa24906a1320b4d7d10aa374b2.jpg" alt="Perfil" class="profile-img">
+        <img src="../assets/img/sinIMg.jpg" alt="Perfil" class="profile-img" id="profile-img">
     </div>
 
 </header>
