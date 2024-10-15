@@ -18,7 +18,7 @@ if (isset($data["ci"]) && isset($data["contrasenia"])) {
 function logear($con, $ci, $pass) {
     session_start();
 
-    // Modificar la consulta para también obtener el nombre
+    
     $consulta_login = "SELECT * FROM usuarios WHERE ci = '$ci'";
     $resultado_login = mysqli_query($con, $consulta_login);
 

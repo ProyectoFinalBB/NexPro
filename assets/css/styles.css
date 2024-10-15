@@ -149,6 +149,7 @@ body::-webkit-scrollbar {
     width: 40px;
     border-radius: 50%;
     cursor: pointer;
+    margin-right: 40px;
 }
 
 
@@ -209,6 +210,7 @@ body::-webkit-scrollbar {
   
 .cerrar {
     background: none;
+    position: absolute;
     border: none;
     font-size: 20px;
     cursor: pointer;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2024 a las 14:33:45
+-- Tiempo de generación: 15-10-2024 a las 16:30:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -50,7 +50,8 @@ INSERT INTO `proyectos` (`id`, `titulo`, `descripcion`, `ruta`, `id_integrantes`
 (41, 'aa', 'aa', 'Escrito Formación Empresarial.pdf', '33', 'Entretenimiento', '2024-10-08 15:05:00', 'aceptado', 32),
 (42, 'fede', 'ingles', 'Escrito Formación Empresarial.pdf', '33', 'Educación', '2024-10-09 15:46:10', 'denegado', 23),
 (43, 'fede', 'ingles', 'Escrito Formación Empresarial.pdf', '33', 'Educación', '2024-10-09 15:46:15', 'aceptado', 23),
-(44, 'sssssssssss', 'ssssssss', 'Practico CU.pdf', '33', 'Entretenimiento', '2024-10-10 10:57:04', 'pendiente', 23);
+(44, 'sssssssssss', 'ssssssss', 'Practico CU.pdf', '33', 'Entretenimiento', '2024-10-10 10:57:04', 'aceptado', 23),
+(45, 'NexPro', 'hjhjhjhhj', 'Practico CU.pdf', '23', 'Entretenimiento', '2024-10-10 13:45:40', 'pendiente', 32);
 
 --
 -- Índices para tablas volcadas
@@ -70,7 +71,7 @@ ALTER TABLE `proyectos`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

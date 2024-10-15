@@ -270,6 +270,7 @@ function ListadoProyectosPendientes() {
 function mostrarModal(proyecto) {
    
     document.getElementById('nombreProyecto').textContent = proyecto.titulo;
+    tagsProyectos = document.getElementById("tagsProyectos")
     pdfIcon = document.getElementById('pdf-icon')
     pdfIcon.onclick = function() {
                     
@@ -290,6 +291,18 @@ function mostrarModal(proyecto) {
         listItem.textContent = 'Miembros: No especificados';
         miembrosList.appendChild(listItem);
     }
+
+    const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
+    ? ` ${proyecto.tags.join(', ')}` 
+    : ' No especificados';
+
+const tags = document.createElement('li');
+tags.textContent = tagsText;
+tagsProyectos.appendChild(tags);
+
+//listItem.appendChild(tagsProyectos);
+
+    
 
     const aprobarBtn = document.getElementById('aprobarBtn');
     const rechazarBtn = document.getElementById('rechazarBtn');

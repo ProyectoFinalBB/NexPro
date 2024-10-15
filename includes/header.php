@@ -95,6 +95,8 @@
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
             <p>MIEMBROS:</p>
             <ul id="miembrosProyecto"></ul>
+            <p>Tags Seleccionados:</p>
+            <ul id="tagsProyectos"></ul>
             </div>
         </div>
         <div class="modal-footer">
