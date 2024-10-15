@@ -481,5 +481,83 @@ function toggleMenu(menu) {
                 this.parentElement.classList.add('active');
             });
         });
+    });document.addEventListener("DOMContentLoaded", () => {
+        // Cargar el idioma desde localStorage o establecer el idioma predeterminado
+        let currentLanguage = localStorage.getItem('language') || 'es';
+    
+        const loadContent = (language) => {
+            fetch("../assets/js/idiomas.json")
+                .then(response => {
+                    if (!response.ok) throw new Error("Error al cargar el archivo JSON");
+                    return response.json();
+                })
+                .then(data => {
+                    const titleElement = document.getElementById('tituloPerfil');
+                    const paragraphElement = document.getElementById('nombreUsuario'); 
+                    const btnSubirProyecto = document.getElementById('btnSubirProyecto');
+                    const btnControlUsuarios = document.getElementById('btnControlUsuarios');
+                    const btnSolicitudProyectos = document.getElementById('btnSolicitudProyectos');
+                    const cerrarSesion = document.getElementById('cerrarSesion');
+                    const temaOscuro = document.getElementById('temaOscuro');
+                    const ingles = document.getElementById('ingles');
+    
+                    // Nuevos elementos añadidos
+                    const btnFiltros = document.getElementById('btnFiltros');
+                    const inputBuscar = document.getElementById('inputBuscar');
+                    const btnBuscar = document.getElementById('btnBuscar');
+                    const tituloUsuarios = document.getElementById('tituloUsuarios');
+                    const linkEstudiantes = document.getElementById('linkEstudiantes');
+                    const linkProfesores = document.getElementById('linkProfesores');
+                    const linkAdministradores = document.getElementById('linkAdministradores');
+                    const tituloSolicitudes = document.getElementById('tituloSolicitudes');
+                    const nombreProyectoLabel = document.getElementById('nombreProyectoLabel');
+                    const miembrosProyectoLabel = document.getElementById('miembrosProyectoLabel');
+                    const aprobarBtn = document.getElementById('aprobarBtn');
+                    const rechazarBtn = document.getElementById('rechazarBtn');
+                    const nombreProyectoInicioLabel = document.getElementById('nombreProyectoInicioLabel');
+                    const miembrosProyectoInicioLabel = document.getElementById('miembrosProyectoInicioLabel');
+    
+                    // Asignar texto según el idioma
+                    titleElement.textContent = data[language].tituloPerfil;
+                    paragraphElement.textContent = data[language].nombreUsuario;
+                    if (btnSubirProyecto) btnSubirProyecto.textContent = data[language].btnSubirProyecto;
+                    if (btnControlUsuarios) btnControlUsuarios.textContent = data[language].btnControlUsuarios;
+                    if (btnSolicitudProyectos) btnSolicitudProyectos.textContent = data[language].btnSolicitudProyectos;
+                    cerrarSesion.textContent = data[language].cerrarSesion;
+                    temaOscuro.textContent = data[language].temaOscuro;
+                    ingles.textContent = data[language].ingles;
+    
+                    // Asignar los nuevos elementos
+                    if (btnFiltros) btnFiltros.textContent = data[language].btnFiltros;
+                    if (inputBuscar) inputBuscar.setAttribute('placeholder', data[language].inputBuscar);
+                    if (btnBuscar) btnBuscar.textContent = data[language].btnBuscar;
+                    if (tituloUsuarios) tituloUsuarios.textContent = data[language].tituloUsuarios;
+                    if (linkEstudiantes) linkEstudiantes.textContent = data[language].linkEstudiantes;
+                    if (linkProfesores) linkProfesores.textContent = data[language].linkProfesores;
+                    if (linkAdministradores) linkAdministradores.textContent = data[language].linkAdministradores;
+                    if (tituloSolicitudes) tituloSolicitudes.textContent = data[language].tituloSolicitudes;
+                    if (nombreProyectoLabel) nombreProyectoLabel.textContent = data[language].nombreProyectoLabel;
+                    if (miembrosProyectoLabel) miembrosProyectoLabel.textContent = data[language].miembrosProyectoLabel;
+                    if (aprobarBtn) aprobarBtn.textContent = data[language].aprobarBtn;
+                    if (rechazarBtn) rechazarBtn.textContent = data[language].rechazarBtn;
+                    if (nombreProyectoInicioLabel) nombreProyectoInicioLabel.textContent = data[language].nombreProyectoInicioLabel;
+                    if (miembrosProyectoInicioLabel) miembrosProyectoInicioLabel.textContent = data[language].miembrosProyectoInicioLabel;
+    
+                    // Debug: Imprimir en consola para verificar
+                    console.log(data[language]);
+                })
+                .catch(error => console.log(error));
+        };
+    
+        const toggleBtn = document.getElementById('inglesCheckbox');
+        toggleBtn.checked = currentLanguage === 'en'; // Establecer el estado del checkbox según el idioma actual
+        toggleBtn.addEventListener('change', () => {
+            currentLanguage = toggleBtn.checked ? 'en' : 'es';
+            localStorage.setItem('language', currentLanguage); // Guardar el idioma seleccionado en localStorage
+            loadContent(currentLanguage);
+        });
+    
+        // Carga inicial del contenido
+        loadContent(currentLanguage);
     });
     

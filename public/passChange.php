@@ -11,28 +11,27 @@
 <div class="container">
     
     <div class="form-container">
-        <form class="formulario">
-        <div class="logo-boton">
-        <button onclick="window.history.back();" class="boton-retroceder">⭠</button>
-        <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
-</div>
+        <form class="formulario" id="formCambioContraseña">
+            <div class="logo-boton">
+                <button type="button" onclick="window.history.back();" class="boton-retroceder">⭠</button>
+                <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
+            </div>
             <h3 class="titulo-login">CAMBIAR CONTRASEÑA</h3>
-            <input type="number" id="ci" name="ci" placeholder="CEDULA" class="input-login" minlength="8" maxlength="8"  required>
+            <input type="number" id="ci" name="ci" placeholder="CEDULA" class="input-login" minlength="8" maxlength="8" required>
             <input type="password" id="olderPass" placeholder="ANTIGUA CONTRASEÑA" class="input-login" required>
             <input type="password" id="newPass" placeholder="CONTRASEÑA NUEVA" class="input-login" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
             title="La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y un número.">
             <input type="password" id="newPass2" placeholder="REPITE LA CONTRASEÑA" class="input-login" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
             title="La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y un número.">
-            <button type="submit" onclick="cambiarContraseña()" class="boton-enviar">CAMBIAR</button>
+            <button type="submit" class="boton-enviar">CAMBIAR</button>
             <div id="mensajeResultado"></div> 
         </form>
-
-
-        </div>
+    </div>
+    
     <div class="container-frases">
-        <div class="foot-form" >
-        <p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
-        <img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
+        <div class="foot-form">
+            <p class="texto-pie">©2024 DESARROLLADORES CLAJ</p>
+            <img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
         </div>
 
         <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
@@ -40,5 +39,11 @@
 </div>
 
 <script src="../assets/js/passChange.js"></script>
+<script>
+    document.getElementById("formCambioContraseña").addEventListener("submit", function(event) {
+        event.preventDefault(); // gurises asi evita el envío del formulario
+        cambiarContraseña();
+    });
+</script>
 </body>
 </html>

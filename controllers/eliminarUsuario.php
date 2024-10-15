@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
+if (!isset($_SESSION['ci']) && $_SESSION["rol"] !== "administrador") {
     header('Location: ../public/login.php'); 
     exit();
 }
@@ -25,14 +25,14 @@ if (isset($input["eliminarUsr"]) && isset($input['userId'])) {
         $resultado_usr = mysqli_query($con, $consulta_eliminar_usuario);
 
         if ($resultado_usr) {
-            echo json_encode(['status' => 'success', 'message' => 'Usuario eliminado correctamente']);
+            echo json_encode(['status' => 'success', 'message' => 'usuarioEliminadoExitosamente']);
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'Error al eliminar el usuario']);
+            echo json_encode(['status' => 'error', 'message' => 'errorEliminarUsuario']);
         }
     } else {
-        echo json_encode(['status' => 'error', 'message' => 'Error al eliminar el rol del usuario']);
+        echo json_encode(['status' => 'error', 'message' => 'errorEliminarRolUsuario']);
     }
 } else {
-    echo json_encode(['status' => 'error', 'message' => 'Acción o ID de usuario no proporcionados']);
+    echo json_encode(['status' => 'error', 'message' => 'accionOIdNoProporcionados']);
 }
 ?>
