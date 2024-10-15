@@ -28,8 +28,17 @@ const userItemHover = document.querySelectorAll('.user-item:hover');
 const icon = document.querySelectorAll('.icon');
 const iconHover = document.querySelectorAll('.icon:hover');
 const userInfo = document.querySelectorAll('.user-info');
+const proyectoItem = document.querySelectorAll('.proyecto-item');
+const proyectoInfo = document.querySelectorAll('.proyecto-info h3');
+const proyectoInfoP = document.querySelectorAll('.proyecto-info p');
+const modalContent = document.querySelector('.modal-content');
+const modalPdfContent = document.querySelector('.modal-pdf-content');
+const modalContentH2 = document.querySelector('.modal-content h2');
+const modalContentSpan = document.querySelector('.modal-content span');
+const modalDataUl = document.querySelector('.modal-data ul');
 
-const elements = [header, btnFilters, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados, proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo];
+
+const elements = [header, btnFilters, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados, proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo, ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2, modalContentSpan, modalDataUl];
 
 function toggleDarkMode() {
     elements.forEach(element => {

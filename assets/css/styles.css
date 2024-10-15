@@ -1314,7 +1314,23 @@ body.dark{
 .dark .user-info{
     color: #ffffff;
 }
+.dark .proyecto-item{
+    background-color: #1A1A1A;
+}
+.dark .proyecto-info h3,
+.dark .proyecto-info p {
+    color: #ffffff;
+}
 
+.dark .modal-content, .dark .modal-pdf-content,
+.dark .modal-content h2, .dark .modal-content span{
+    background-color: #1A1A1A;
+    color: white;
+}
+
+.dark .modal-data ul{
+    color: rgb(0, 0, 0);
+}
 /* ################# Foto de perfil ################# */
 .perfil-info {
     display: flex;
