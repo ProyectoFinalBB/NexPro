@@ -460,7 +460,30 @@ function cerrarMenu() {
 
 
 document.getElementById('cerrarMenu').addEventListener('click', cerrarMenu);
-document.getElementById('nav-btn').addEventListener('click', abrirMenu);
+
+
+document.getElementById('nav-btn').addEventListener('click', handleMenuState);
+
+function handleMenuState() {
+    const menuPerfil = document.getElementById('menuPerfil');
+    
+    
+    if (esMovil()) {
+        if (menuPerfil.classList.contains('menu-abierto-movil')) {
+            cerrarMenu();  
+        } else {
+            abrirMenu();   
+        }
+    } else {
+        if (menuPerfil.classList.contains('menu-abierto-pc')) {
+            cerrarMenu();  
+        } else {
+            abrirMenu();   
+        }
+    }
+}
+
+
 document.getElementById('menu-img').addEventListener('click', abrirMenu);
 
 
@@ -475,13 +498,17 @@ function toggleMenu(menu) {
 
     if (menu === 'controlUsuarios') {
         menuCTRLUsuario.style.display = 'block';
+        
+    cerrarMenu()
     } else if (menu === 'solicitudProyectos') {
         menuSolicitudProyectos.style.display = 'block';
+        
+        cerrarMenu()
     }  else if (menu === 'headerInicio') {
         header.style.display = 'flex';
+        
     }
 
-    document.getElementById('menuPerfil').style.display = 'none';
 }
 
     document.addEventListener('DOMContentLoaded', () => {
