@@ -108,52 +108,112 @@ function Listado($ruta) {
 //Listar proyectos Aceptados
 
 
-function ListadoProyectosAceptados() {
-    fetch('../controllers/listadoProyectosAceptados.php')
-    .then(response => response.json())
-    .then(data => {
-        const proyectosList = document.getElementById('proyectosAceptadosList');
-        proyectosList.innerHTML = ''; 
-
-        data.forEach(proyecto => {
-            const listItem = document.createElement('li'); 
-
-                listItem.className = 'proyecto-item'; 
-
-                const pdfIcon = document.createElement('img');
-                pdfIcon.src = '../assets/img/pdfimg.png'; 
-                pdfIcon.className = 'pdf-icon';
-                listItem.appendChild(pdfIcon);
-
-        
-                const proyectoInfo = document.createElement('div');
-                proyectoInfo.className = 'proyecto-info';
-
-                const proyectoTitulo = document.createElement('h3');
-                proyectoTitulo.textContent = proyecto.titulo;
-                proyectoInfo.appendChild(proyectoTitulo);
-
-                const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
-                    ? `Miembros: ${proyecto.miembros.join(', ')}` 
-                    : 'Miembros: No especificados';
-
-                const miembros = document.createElement('p');
-                miembros.textContent = miembrosText;
-                proyectoInfo.appendChild(miembros);
-
-                listItem.appendChild(proyectoInfo);
-
-                listItem.onclick = function() {
-                    mostrarModalInicio(proyecto);  
-                };
-
-                proyectosList.appendChild(listItem);
-            });
-
-            document.getElementById('proyectosAceptadosList').style.display = 'block';
-        })
-        .catch(error => console.error('Error al cargar los proyectos:', error));
+// Función para obtener el rol del usuario desde el backend usando AJAX
+function obtenerRolUsuario() {
+    return fetch('../controllers/obtenerRolUsuario.php')
+        .then(response => response.json())
+        .then(data => data.rol)
+        .catch(error => {
+            console.error('Error al obtener el rol del usuario:', error);
+            return 'guest'; // En caso de error, asumimos que el rol es invitado
+        });
 }
+
+function ListadoProyectosAceptados() {
+    obtenerRolUsuario().then(userRole => {
+        fetch('../controllers/listadoProyectosAceptados.php')
+            .then(response => response.json())
+            .then(data => {
+                const proyectosList = document.getElementById('proyectosAceptadosList');
+                proyectosList.innerHTML = ''; 
+
+                data.forEach(proyecto => {
+                    const listItem = document.createElement('li'); 
+                    listItem.className = 'proyecto-item'; 
+
+                    // Icono PDF
+                    const pdfIcon = document.createElement('img');
+                    pdfIcon.src = '../assets/img/pdfimg.png'; 
+                    pdfIcon.className = 'pdf-icon';
+                    listItem.appendChild(pdfIcon);
+
+                    // Información del proyecto
+                    const proyectoInfo = document.createElement('div');
+                    proyectoInfo.className = 'proyecto-info';
+
+                    const proyectoTitulo = document.createElement('h3');
+                    proyectoTitulo.textContent = proyecto.titulo;
+                    proyectoInfo.appendChild(proyectoTitulo);
+
+                    const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
+                        ? `Miembros: ${proyecto.miembros.join(', ')}` 
+                        : 'Miembros: No especificados';
+
+                    const miembros = document.createElement('p');
+                    miembros.textContent = miembrosText;
+                    proyectoInfo.appendChild(miembros);
+
+                    // Agregar funcionalidad para mostrar el modal con la información del proyecto
+                    listItem.onclick = function() {
+                        mostrarModalInicio(proyecto);  
+                    };
+
+                    listItem.appendChild(proyectoInfo);
+
+                    // Verificar si el usuario es administrador y agregar el botón de eliminar
+                    if (userRole === 'administrador') {
+                        const eliminarBtn = document.createElement('button');
+                        eliminarBtn.textContent = 'Eliminar';
+                        eliminarBtn.className = 'btn-eliminar';
+
+                        eliminarBtn.onclick = function(e) {
+                            e.stopPropagation(); // Evitar que el evento de clic del listItem se dispare
+                            eliminarProyecto(proyecto.id);
+                        };
+
+                        listItem.appendChild(eliminarBtn);
+                    }
+
+                    proyectosList.appendChild(listItem);
+                });
+
+                document.getElementById('proyectosAceptadosList').style.display = 'block';
+            })
+            .catch(error => console.error('Error al cargar los proyectos:', error));
+    });
+}
+
+// Función para eliminar el proyecto
+function eliminarProyecto(proyectoId) {
+    const confirmacion = confirm('¿Estás seguro de que deseas eliminar este proyecto?');
+    if (confirmacion) {
+    
+        fetch(`../controllers/eliminarProyecto.php`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  
+            },
+            body: JSON.stringify({ id: proyectoId }) 
+        })
+        .then(response => {
+            
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'success') {
+                alert(data.message);  
+                ListadoProyectosAceptados();  
+            } else {
+                alert(data.message);  
+            }
+        })
+        .catch(error => console.error('Error al eliminar el proyecto:', error));
+    }
+}
+
 
 
     //Modales
@@ -345,6 +405,7 @@ tagsProyectos.appendChild(tags);
                 if (data.success) {
                     alert('Proyecto aceptado exitosamente');
                     ListadoProyectosPendientes(); 
+                    ListadoProyectosAceptados();
                 } else {
                     alert('Error al aceptar el proyecto');
                 }
