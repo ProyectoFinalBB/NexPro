@@ -2,16 +2,15 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     require '../includes/conexion.php';
     $conn = conectar_bd();
 
-  
     $titulo = $_POST['nombreProyecto'];
     $descripcion = $_POST['descProyecto'];
     $integrantes = json_decode($_POST['integrantesIDs'], true);  
     $tags = json_decode($_POST['tagsProyecto'], true);  
     $archivoProyecto = $_FILES['archivoProyecto']; 
+    $id_usr_creador = $_SESSION['id_usr'];  
 
    
     if (empty($titulo) || empty($descripcion) || empty($archivoProyecto['name'])) {
@@ -19,33 +18,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-
+    
     if ($archivoProyecto['type'] !== 'application/pdf') {
         echo "Solo se permiten archivos PDF.";
         exit;
     }
 
+   
     if ($archivoProyecto['size'] > 5000000) {
         echo "El archivo es demasiado grande. El límite es de 5MB.";
         exit;
     }
 
- 
+    
+    $query = "SELECT COUNT(*) as count FROM proyectos WHERE titulo = ?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, 's', $titulo);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['count'] > 0) {
+        echo "Ya existe un proyecto con ese nombre. Por favor, elige un nombre diferente.";
+        exit;
+    }
+
+    mysqli_stmt_close($stmt);
+
+    
     $uploadDir = '../uploads/pdfs/';
- 
+    $uploadFile = $uploadDir . basename($archivoProyecto['name']);
+
+    if (file_exists($uploadFile)) {
+        echo "Ya existe un archivo PDF con ese nombre. Por favor, renómbralo y vuelve a intentarlo.";
+        exit;
+    }
+
+    
+    $integrantes[] = $id_usr_creador;  
+    $integrantesStr = implode(",", array_map('intval', $integrantes));  
+
+    $query = "SELECT estado FROM proyectos WHERE id_usr_creador IN ($integrantesStr) OR id_integrantes REGEXP ?";
+    $regexp = implode('|', array_map('intval', $integrantes)); 
+
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, 's', $regexp);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        if ($row['estado'] === 'pendiente' || $row['estado'] === 'aceptado') {
+            echo "Ya tienes un proyecto pendiente o aceptado. No puedes enviar otro proyecto.";
+            exit;
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+
+
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true); 
     }
 
- 
-    $uploadFile = $uploadDir . basename($archivoProyecto['name']);
 
-   
     if (move_uploaded_file($archivoProyecto['tmp_name'], $uploadFile)) {
-     
+      
         $tagsStr = implode(",", $tags);
-   
-        $integrantesStr = implode(",", $integrantes);
+        $integrantesStr = implode(",", $integrantes);  
 
         $sql = "INSERT INTO proyectos (titulo, descripcion, ruta, id_integrantes, tags, estado, id_usr_creador) VALUES (?, ?, ?, ?, ?, 'pendiente', ?)";
         $stmt = mysqli_prepare($conn, $sql);
@@ -54,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Error al preparar la consulta: " . mysqli_error($conn);
             exit;
         }
-        $id_usr_creador = $_SESSION['id_usr'] ;
 
         mysqli_stmt_bind_param($stmt, 'ssssss', $titulo, $descripcion, $archivoProyecto['name'], $integrantesStr, $tagsStr, $id_usr_creador);
         mysqli_stmt_execute($stmt);
@@ -74,4 +112,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Método no permitido.";
 }
-?>
