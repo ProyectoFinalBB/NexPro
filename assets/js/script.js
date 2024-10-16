@@ -393,17 +393,16 @@ tagsProyectos.appendChild(tags);
         const modalPDF = document.getElementById('modalPDF');
         const pdfFrame = document.getElementById('pdfFrame');
     
-        // Asegúrate de que la ruta del PDF sea correcta
         pdfFrame.src = `../uploads/pdfs/${ruta}`;
-        modalPDF.style.display = 'block';  // Mostrar el modal
+        modalPDF.style.display = 'block';  
     }
     
     function cerrarModalPDF() {
         const modalPDF = document.getElementById('modalPDF');
         const pdfFrame = document.getElementById('pdfFrame');
     
-        pdfFrame.src = '';  // Limpiar la fuente cuando se cierre
-        modalPDF.style.display = 'none';  // Ocultar el modal
+        pdfFrame.src = ''; 
+        modalPDF.style.display = 'none';  
     }
     
     
