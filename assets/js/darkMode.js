@@ -1,6 +1,6 @@
 const toggleBtn = document.getElementById('temaOscuro'); // El botón toggle
 const header = document.querySelector('.header');
-const btnFilters = document.querySelector('.btn-filters');
+const btnFiltersByClass = document.querySelector('.btn-filters');
 const body = document.querySelector('body');
 const footer = document.querySelector('footer');
 const menu = document.querySelector('.menu');
@@ -38,7 +38,7 @@ const modalContentSpan = document.querySelector('.modal-content span');
 const modalDataUl = document.querySelector('.modal-data ul');
 
 
-const elements = [header, btnFilters, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados, proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo, ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2, modalContentSpan, modalDataUl];
+const elements = [header, btnFiltersByClass, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados, proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo, ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2, modalContentSpan, modalDataUl];
 
 function toggleDarkMode() {
     elements.forEach(element => {

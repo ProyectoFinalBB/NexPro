@@ -609,7 +609,7 @@ document.querySelector('.search-input').addEventListener('input', function() {
     });
 });
 
-const btnFilters = document.querySelector('.btn-filters');
+const btnFilters = document.getElementById("btn-filters");
 const tagsModal = document.querySelector('.tags-modal');
 const overlay = document.querySelector('.overlay');
 const closeModalBtn = document.querySelector('.close-btn');
