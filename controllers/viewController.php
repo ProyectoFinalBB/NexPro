@@ -22,13 +22,13 @@ if (isset($_GET['ruta'])) {
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-
 </head>
+
 <body>
 <div class="container">
 <div class="form-container">
-<button type="button" onclick="window.history.back();" class="boton-retroceder"><img src="../assets/img/retroceso.png"></button>
 <div class="formContenedor">
+    <button type="button" onclick="window.history.back();" class="boton-retroceder"><img src="../assets/img/retroceso.png"></button>
 <?php include($ruta); ?>
 <p id="mensajeResultado"></p>
 </div>

@@ -124,14 +124,15 @@ body::-webkit-scrollbar {
 .formContenedor {
     overflow-y: auto;         
     overflow-x: hidden;        
-    scrollbar-width: none;    
+    scrollbar-width: none;
+    position: relative;
 }
 
 .formContenedor::-webkit-scrollbar {
     display: none;             
 }
 
-
+/*
 .boton-retroceder {
     font-size: 15px;
     margin-right: 15px; 
@@ -139,6 +140,7 @@ body::-webkit-scrollbar {
     left: 5%;
     top: 20%;
 }
+*/
 
 /*Nav menu*/
 
@@ -349,7 +351,6 @@ input:checked + .slider:before {
 
 .form-container {
     text-align: center;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -652,17 +653,12 @@ input:checked + .slider:before {
     box-sizing: border-box; 
 }
 
-
-
-
 .proyecto-item {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
 }
-
-
 
 .proyecto-info h3 {
     margin: 0;
@@ -1280,7 +1276,8 @@ body.dark{
 .titulo-login.dark,
 .titulo-pantalla.dark,
 .dark .nav-link,
-.dark.formulario-registro label {
+.dark.formulario-registro label,
+.dark .formContenedor label {
     color: #ffffff;
 }
 .input-login.dark
@@ -1342,6 +1339,13 @@ body.dark{
 .dark .modal-data ul{
     color: rgb(0, 0, 0);
 }
+
+.dark .input-proyecto{
+    color: white;
+
+}
+
+
 /* ################# Foto de perfil ################# */
 .perfil-info {
     display: flex;
