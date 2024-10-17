@@ -38,8 +38,9 @@ const modalContentSpan = document.querySelector('.modal-content span');
 const modalDataUl = document.querySelector('.modal-data ul');
 const formContenedor = document.querySelectorAll('.formContenedor label');
 const inputProyecto = document.querySelector('.input-proyecto');
+const tagsModalHeader = document.querySelector('.tags-modal-header h3');
 
-const elements = [header, btnFiltersByClass, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados, proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo, ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2, modalContentSpan, modalDataUl, ...formContenedor, inputProyecto,];
+const elements = [header, btnFiltersByClass, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados, proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo, ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2, modalContentSpan, modalDataUl, ...formContenedor, inputProyecto, tagsModal, tagsModalHeader];
 
 function toggleDarkMode() {
     elements.forEach(element => {

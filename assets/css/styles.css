@@ -1345,6 +1345,13 @@ body.dark{
 
 }
 
+.dark .tags-modal{
+    background-color: #232323;
+}
+
+.dark .tags-modal-header h3{
+    color: white;
+}
 
 /* ################# Foto de perfil ################# */
 .perfil-info {
