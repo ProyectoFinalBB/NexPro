@@ -21,6 +21,7 @@ if ($rol === 'alumno'): ?>
     </div>
 
     <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
+    
         <button class="btn-subir" onclick="redirectToView('../views/subirProyectos.php')" >Subir Proyecto</button>
     </div>
     <div class="configuracion">
@@ -96,9 +97,10 @@ if ($rol === 'alumno'): ?>
     </div>
 
     <p><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
-
+    <div class="menubtns">
     <button class="btn-subir" onclick="toggleMenu('controlUsuarios')">Control de Usuarios</button>
     <button class="btn-subir" onclick="toggleMenu('solicitudProyectos')">Solicitudes de Proyectos</button>
+    </div>
 </div>
 
     <div class="configuracion">

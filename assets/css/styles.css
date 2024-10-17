@@ -114,6 +114,12 @@ body::-webkit-scrollbar {
 
 
 /*Extras*/
+.menubtns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 .formContenedor {
     overflow-y: auto;         
