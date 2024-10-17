@@ -20,7 +20,7 @@
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-img">
     </div>
     <div class="search-bar">
-        <button class="btn-filters">Filtros</button>
+        <button class="btn-filters">Tags</button>
         <input type="text" placeholder="Buscar" class="search-input">
         <button class="btn-search">
             <span class="search-icon">🔍</span>

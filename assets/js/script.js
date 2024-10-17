@@ -131,13 +131,13 @@ function ListadoProyectosAceptados() {
                     const listItem = document.createElement('li'); 
                     listItem.className = 'proyecto-item'; 
 
-                    // Icono PDF
+                    
                     const pdfIcon = document.createElement('img');
                     pdfIcon.src = '../assets/img/pdfimg.png'; 
                     pdfIcon.className = 'pdf-icon';
                     listItem.appendChild(pdfIcon);
 
-                    // Información del proyecto
+                   
                     const proyectoInfo = document.createElement('div');
                     proyectoInfo.className = 'proyecto-info';
 
@@ -153,21 +153,19 @@ function ListadoProyectosAceptados() {
                     miembros.textContent = miembrosText;
                     proyectoInfo.appendChild(miembros);
 
-                    // Agregar funcionalidad para mostrar el modal con la información del proyecto
                     listItem.onclick = function() {
                         mostrarModalInicio(proyecto);  
                     };
 
                     listItem.appendChild(proyectoInfo);
 
-                    // Verificar si el usuario es administrador y agregar el botón de eliminar
                     if (userRole === 'administrador') {
                         const eliminarBtn = document.createElement('button');
                         eliminarBtn.textContent = 'Eliminar';
                         eliminarBtn.className = 'btn-eliminar';
 
                         eliminarBtn.onclick = function(e) {
-                            e.stopPropagation(); // Evitar que el evento de clic del listItem se dispare
+                            e.stopPropagation(); 
                             eliminarProyecto(proyecto.id);
                         };
 
@@ -582,4 +580,5 @@ function toggleMenu(menu) {
             });
         });
     });
+    
     
