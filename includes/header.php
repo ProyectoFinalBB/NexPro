@@ -20,12 +20,45 @@
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-img">
     </div>
     <div class="search-bar">
-        <button class="btn-filters">Tags</button>
-        <input type="text" placeholder="Buscar" class="search-input">
-        <button class="btn-search">
-            <span class="search-icon">🔍</span>
-        </button>
+    <button class="btn-filters">Tags</button>
+    <input type="text" placeholder="Buscar" class="search-input">
+    <button class="btn-search">
+        <span class="search-icon">🔍</span>
+    </button>
+</div>
+
+<div class="overlay"></div>
+
+<div class="tags-modal">
+    <div class="tags-modal-header">
+        <h3>Selecciona los Tags</h3>
+        <button class="close-btn">&times;</button>
     </div>
+    <div class="tags-list">
+        <div class="tag-item" data-value="Finanzas">Finanzas</div>
+        <div class="tag-item" data-value="Marketing">Marketing</div>
+        <div class="tag-item" data-value="Ciencia">Ciencia</div>
+        <div class="tag-item" data-value="Tecnología">Tecnología</div>
+        <div class="tag-item" data-value="Programación">Programación</div>
+        <div class="tag-item" data-value="Investigación">Investigación</div>
+        <div class="tag-item" data-value="Ciber seguridad">Ciber seguridad</div>
+        <div class="tag-item" data-value="Videojuegos">Videojuegos</div>
+        <div class="tag-item" data-value="Educación">Educación</div>
+        <div class="tag-item" data-value="Entretenimiento">Entretenimiento</div>
+        <div class="tag-item" data-value="Medios de comunicación">Medios de comunicación</div>
+        <div class="tag-item" data-value="Redes sociales">Redes sociales</div>
+        <div class="tag-item" data-value="Política">Política</div>
+        <div class="tag-item" data-value="Salud">Salud</div>
+        <div class="tag-item" data-value="Nutrición">Nutrición</div>
+        <div class="tag-item" data-value="Deportes">Deportes</div>
+        <div class="tag-item" data-value="Gastronomía">Gastronomía</div>
+        <div class="tag-item" data-value="Transporte">Transporte</div>
+        <div class="tag-item" data-value="Medio ambiente">Medio ambiente</div>
+        <div class="tag-item" data-value="Animales">Animales</div>
+    </div>
+</div>
+
+
     <div class="profile" id="nav-btn">
         <img src="../assets/img/sinIMg.jpg" alt="Perfil" class="profile-img" id="profile-img">
     </div>

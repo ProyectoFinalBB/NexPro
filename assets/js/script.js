@@ -105,10 +105,7 @@ function Listado($ruta) {
 
 // Front
 
-//Listar proyectos Aceptados
-
-
-// Función para obtener el rol del usuario desde el backend usando AJAX
+//obtener rol
 function obtenerRolUsuario() {
     return fetch('../controllers/obtenerRolUsuario.php')
         .then(response => response.json())
@@ -119,6 +116,7 @@ function obtenerRolUsuario() {
         });
 }
 
+//Listar proyectos Aceptados
 function ListadoProyectosAceptados() {
     obtenerRolUsuario().then(userRole => {
         fetch('../controllers/listadoProyectosAceptados.php')
@@ -152,6 +150,14 @@ function ListadoProyectosAceptados() {
                     const miembros = document.createElement('p');
                     miembros.textContent = miembrosText;
                     proyectoInfo.appendChild(miembros);
+
+                    
+                    const tagsHidden = document.createElement('h4');
+                    tagsHidden.className = 'tags-ocultos';
+                    tagsHidden.style.display = 'none'; 
+                    tagsHidden.textContent = proyecto.tags.join(', '); 
+                    listItem.appendChild(tagsHidden); 
+
 
                     listItem.onclick = function() {
                         mostrarModalInicio(proyecto);  
@@ -581,4 +587,85 @@ function toggleMenu(menu) {
         });
     });
     
+    //buscador
+
     
+document.querySelector('.search-input').addEventListener('input', function() {
+    const query = this.value.toLowerCase(); 
+    const proyectos = document.querySelectorAll('.proyecto-item'); 
+
+    proyectos.forEach(function(proyecto) {
+        const titulo = proyecto.querySelector('h3').textContent.toLowerCase(); 
+        const tags = proyecto.querySelector('h4').textContent.toLowerCase(); 
+        const miembros = proyecto.querySelector('p').textContent.toLowerCase();
+        
+
+        
+        if (titulo.includes(query) || miembros.includes(query) || tags.includes(query)) {
+            proyecto.style.display = ''; 
+        } else {
+            proyecto.style.display = 'none'; 
+        }
+    });
+});
+
+const btnFilters = document.querySelector('.btn-filters');
+const tagsModal = document.querySelector('.tags-modal');
+const overlay = document.querySelector('.overlay');
+const closeModalBtn = document.querySelector('.close-btn');
+const tagItems = document.querySelectorAll('.tag-item');
+const searchInput = document.querySelector('.search-input');
+
+
+btnFilters.addEventListener('click', function() {
+    tagsModal.classList.add('show');
+    overlay.classList.add('show');
+});
+
+
+closeModalBtn.addEventListener('click', function() {
+    tagsModal.classList.remove('show');
+    overlay.classList.remove('show');
+});
+
+
+overlay.addEventListener('click', function() {
+    tagsModal.classList.remove('show');
+    overlay.classList.remove('show');
+});
+
+// Agregar tags al campo de búsqueda y deseleccionar el resto
+tagItems.forEach(tag => {
+    tag.addEventListener('click', function() {
+    
+        tagItems.forEach(item => item.classList.remove('selected'));
+
+        const tagValue = tag.getAttribute('data-value');
+        
+    
+        searchInput.value = tagValue;
+        tag.classList.add('selected');
+
+       
+        searchInput.dispatchEvent(new Event('input'));
+    });
+});
+
+// Función de búsqueda
+document.querySelector('.search-input').addEventListener('input', function() {
+    const query = this.value.toLowerCase(); 
+    const proyectos = document.querySelectorAll('.proyecto-item'); 
+    
+    proyectos.forEach(function(proyecto) {
+        const titulo = proyecto.querySelector('h3').textContent.toLowerCase(); 
+        const tags = proyecto.querySelector('h4').textContent.toLowerCase(); 
+        const miembros = proyecto.querySelector('p').textContent.toLowerCase();
+
+    
+        if (titulo.includes(query) || tags.includes(query) || miembros.includes(query)) {
+            proyecto.style.display = ''; 
+        } else {
+            proyecto.style.display = 'none'; 
+        }
+    });
+});
