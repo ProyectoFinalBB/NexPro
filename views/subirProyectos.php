@@ -47,4 +47,4 @@ if (!isset($_SESSION['ci']) || $_SESSION["rol"]!=="alumno") {
 </form>
 <div id="mensajeResultado"></div> 
 <script src="../assets/js/subirProyecto.js"></script>
-
+<script src="../assets/js/darkMode.js"></script>
