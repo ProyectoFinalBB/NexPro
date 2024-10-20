@@ -19,7 +19,7 @@
 
             <h3 class="titulo-login">CAMBIAR CONTRASEÑA</h3>
             <input type="number" id="ci" name="ci" placeholder="CEDULA" class="input-login" minlength="8" maxlength="8"  required>
-            <input type="password" id="olderPass" placeholder="ANTIGUA CONTRASEÑA" class="input-login" required>
+            <input type="password" id="olderPass" placeholder="ANTIGUA CONTRASEÑA" class="input-login"  required>
             <input type="password" id="newPass" placeholder="CONTRASEÑA NUEVA" class="input-login" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
             title="La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y un número.">
             <input type="password" id="newPass2" placeholder="REPITE LA CONTRASEÑA" class="input-login" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
