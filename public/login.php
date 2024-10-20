@@ -44,5 +44,6 @@
 </div>
 <script src="../assets/js/controlLogin.js"></script> 
 <script src="../assets/js/darkMode.js"></script>
+<script src="../assets/js/traduccion.js"></script>
 </body>
 </html>

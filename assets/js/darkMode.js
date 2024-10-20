@@ -41,10 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.classList.add('dark');
             }
         });
-        toggleBtn.checked = true;  
+        if (toggleBtn) {
+            toggleBtn.checked = true;  
+        }
     }
 });
 
-toggleBtn.addEventListener('click', () => {
-    toggleDarkMode();
-});
+
+if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+        toggleDarkMode();
+    });
+} else {
+    console.log("El botón toggle para el tema oscuro no existe en el DOM.");
+}

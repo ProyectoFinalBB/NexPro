@@ -33,7 +33,7 @@ if ($rol === 'alumno'): ?>
         <div class="opcion">
             <span id="inglesTexto">Inglés</span>
             <label class="switch">
-                <input type="checkbox" id="ingles">
+                <input type="checkbox" id="ingles"  >
                 <span class="slider"></span>
             </label>
         </div>
@@ -70,7 +70,7 @@ if ($rol === 'alumno'): ?>
         <div class="opcion">
             <span id="inglesTexto">Inglés</span>
             <label class="switch">
-                <input type="checkbox" id="ingles">
+                <input type="checkbox"  id="ingles" >
                 <span class="slider"></span>
             </label>
         </div>
@@ -111,7 +111,7 @@ if ($rol === 'alumno'): ?>
         <div class="opcion">
             <span id="inglesTexto">Inglés</span>
             <label class="switch">
-                <input type="checkbox" id="ingles">
+                <input type="checkbox" id="ingles" >
                 <span class="slider"></span>
             </label>
         </div>
@@ -121,4 +121,4 @@ if ($rol === 'alumno'): ?>
 <?php endif; ?>
 
 <script src="../assets/js/fotoPerfil.js"></script>
-<script src="../assets/js/traduccion.js"></script>
+

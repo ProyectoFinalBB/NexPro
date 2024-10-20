@@ -45,7 +45,7 @@ if (isset($_GET['ruta'])) {
     </div>
 </div>
 
-<script src="../assets/js/traduccion.js"></script>
+
 
 
 </body>

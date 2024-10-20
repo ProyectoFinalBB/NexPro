@@ -23,4 +23,5 @@
 
     <script src="../assets/js/registrarUsr.js"></script> 
     <script src="../assets/js/darkMode.js"></script>
+    <script src="../assets/js/traduccion.js"></script>
 </body>

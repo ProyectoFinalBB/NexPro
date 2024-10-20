@@ -18,7 +18,6 @@
         "nombresLabel": "NOMBRES",
         "apellidosLabel": "APELLIDOS",
         "cedulaLabel": "CÉDULA",
-        
         "rolEstudiante": "Estudiante",
         "rolProfesor": "Profesor",
         "rolAdministrador": "Administrador",
@@ -69,7 +68,6 @@
         "nombresLabel": "FIRST NAME",
         "apellidosLabel": "LAST NAME",
         "cedulaLabel": "ID",
-        
         "rolEstudiante": "Student",
         "rolProfesor": "Teacher",
         "rolAdministrador": "Administrator",
