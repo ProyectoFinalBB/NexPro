@@ -43,7 +43,7 @@ document.getElementById('ingles').addEventListener('change', function () {
     const idiomaSeleccionado = this.checked ? 'en' : 'es';
     localStorage.setItem('idioma', idiomaSeleccionado); // Guardar en caché
     aplicarTraduccion(idiomaSeleccionado);
-});
+}); 
 
 // Cargar el idioma seleccionado al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
