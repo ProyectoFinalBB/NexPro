@@ -30,7 +30,7 @@ if (isset($_GET['ruta'])) {
 <div class="formContenedor">
     <button type="button" onclick="window.history.back();" class="boton-retroceder"><img src="../assets/img/retroceso.png"></button>
 <?php include($ruta); ?>
-<p id="mensajeResultado"></p>
+<p id="mensajeResultado" class="mensajeResultado"></p>
 </div>
 
 </div>

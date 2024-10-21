@@ -23,7 +23,7 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
         <button type="submit" class="boton-enviar" id="registrarUsrBtn" onclick="registrarUsuario()">Registrar</button>
     </div>
 </form>
-<div id="mensajeResultado"></div> 
+<div id="mensajeResultado" class="mensajeResultado"></div> 
 <script src="../assets/js/registrarUsr.js"></script> 
 <script src="../assets/js/darkMode.js"></script>
 
