@@ -150,11 +150,12 @@ body::-webkit-scrollbar {
 }
 
 .profile-img {
-    height: 40px;
-    width: 40px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     cursor: pointer;
-    margin-right: 40px;
+    margin-right: 50px;
+    
 }
 
 
@@ -1331,7 +1332,8 @@ body.dark{
 }
 
 .dark .modal-content, .dark .modal-pdf-content,
-.dark .modal-content h2, .dark .modal-content span{
+.dark .modal-content h2, .dark .modal-content span,
+.dark .modal-pdf-content span{
     background-color: #1A1A1A;
     color: white;
 }
@@ -1350,6 +1352,11 @@ body.dark{
 }
 
 .dark .tags-modal-header h3{
+    color: white;
+}
+
+.dark .tag-item{
+    background-color:#333;
     color: white;
 }
 
@@ -1546,4 +1553,19 @@ body.dark{
 
 .overlay.show {
     display: block;
+}
+
+.btn-eliminar{
+    background-color: transparent;
+    color: #007BFF;
+    border: 1px solid #007BFF;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+    background-color: #007BFF;
+    color: white;
 }
