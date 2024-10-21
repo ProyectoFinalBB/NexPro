@@ -22,7 +22,15 @@ function aplicarTraduccion(idioma) {
                 'apellidoUsrRegistro': 'apellidosLabel',
                 'ciUsrRegistro': 'cedulaLabel',
                 'rolLabel': 'rolLabel',
-                'registrarUsrBtn': 'registrarUsrBtn'
+                'registrarUsrBtn': 'registrarUsrBtn',
+                'tituloPantalla': 'tituloPantalla',
+                'inNames': 'inNames',
+                'inLastname': 'inLastname',
+                'inCedula': 'inCedula',
+                'rolEstudiante': 'rolEstudiante',
+                'rolProfesor': 'rolProfesor',
+                'rolAdministrador': 'rolAdministrador',
+                'btnGuardarCambios': 'btnGuardarCambios'
             };
 
             

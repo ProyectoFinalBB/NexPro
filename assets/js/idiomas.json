@@ -47,7 +47,12 @@
         "opcionMedioAmbiente": "Medio Ambiente",
         "opcionAnimales": "Animales",
         "tituloRegistro": "Registra un Usuario",
-        "rolLabel": "Rol"
+        "rolLabel": "Rol",
+        "tituloPantalla": "EDITAR UN PERFIL",
+        "inNames": "NOMBRES",
+        "inLastname": "APELLIDOS",
+        "inCedula": "CÉDULA",
+        "btnGuardarCambios": "GUARDAR CAMBIOS"
     },
     "en": {
         "miPerfil": "My Profile",
@@ -97,6 +102,11 @@
         "opcionMedioAmbiente": "Environment",
         "opcionAnimales": "Animals",
         "tituloRegistro": "Register a User",
-        "rolLabel": "Role"
+        "rolLabel": "Role",
+        "tituloPantalla": "EDIT PROFILE",
+        "inNames": "FIRST NAME",
+        "inLastname": "LAST NAME",
+        "inCedula": "ID",
+        "btnGuardarCambios": "SAVE CHANGES"
     }
 }
