@@ -30,7 +30,9 @@ function aplicarTraduccion(idioma) {
                 'rolEstudiante': 'rolEstudiante',
                 'rolProfesor': 'rolProfesor',
                 'rolAdministrador': 'rolAdministrador',
-                'btnGuardarCambios': 'btnGuardarCambios'
+                'btnGuardarCambios': 'btnGuardarCambios',
+                "miembros" : "miembros",
+               "tags" : "tags"
             };
 
             
@@ -56,6 +58,8 @@ if (checkboxIngles) {
         const idiomaSeleccionado = this.checked ? 'en' : 'es';
         localStorage.setItem('idioma', idiomaSeleccionado); 
         aplicarTraduccion(idiomaSeleccionado);
+        ListadoProyectosPendientes();
+        ListadoProyectosAceptados();
     });
 }
 
@@ -67,4 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
         checkboxIngles.checked = (idiomaGuardado === 'en');
     }
     aplicarTraduccion(idiomaGuardado);
+    ListadoProyectosPendientes();
+    ListadoProyectosAceptados();
 });

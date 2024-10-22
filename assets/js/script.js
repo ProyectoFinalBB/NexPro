@@ -106,54 +106,63 @@ function Listado($ruta) {
 // Front
 
 //Listar proyectos Aceptados
-
-
 function ListadoProyectosAceptados() {
-    fetch('../controllers/listadoProyectosAceptados.php')
-    .then(response => response.json())
-    .then(data => {
-        const proyectosList = document.getElementById('proyectosAceptadosList');
-        proyectosList.innerHTML = ''; 
+    // Obtener el idioma guardado en localStorage
+    const idiomaGuardado = (['es', 'en'].includes(localStorage.getItem('idioma'))) ? localStorage.getItem('idioma') : 'es';
 
-        data.forEach(proyecto => {
-            const listItem = document.createElement('li'); 
+    // Cargar las traducciones
+    fetch('../assets/js/idiomas.json')
+        .then(response => response.json())
+        .then(traducciones => {
+            // Hacer la solicitud de los proyectos aceptados
+            fetch('../controllers/listadoProyectosAceptados.php')
+                .then(response => response.json())
+                .then(data => {
+                    const proyectosList = document.getElementById('proyectosAceptadosList');
+                    proyectosList.innerHTML = ''; 
 
-                listItem.className = 'proyecto-item'; 
+                    data.forEach(proyecto => {
+                        const listItem = document.createElement('li'); 
+                        listItem.className = 'proyecto-item'; 
 
-                const pdfIcon = document.createElement('img');
-                pdfIcon.src = '../assets/img/pdfimg.png'; 
-                pdfIcon.className = 'pdf-icon';
-                listItem.appendChild(pdfIcon);
+                        const pdfIcon = document.createElement('img');
+                        pdfIcon.src = '../assets/img/pdfimg.png'; 
+                        pdfIcon.className = 'pdf-icon';
+                        listItem.appendChild(pdfIcon);
 
-        
-                const proyectoInfo = document.createElement('div');
-                proyectoInfo.className = 'proyecto-info';
+                        const proyectoInfo = document.createElement('div');
+                        proyectoInfo.className = 'proyecto-info';
 
-                const proyectoTitulo = document.createElement('h3');
-                proyectoTitulo.textContent = proyecto.titulo;
-                proyectoInfo.appendChild(proyectoTitulo);
+                        const proyectoTitulo = document.createElement('h3');
+                        proyectoTitulo.textContent = proyecto.titulo;
+                        proyectoInfo.appendChild(proyectoTitulo);
 
-                const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
-                    ? `Miembros: ${proyecto.miembros.join(', ')}` 
-                    : 'Miembros: No especificados';
+                        // Traducción de 'Miembros'
+                        const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
+                            ? `${traducciones[idiomaGuardado]['miembros']}: ${proyecto.miembros.join(', ')}` 
+                            : `${traducciones[idiomaGuardado]['miembros']}: No especificados`;
 
-                const miembros = document.createElement('p');
-                miembros.textContent = miembrosText;
-                proyectoInfo.appendChild(miembros);
+                        const miembros = document.createElement('p');
+                        miembros.textContent = miembrosText;
+                        proyectoInfo.appendChild(miembros);
 
-                listItem.appendChild(proyectoInfo);
+                        listItem.appendChild(proyectoInfo);
 
-                listItem.onclick = function() {
-                    mostrarModalInicio(proyecto);  
-                };
+                        listItem.onclick = function() {
+                            mostrarModalInicio(proyecto);  
+                        };
 
-                proyectosList.appendChild(listItem);
-            });
+                        proyectosList.appendChild(listItem);
+                    });
 
-            document.getElementById('proyectosAceptadosList').style.display = 'block';
+                    // Mostrar la lista de proyectos aceptados
+                    document.getElementById('proyectosAceptadosList').style.display = 'block';
+                })
+                .catch(error => console.error('Error al cargar los proyectos:', error));
         })
-        .catch(error => console.error('Error al cargar los proyectos:', error));
+        .catch(error => console.error('Error al cargar las traducciones:', error));
 }
+
 
 
     //Modales
@@ -204,61 +213,68 @@ function ListadoProyectosAceptados() {
 
 // Listar proyectos pendientes 
 function ListadoProyectosPendientes() {
-    fetch('../controllers/listadoSolicitudesProy.php') 
+    // Obtener el idioma guardado en localStorage
+    const idiomaGuardado = (['es', 'en'].includes(localStorage.getItem('idioma'))) ? localStorage.getItem('idioma') : 'es';
+
+    // Cargar las traducciones
+    fetch('../assets/js/idiomas.json')
         .then(response => response.json())
-        .then(data => {
-            const proyectosList = document.getElementById('proyectosPendientesList');
-            proyectosList.innerHTML = '';  
+        .then(traducciones => {
+            // Hacer la solicitud de los proyectos pendientes
+            fetch('../controllers/listadoSolicitudesProy.php') 
+                .then(response => response.json())
+                .then(data => {
+                    const proyectosList = document.getElementById('proyectosPendientesList');
+                    proyectosList.innerHTML = '';  
 
-            data.forEach(proyecto => {
-                const listItem = document.createElement('li');
-                listItem.className = 'proyecto-item';
+                    data.forEach(proyecto => {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'proyecto-item';
 
-               
-                const pdfIcon = document.createElement('img');
-                pdfIcon.src = '../assets/img/pdfimg.png';  
-                pdfIcon.className = 'pdf-icon';
+                        const pdfIcon = document.createElement('img');
+                        pdfIcon.src = '../assets/img/pdfimg.png';  
+                        pdfIcon.className = 'pdf-icon';
+                        listItem.appendChild(pdfIcon);
 
-                listItem.appendChild(pdfIcon);
+                        const proyectoInfo = document.createElement('div');
+                        proyectoInfo.className = 'proyecto-info';
 
-            
-                const proyectoInfo = document.createElement('div');
-                proyectoInfo.className = 'proyecto-info';
+                        const proyectoTitulo = document.createElement('h3');
+                        proyectoTitulo.textContent = proyecto.titulo;
+                        proyectoInfo.appendChild(proyectoTitulo);
 
-                const proyectoTitulo = document.createElement('h3');
-                proyectoTitulo.textContent = proyecto.titulo;
-                proyectoInfo.appendChild(proyectoTitulo);
+                        // Traducción de 'Miembros'
+                        const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
+                            ? `${traducciones[idiomaGuardado]['miembros']}: ${proyecto.miembros.join(', ')}` 
+                            : `${traducciones[idiomaGuardado]['miembros']}: No especificados`;
 
-          
-                const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
-                    ? `Miembros: ${proyecto.miembros.join(', ')}` 
-                    : 'Miembros: No especificados';
+                        const miembros = document.createElement('p');
+                        miembros.textContent = miembrosText;
+                        proyectoInfo.appendChild(miembros);
 
-                const miembros = document.createElement('p');
-                miembros.textContent = miembrosText;
-                proyectoInfo.appendChild(miembros);
+                        // Traducción de 'Etiquetas'
+                        const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
+                            ? `${traducciones[idiomaGuardado]['tags']}: ${proyecto.tags.join(', ')}` 
+                            : `${traducciones[idiomaGuardado]['tags']}: No especificados`;
 
-              
-                const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
-                    ? `Tags: ${proyecto.tags.join(', ')}` 
-                    : 'Tags: No especificados';
+                        const tags = document.createElement('p');
+                        tags.textContent = tagsText;
+                        proyectoInfo.appendChild(tags);
 
-                const tags = document.createElement('p');
-                tags.textContent = tagsText;
-                proyectoInfo.appendChild(tags);
+                        listItem.appendChild(proyectoInfo);
 
-                listItem.appendChild(proyectoInfo);
+                        listItem.onclick = function() {
+                            mostrarModal(proyecto);  
+                        };
 
-                listItem.onclick = function() {
-                    mostrarModal(proyecto);  
-                };
+                        proyectosList.appendChild(listItem);
+                    });
 
-                proyectosList.appendChild(listItem);
-            });
-
-            document.getElementById('proyectosPendientes').style.display = 'block';
+                    document.getElementById('proyectosPendientes').style.display = 'block';
+                })
+                .catch(error => console.error('Error al cargar los proyectos:', error));
         })
-        .catch(error => console.error('Error al cargar los proyectos:', error));
+        .catch(error => console.error('Error al cargar las traducciones:', error));
 }
 
     //Modal proyectos pendientes

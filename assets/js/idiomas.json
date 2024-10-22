@@ -19,7 +19,7 @@
         "apellidosLabel": "APELLIDOS",
         "cedulaLabel": "CÉDULA",
         "rolEstudiante": "Estudiante",
-        "rolProfesor": "Profesor",
+        "rolProfesor": "Educadores",
         "rolAdministrador": "Administrador",
         "guardarCambiosBtn": "GUARDAR CAMBIOS",
         "registrarUsrBtn": "Registrar",
@@ -52,7 +52,9 @@
         "inNames": "NOMBRES",
         "inLastname": "APELLIDOS",
         "inCedula": "CÉDULA",
-        "btnGuardarCambios": "GUARDAR CAMBIOS"
+        "btnGuardarCambios": "GUARDAR CAMBIOS",
+        "miembros": "Miembros",
+        "tags": "Etiquetas"
     },
     "en": {
         "miPerfil": "My Profile",
@@ -65,8 +67,8 @@
         "controlUsuariosBtn": "User Control",
         "solicitudesProyectosBtn": "Project Requests",
         "navEstudiantes": "Students",
-        "navProfesores": "Teachers",
-        "navAdministrador": "Administrator",
+        "navProfesores": "Educators",
+        "navAdministrador": "Administrators",
         "controlUsuariosTitulo": "USER CONTROL",
         "solicitudesProyectosTitulo": "PROJECT REQUESTS",
         "editarPerfilTitulo": "EDIT PROFILE",
@@ -107,6 +109,8 @@
         "inNames": "FIRST NAME",
         "inLastname": "LAST NAME",
         "inCedula": "ID",
-        "btnGuardarCambios": "SAVE CHANGES"
+        "btnGuardarCambios": "SAVE CHANGES",
+         "miembros": "Members",
+        "tags": "Tags"
     }
 }
