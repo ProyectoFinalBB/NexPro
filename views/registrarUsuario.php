@@ -5,7 +5,7 @@
             <div class="logo-boton">
                 <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
             </div>
-            <h2 id="tituloRegistro" class="titulo-pantalla">Registra un Usuario</h2> <!-- Agregado id para traducción -->
+            <h2 id="tituloRegistro" class="titulo-pantalla">Registra un Usuario</h2> 
             <input type="text" id="nombreUsrRegistro" name="nombreUsrRegistro" placeholder="NOMBRES" required class="input-registro">
             <input type="text" id="apellidoUsrRegistro" name="apellidoUsrRegistro" placeholder="APELLIDOS" required class="input-registro"> 
             <input type="text" id="ciUsrRegistro" name="ciUsrRegistro" placeholder="CEDULA" required class="input-registro">

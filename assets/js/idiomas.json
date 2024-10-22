@@ -53,8 +53,10 @@
         "inLastname": "APELLIDOS",
         "inCedula": "CÉDULA",
         "btnGuardarCambios": "GUARDAR CAMBIOS",
-        "miembros": "Miembros",
-        "tags": "Etiquetas"
+        "nombreProyecto": "Nombre del Proyecto",
+        "descProyecto": "Descripción del proyecto",
+        "archivoProyecto": "Adjuntar archivo PDF",
+        "integrantesProyecto": "Etiquetar Integrantes"
     },
     "en": {
         "miPerfil": "My Profile",
@@ -110,7 +112,9 @@
         "inLastname": "LAST NAME",
         "inCedula": "ID",
         "btnGuardarCambios": "SAVE CHANGES",
-         "miembros": "Members",
-        "tags": "Tags"
+        "nombreProyecto": "Project Name",
+        "descProyecto": "Project Description",
+        "archivoProyecto": "Attach PDF File",
+        "integrantesProyecto": "Tag Team Members"
     }
 }
