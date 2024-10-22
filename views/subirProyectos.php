@@ -45,6 +45,6 @@ if (!isset($_SESSION['ci']) || $_SESSION["rol"]!=="alumno") {
         <button type="submit" class="boton-enviar" id="solicitarRevisionBtn">Solicitar Revisión</button>
     </div>
 </form>
-<div id="mensajeResultado"></div> 
+<div id="mensajeResultado" class="mensajeResultado"></div> 
 <script src="../assets/js/subirProyecto.js"></script>
 <script src="../assets/js/darkMode.js"></script>

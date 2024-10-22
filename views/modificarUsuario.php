@@ -23,7 +23,7 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
                 <option value="profesor">Profesor</option>
                 <option value="administrador">Administrador</option>
             </select>
-            <p id="mensajeResultado"></p>
+            <p id="mensajeResultado" class="mensajeResultado"></p>
             <button type="button" onclick="guardarCambios(param)" class="boton-enviar">GUARDAR CAMBIOS</button>
         </form>
     </div>

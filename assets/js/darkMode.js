@@ -44,7 +44,14 @@ const tagItem = document.querySelectorAll('.tag-item');
 const modalPdfContentSpan = document.querySelector('.modal-pdf-content span');
 const menuImg = document.querySelector('.menu-img');
 
-const elements = [header, btnFiltersByClass, body, footer, menu, cerrar, ...btnsubir, ...containerFrases, tituloLogin, botonEnviar, ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro, iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados, proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo, ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2, modalContentSpan, modalDataUl, ...formContenedor, inputProyecto, tagsMModal, tagsModalHeader, ...tagItem, modalPdfContentSpan, menuImg];
+const elements = [header, btnFiltersByClass, body, footer, menu, cerrar,
+ ...btnsubir, ...containerFrases, tituloLogin, botonEnviar,
+ ...inputLogin, headerCTRLUSR, navCTRLUSR, ...inputRegistro, tituloPantalla, formularioRegistro,
+ iconImgCTRLUSR, ...botonRetroceder, cerrarSesion, cambiarContrasenia, headerSoli, proyectosAceptados,
+  proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo,
+   ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2,
+    modalContentSpan, modalDataUl, ...formContenedor, inputProyecto, tagsMModal, tagsModalHeader,
+     ...tagItem, modalPdfContentSpan, menuImg];
 
 function toggleDarkMode() {
     elements.forEach(element => {

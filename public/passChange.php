@@ -25,7 +25,7 @@
             <input type="password" id="newPass2" placeholder="REPITE LA CONTRASEÑA" class="input-login" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
             title="La contraseña debe tener al menos 8 caracteres, incluyendo mayúsculas, minúsculas y un número.">
             <button type="submit" onclick="cambiarContraseña()" class="boton-enviar">CAMBIAR</button>
-            <div id="mensajeResultado"></div> 
+            <div id="mensajeResultado" class="mensajeResultado"></div> 
         </form>
 
 
