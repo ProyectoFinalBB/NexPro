@@ -80,7 +80,6 @@
     </ul>
 </div>
 </div>
-
 <!-- Contenedor del Modal (oculto por defecto) -->
 <div id="modalProyecto" class="modal">
     <div class="modal-content">
@@ -89,8 +88,8 @@
         <div class="modal-body">
             <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon">
             <div class="modal-data">
-                <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
-                <p>MIEMBROS:</p>
+                <p id="nombreProyectoLabel">NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+                <p id="miembrosLabel">MIEMBROS:</p>
                 <ul id="miembrosProyecto"></ul>
             </div>
         </div>
@@ -109,8 +108,8 @@
         <div class="modal-body">
             <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon-inicio">
             <div class="modal-data">
-                <p>NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
-                <p>MIEMBROS:</p>
+                <p id="nombreProyectoInicioLabel">NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
+                <p id="miembrosInicioLabel">MIEMBROS:</p>
                 <ul id="miembrosProyectoInicio"></ul>
             </div>
         </div>

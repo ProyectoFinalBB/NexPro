@@ -57,7 +57,10 @@ function aplicarTraduccion(idioma) {
                 'opcionAnimales': 'opcionAnimales',
                 'archivoProyecto': 'archivoProyecto',
                 'integrantesProyecto': 'integrantesProyecto',
-                'solicitarRevisionBtn': 'solicitarRevisionBtn'
+                'solicitarRevisionBtn': 'solicitarRevisionBtn',
+                "miembros" : "miembros",
+               "tags" : "tags"
+               
             };
 
             
@@ -96,6 +99,5 @@ document.addEventListener('DOMContentLoaded', () => {
         checkboxIngles.checked = (idiomaGuardado === 'en');
     }
     aplicarTraduccion(idiomaGuardado);
-    ListadoProyectosPendientes();
-    ListadoProyectosAceptados();
+
 });
