@@ -112,7 +112,7 @@ function obtenerRolUsuario() {
         .then(data => data.rol)
         .catch(error => {
             console.error('Error al obtener el rol del usuario:', error);
-            return 'guest'; // En caso de error, asumimos que el rol es invitado
+            return 'guest';
         });
 }
 
@@ -187,7 +187,7 @@ function ListadoProyectosAceptados() {
     });
 }
 
-// Función para eliminar el proyecto
+
 function eliminarProyecto(proyectoId) {
     const confirmacion = confirm('¿Estás seguro de que deseas eliminar este proyecto?');
     if (confirmacion) {
@@ -634,7 +634,6 @@ overlay.addEventListener('click', function() {
     overlay.classList.remove('show');
 });
 
-// Agregar tags al campo de búsqueda y deseleccionar el resto
 tagItems.forEach(tag => {
     tag.addEventListener('click', function() {
     

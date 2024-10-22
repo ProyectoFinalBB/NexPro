@@ -1,4 +1,4 @@
-const toggleBtn = document.getElementById('temaOscuro'); // El botón toggle
+const toggleBtn = document.getElementById('temaOscuro'); 
 const header = document.querySelector('.header');
 const btnFiltersByClass = document.querySelector('.btn-filters');
 const body = document.querySelector('body');

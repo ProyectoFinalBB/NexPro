@@ -24,7 +24,7 @@ if(isset($data["registrarUsr"])) {
     if (validarCI($ci)){
         registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_usr);
     } else {
-        echo json_encode(['Cedula invalida']);
+        echo json_encode('Cedula invalida');
     }
 
   
@@ -38,18 +38,18 @@ function registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_us
         $consulta_insertar = "INSERT INTO usuarios (nombrecompleto, ci, contrasenia) VALUES ('$nombreCompleto', '$ci', '$contrasenia')";
         if (mysqli_query($con, $consulta_insertar)) {
             $id_usr = mysqli_insert_id($con);
-            echo json_encode(['Usuario insertado correctamente']);
+            echo json_encode('Usuario insertado correctamente');
             $consulta_insertarRol = "INSERT INTO roles (id_usr, rol) VALUES ('$id_usr', '$rol')";
             if(mysqli_query($con, $consulta_insertarRol)) {
-                echo json_encode(['Rol insertado correctamente']);
+                echo json_encode('Rol insertado correctamente');
             } else {
-                echo json_encode(['Error al insertar el rol']);
+                echo json_encode('Error al insertar el rol');
             }
         } else {
-            echo json_encode([ 'Error al insertar el usuario']);
+            echo json_encode('Error al insertar el usuario');
         }
     } else {
-        echo json_encode(['El usuario ya existe']);
+        echo json_encode('El usuario ya existe');
     }
 }
 

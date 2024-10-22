@@ -1,9 +1,9 @@
 <?php
 session_start();
-include('../includes/conexion.php');  // Incluye la conexión a la base de datos
-$conn = conectar_bd();  // Llama a la función para conectar
+include('../includes/conexion.php');  
+$conn = conectar_bd(); 
 
-// Verificar si la conexión es exitosa
+
 if ($conn === false) {
     echo json_encode([
         'success' => false,
@@ -12,23 +12,23 @@ if ($conn === false) {
     exit();
 }
 
-// Verificar si se recibió el archivo
+
 if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-    $id_usuario = $_SESSION['id_usr'];  // Obtener el ID del usuario desde la sesión
-    $targetDir = "../uploads/img/";     // Directorio de destino
+    $id_usuario = $_SESSION['id_usr'];  
+    $targetDir = "../uploads/img/";  
     $fileName = basename($_FILES['image']['name']);
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
-    // Validar tipo de archivo
+    
     $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
     if (in_array(strtolower($fileType), $allowedTypes)) {
-        // Validar dimensiones de la imagen
+        
         list($width, $height) = getimagesize($_FILES['image']['tmp_name']);
         if ($width <= 1000 && $height <= 1000) {
-            // Subir el archivo al servidor
+            
             if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFilePath)) {
-                // Guardar la ruta en la base de datos
+               
                 $ruta_img = "../uploads/img/" . $fileName;
                 $sql = "UPDATE usuarios SET ruta_img = ? WHERE id_usr = ?";
                 $stmt = $conn->prepare($sql);
@@ -71,5 +71,5 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
     ]);
 }
 
-$conn->close();  // Cierra la conexión a la base de datos
+$conn->close(); 
 ?>
