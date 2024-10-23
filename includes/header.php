@@ -88,7 +88,7 @@
         <div class="modal-body">
             <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon">
             <div class="modal-data">
-                <p id="nombreProyectoLabel">NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+                <p id="nombreProyectoLabel">NOMBRE DEL PROYECTO: </p> <span id="nombreProyecto"></span>
                 <p id="miembrosLabel">MIEMBROS:</p>
                 <ul id="miembrosProyecto"></ul>
             </div>
@@ -108,7 +108,7 @@
         <div class="modal-body">
             <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon" id="pdf-icon-inicio">
             <div class="modal-data">
-                <p id="nombreProyectoInicioLabel">NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
+                <p id="nombreProyectoInicioLabel">NOMBRE DEL PROYECTO: </p> <span id="nombreProyectoInicio"></span>
                 <p id="miembrosInicioLabel">MIEMBROS:</p>
                 <ul id="miembrosProyectoInicio"></ul>
             </div>

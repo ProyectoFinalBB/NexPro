@@ -314,6 +314,8 @@ function mostrarModal(proyecto) {
         mostrarPDF(proyecto.ruta);  
     };
 
+
+
     const miembrosList = document.getElementById('miembrosProyecto');
     miembrosList.innerHTML = ''; 
 

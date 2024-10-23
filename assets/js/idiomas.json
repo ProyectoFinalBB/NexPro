@@ -55,12 +55,17 @@
         "archivoProyecto": "Archivo del Proyecto",
         "integrantesProyecto": "Integrantes del Proyecto",
         "solicitarRevisionBtn": "Solicitar Revisión",
-        "tags" : "Tas",
+        "tags" : "Tags",
         "miembros" : "Miembros",
-        "modalProyectoTitulo" : "Visualización del Proyecto",
         "aprobarBtn" : "Aprobar",
-        "rechazarBtn" : "denegar",
-        "nombreProyectoLabel" : " jsasj"
+        "rechazarBtn" : "Denegar",
+        "nombreProyectoLabel" : "NOMBRE DEL PROYECTO:",
+        "miembrosInicioLabel":"MIEMBROS",
+        "nombreProyectoInicioLabel": "NOMBRE DEL PROYECTO",
+        "modalProyectoInicioTitulo" : "Visualización del Proyecto",
+        "miembrosLabel":"MIEMBROS",
+        "modalProyectoTitulo" :"Visualización del Proyecto"
+        
     },
     "en": {
         "miPerfil": "My Profile",
@@ -118,11 +123,18 @@
         "archivoProyecto": "Project File",
         "integrantesProyecto": "Project Members",
         "solicitarRevisionBtn": "Request Review",
-        "tags" : "Tas",
+        "tags" : "Tags",
           "miembros" : "Members",
-          "aprobarBtn" : "approve",
-          "rechazarBtn" : "denied",
-           "nombreProyectoLabel" : "jsasj"
+          "aprobarBtn" : "Approve",
+          "rechazarBtn" : "Denied",
+           "nombreProyectoLabel" : "NAME PROJECT",
+            "miembrosInicioLabel":"MEMBERS",
+            "nombreProyectoInicioLabel": "NAME PROJECT",
+            "modalProyectoInicioTitulo" : "Project View",
+             "miembrosLabel":"MEMBERS",
+"modalProyectoTitulo" : "Project View"
+             
+            
         
     }
 }

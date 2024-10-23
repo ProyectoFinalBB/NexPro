@@ -59,8 +59,16 @@ function aplicarTraduccion(idioma) {
                 'integrantesProyecto': 'integrantesProyecto',
                 'solicitarRevisionBtn': 'solicitarRevisionBtn',
                 "miembros" : "miembros",
-               "tags" : "tags"
-               
+               "tags" : "tags",
+               "miembrosInicioLabel" : "miembrosInicioLabel",
+               "modalProyectoInicioTitulo": "modalProyectoInicioTitulo",
+               "nombreProyectoInicioLabel":"nombreProyectoInicioLabel",
+               "nombreProyectoLabel" : "nombreProyectoLabel",
+               "miembrosLabel": "miembrosLabel",
+               "modalProyectoTitulo":"modalProyectoTitulo",
+               "aprobarBtn" : "aprobarBtn",
+               "rechazarBtn":"rechazarBtn"
+              
             };
 
             
