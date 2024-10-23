@@ -460,14 +460,13 @@ input:checked + .slider:before {
     position: relative;
 }
 
-.logoCTRLUSR img{
-    width: 130px;
-    height: auto;
+.logo-imgCTRLUSR {
+    width: 45%;
+  height: auto;
 }
 
-.logo-imgCTRLUSR {
-    width: 55%;
-  height: auto;
+.logo-imgCTRLUSR:hover {
+    cursor: pointer;
 }
 
 .titleCTRLUSR {
@@ -856,15 +855,16 @@ input:checked + .slider:before {
         justify-content: center;
         text-align: center;
         margin-bottom: 10px;
-
         width: 100%; 
         display: flex; 
+        cursor: pointer; 
     }
 
     .logo-imgCTRLUSR {
         width: 40%; 
         height: auto;
     }
+    
  
     .titleCTRLUSR {
         position: static; 
