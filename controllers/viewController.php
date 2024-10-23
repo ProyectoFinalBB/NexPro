@@ -41,7 +41,7 @@ if (isset($_GET['ruta'])) {
         <img src="../assets/img/bannerUtu.png" alt="Banner UTU" class="banner-utu">
         </div>
 
-        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2">
+        <img src="../assets/img/frases.png" alt="Frase motivacional" class="logo2" id="logoFrase">
     </div>
 </div>
 

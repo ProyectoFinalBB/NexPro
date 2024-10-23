@@ -3,6 +3,7 @@ function aplicarTraduccion(idioma) {
         .then(response => response.json())
         .then(traducciones => {
             const elementos = {
+                // Los elementos de texto
                 'miPerfil': 'miPerfil',
                 'subirProyectoBtn': 'subirProyectoBtn',
                 'temaOscuroTexto': 'temaOscuroTexto',
@@ -58,20 +59,19 @@ function aplicarTraduccion(idioma) {
                 'archivoProyecto': 'archivoProyecto',
                 'integrantesProyecto': 'integrantesProyecto',
                 'solicitarRevisionBtn': 'solicitarRevisionBtn',
-                "miembros" : "miembros",
-               "tags" : "tags",
-               "miembrosInicioLabel" : "miembrosInicioLabel",
-               "modalProyectoInicioTitulo": "modalProyectoInicioTitulo",
-               "nombreProyectoInicioLabel":"nombreProyectoInicioLabel",
-               "nombreProyectoLabel" : "nombreProyectoLabel",
-               "miembrosLabel": "miembrosLabel",
-               "modalProyectoTitulo":"modalProyectoTitulo",
-               "aprobarBtn" : "aprobarBtn",
-               "rechazarBtn":"rechazarBtn"
-              
+                'miembros': 'miembros',
+                'tags': 'tags',
+                'miembrosInicioLabel': 'miembrosInicioLabel',
+                'modalProyectoInicioTitulo': 'modalProyectoInicioTitulo',
+                'nombreProyectoInicioLabel': 'nombreProyectoInicioLabel',
+                'nombreProyectoLabel': 'nombreProyectoLabel',
+                'miembrosLabel': 'miembrosLabel',
+                'modalProyectoTitulo': 'modalProyectoTitulo',
+                'aprobarBtn': 'aprobarBtn',
+                'rechazarBtn': 'rechazarBtn'
             };
 
-            
+            // Actualiza textos de los elementos
             Object.keys(elementos).forEach(id => {
                 const elem = document.getElementById(id);
                 if (elem) {
@@ -83,9 +83,19 @@ function aplicarTraduccion(idioma) {
                     }
                 }
             });
+
+            const logoFrase = document.getElementById("logoFrase");
+            if (logoFrase) {
+                if (idioma === 'en') {
+                    logoFrase.src = '../assets/img/estudiar.png';
+                } else {
+                    logoFrase.src = '../assets/img/frases.png';
+                }
+            }
         })
         .catch(error => console.error('Error cargando el archivo de traducciones:', error));
 }
+
 
 
 const checkboxIngles = document.getElementById('ingles');
