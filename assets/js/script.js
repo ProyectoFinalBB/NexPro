@@ -24,11 +24,11 @@ function redirectToView(ruta, param) {
 function deleteUser(userId) {
     console.log('Deleting user', userId);
 
- 
-    if (!confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
+    // Usar la función confirmarEliminacion que maneja el idioma
+    if (!confirmarEliminacion()) {
         return; 
     }
-    
+
     var datos = {
         userId: userId,
         eliminarUsr: "eliminarUsr"
@@ -50,6 +50,28 @@ function deleteUser(userId) {
         console.error('Error:', error);
         document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante la eliminación.";
     });
+}
+
+function confirmarEliminacion() {
+    const idioma = localStorage.getItem('idioma') || 'es'; // Por defecto a español
+    const mensajes = {
+        es: "¿Estás seguro de que deseas eliminar este usuario?",
+        en: "Are you sure you want to delete this user?"
+    };
+    return confirm(mensajes[idioma]);
+}
+
+function confirmarModificación() {
+    const idioma = localStorage.getItem('idioma') || 'es'; // Por defecto a español
+    const mensajes = {
+        es: "¿Estás seguro de que deseas modificar este usuario?",
+        en: "Are you sure you want to modify this user?"
+    };
+    return confirm(mensajes[idioma]);
+}
+
+function esMovil() {
+    return window.innerWidth <= 768; 
 }
 
 
@@ -413,19 +435,7 @@ function mostrarModal(proyecto) {
 
 
     
-//menues
-
-
-function confirmarEliminacion() {
-    return confirm("¿Estás seguro de que deseas eliminar este usuario?");
-}
-function confirmarModificación() {
-    return confirm("¿Estás seguro de que deseas modificar este usuario?");
-}
-function esMovil() {
-    return window.innerWidth <= 768; 
-}
-
+//menu
 function abrirMenu() {
     const menuPerfil = document.getElementById('menuPerfil');
     if (esMovil()) {
