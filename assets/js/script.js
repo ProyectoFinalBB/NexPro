@@ -24,11 +24,11 @@ function redirectToView(ruta, param) {
 function deleteUser(userId) {
     console.log('Deleting user', userId);
 
- 
-    if (!confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
+    // Usar la función confirmarEliminacion que maneja el idioma
+    if (!confirmarEliminacion()) {
         return; 
     }
-    
+
     var datos = {
         userId: userId,
         eliminarUsr: "eliminarUsr"
@@ -50,6 +50,28 @@ function deleteUser(userId) {
         console.error('Error:', error);
         document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante la eliminación.";
     });
+}
+
+function confirmarEliminacion() {
+    const idioma = localStorage.getItem('idioma') || 'es'; // Por defecto a español
+    const mensajes = {
+        es: "¿Estás seguro de que deseas eliminar este usuario?",
+        en: "Are you sure you want to delete this user?"
+    };
+    return confirm(mensajes[idioma]);
+}
+
+function confirmarModificación() {
+    const idioma = localStorage.getItem('idioma') || 'es'; // Por defecto a español
+    const mensajes = {
+        es: "¿Estás seguro de que deseas modificar este usuario?",
+        en: "Are you sure you want to modify this user?"
+    };
+    return confirm(mensajes[idioma]);
+}
+
+function esMovil() {
+    return window.innerWidth <= 768; 
 }
 
 
@@ -268,61 +290,68 @@ function eliminarProyecto(proyectoId) {
 
 // Listar proyectos pendientes 
 function ListadoProyectosPendientes() {
-    fetch('../controllers/listadoSolicitudesProy.php') 
+    // Obtener el idioma guardado en localStorage
+    const idiomaGuardado = (['es', 'en'].includes(localStorage.getItem('idioma'))) ? localStorage.getItem('idioma') : 'es';
+
+    // Cargar las traducciones
+    fetch('../assets/js/idiomas.json')
         .then(response => response.json())
-        .then(data => {
-            const proyectosList = document.getElementById('proyectosPendientesList');
-            proyectosList.innerHTML = '';  
+        .then(traducciones => {
+            // Hacer la solicitud de los proyectos pendientes
+            fetch('../controllers/listadoSolicitudesProy.php') 
+                .then(response => response.json())
+                .then(data => {
+                    const proyectosList = document.getElementById('proyectosPendientesList');
+                    proyectosList.innerHTML = '';  
 
-            data.forEach(proyecto => {
-                const listItem = document.createElement('li');
-                listItem.className = 'proyecto-item';
+                    data.forEach(proyecto => {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'proyecto-item';
 
-               
-                const pdfIcon = document.createElement('img');
-                pdfIcon.src = '../assets/img/pdfimg.png';  
-                pdfIcon.className = 'pdf-icon';
+                        const pdfIcon = document.createElement('img');
+                        pdfIcon.src = '../assets/img/pdfimg.png';  
+                        pdfIcon.className = 'pdf-icon';
+                        listItem.appendChild(pdfIcon);
 
-                listItem.appendChild(pdfIcon);
+                        const proyectoInfo = document.createElement('div');
+                        proyectoInfo.className = 'proyecto-info';
 
-            
-                const proyectoInfo = document.createElement('div');
-                proyectoInfo.className = 'proyecto-info';
+                        const proyectoTitulo = document.createElement('h3');
+                        proyectoTitulo.textContent = proyecto.titulo;
+                        proyectoInfo.appendChild(proyectoTitulo);
 
-                const proyectoTitulo = document.createElement('h3');
-                proyectoTitulo.textContent = proyecto.titulo;
-                proyectoInfo.appendChild(proyectoTitulo);
+                        
+                        const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
+                            ? `${traducciones[idiomaGuardado]['miembros']}: ${proyecto.miembros.join(', ')}` 
+                            : `${traducciones[idiomaGuardado]['miembros']}: No especificados`;
 
-          
-                const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
-                    ? `Miembros: ${proyecto.miembros.join(', ')}` 
-                    : 'Miembros: No especificados';
+                        const miembros = document.createElement('p');
+                        miembros.textContent = miembrosText;
+                        proyectoInfo.appendChild(miembros);
 
-                const miembros = document.createElement('p');
-                miembros.textContent = miembrosText;
-                proyectoInfo.appendChild(miembros);
+                        
+                        const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
+                            ? `${traducciones[idiomaGuardado]['tags']}: ${proyecto.tags.join(', ')}` 
+                            : `${traducciones[idiomaGuardado]['tags']}: No especificados`;
 
-              
-                const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
-                    ? `Tags: ${proyecto.tags.join(', ')}` 
-                    : 'Tags: No especificados';
+                        const tags = document.createElement('p');
+                        tags.textContent = tagsText;
+                        proyectoInfo.appendChild(tags);
 
-                const tags = document.createElement('p');
-                tags.textContent = tagsText;
-                proyectoInfo.appendChild(tags);
+                        listItem.appendChild(proyectoInfo);
 
-                listItem.appendChild(proyectoInfo);
+                        listItem.onclick = function() {
+                            mostrarModal(proyecto);  
+                        };
 
-                listItem.onclick = function() {
-                    mostrarModal(proyecto);  
-                };
+                        proyectosList.appendChild(listItem);
+                    });
 
-                proyectosList.appendChild(listItem);
-            });
-
-            document.getElementById('proyectosPendientes').style.display = 'block';
+                    document.getElementById('proyectosPendientes').style.display = 'block';
+                })
+                .catch(error => console.error('Error al cargar los proyectos:', error));
         })
-        .catch(error => console.error('Error al cargar los proyectos:', error));
+        .catch(error => console.error('Error al cargar las traducciones:', error));
 }
 
     //Modal proyectos pendientes
@@ -474,19 +503,7 @@ tagsProyectos.appendChild(tags);
 
 
     
-//menues
-
-
-function confirmarEliminacion() {
-    return confirm("¿Estás seguro de que deseas eliminar este usuario?");
-}
-function confirmarModificación() {
-    return confirm("¿Estás seguro de que deseas modificar este usuario?");
-}
-function esMovil() {
-    return window.innerWidth <= 768; 
-}
-
+//menu
 function abrirMenu() {
     const menuPerfil = document.getElementById('menuPerfil');
     if (esMovil()) {

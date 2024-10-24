@@ -34,16 +34,8 @@ if ($result->num_rows > 0) {
         }
 
     
-        $sqlCreador = "SELECT nombrecompleto FROM usuarios WHERE id_usr = ?";
-        $stmtCreador = $conn->prepare($sqlCreador);
-        $stmtCreador->bind_param('i', $row['id_usr_creador']);
-        $stmtCreador->execute();
-        $stmtCreador->bind_result($nombreCreador);
-        if ($stmtCreador->fetch()) {
-           
-            array_unshift($integrantesNombres, "Creador: " . $nombreCreador);
-        }
-        $stmtCreador->close();
+
+   
 
         $tags = explode(',', $row['tags']);
 

@@ -41,7 +41,7 @@ if ($result->num_rows > 0) {
         $stmtCreador->bind_result($nombreCreador);
         if ($stmtCreador->fetch()) {
            
-            array_unshift($integrantesNombres, "Creador: " . $nombreCreador);
+            array_unshift($integrantesNombres, "Creador/Creator: " . $nombreCreador);
         }
         $stmtCreador->close();
 

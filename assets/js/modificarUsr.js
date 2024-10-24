@@ -55,22 +55,22 @@ document.getElementById("inLastname").value = apellido;
 
         document.getElementById("inCedula").value = data.ci;
         document.getElementById("inRol").value = data.rol;
-        console.log(data.rol);
+        
 
-        // Asignar la imagen de perfil 
+       
     
-        console.log(data);
+     
     })
     .catch(error => {
         console.error('Error:', error);
         document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
     });
 }
-console.log("tamo activo")
+
 
 function guardarCambios(id) {
 
-console.log(id = parseInt(id));
+
 
 
     const nombre = document.getElementById("inNames").value;
@@ -92,7 +92,7 @@ console.log(id = parseInt(id));
         ci: ci,
         rol: rol
     };
-    console.log(datos)
+ 
 
     
     fetch('../controllers/modificarUsuario.php', {

@@ -13,7 +13,7 @@ const inputLogin = document.querySelectorAll('.input-login');
 const headerCTRLUSR = document.querySelector('.headerCTRLUSR');
 const navCTRLUSR = document.querySelector('.navCTRLUSR');
 const inputRegistro = document.querySelectorAll('.input-registro');
-const tituloPantalla = document.querySelector('.titulo-pantalla');
+const tituloPantalla = document.querySelector('.titulo-pantalla'); 
 const formularioRegistro = document.querySelector('.formulario-registro');
 const iconImgCTRLUSR = document.querySelector('.icon-imgCTRLUSR');
 const botonRetroceder = document.querySelectorAll('.boton-retroceder img');
@@ -76,10 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.classList.add('dark');
             }
         });
-        toggleBtn.checked = true;  
+        if (toggleBtn) {
+            toggleBtn.checked = true;  
+        }
     }
 });
 
-toggleBtn.addEventListener('click', () => {
-    toggleDarkMode();
-});
+
+if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+        toggleDarkMode();
+    });
+} else {
+    console.log("El botón toggle para el tema oscuro no existe en el DOM.");
+}
