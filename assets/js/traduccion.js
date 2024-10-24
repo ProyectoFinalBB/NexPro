@@ -9,7 +9,7 @@ function aplicarTraduccion(idioma) {
                 'temaOscuroTexto': 'temaOscuroTexto',
                 'inglesTexto': 'inglesTexto',
                 'cerrarSesionBtn': 'cerrarSesionBtn',
-                'filtrosBtn': 'filtrosBtn',
+                'btn-filters': 'btn-filters',
                 'buscarInput': 'buscarInput',
                 'controlUsuariosBtn': 'controlUsuariosBtn',
                 'solicitudesProyectosBtn': 'solicitudesProyectosBtn',

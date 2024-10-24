@@ -38,7 +38,7 @@ if ($rol === 'alumno'): ?>
             </label>
         </div>
     </div>
-    <button id="cerrarSesionBtn" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
+    <button id="cerrarSesionBtn3" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
 </div>
 <?php elseif ($rol === 'profesor'): ?>
 <div id="menuPerfil" class="menu">
@@ -75,7 +75,7 @@ if ($rol === 'alumno'): ?>
             </label>
         </div>
     </div>
-    <button id="cerrarSesionBtn" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
+    <button id="cerrarSesionBtn2" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
 </div>
 <?php elseif ($rol === 'administrador'): ?>
 <div id="menuPerfil" class="menu">
@@ -117,7 +117,7 @@ if ($rol === 'alumno'): ?>
             </label>
         </div>
     </div>
-    <button id="cerrarSesionBtn" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
+    <button id="cerrarSesionBtn1" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
 </div>
 <?php endif; ?>
 
