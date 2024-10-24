@@ -91,6 +91,8 @@
                 <p id="nombreProyectoLabel">NOMBRE DEL PROYECTO: </p> <span id="nombreProyecto"></span>
                 <p id="miembrosLabel">MIEMBROS:</p>
                 <ul id="miembrosProyecto"></ul>
+                <p>Tags</p>
+                <p id="tagsModalPendientes"></p>
             </div>
         </div>
         <div class="modal-footer">

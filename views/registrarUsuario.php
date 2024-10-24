@@ -9,7 +9,7 @@
             <input type="text" id="nombreUsrRegistro" name="nombreUsrRegistro" placeholder="NOMBRES" required class="input-registro">
             <input type="text" id="apellidoUsrRegistro" name="apellidoUsrRegistro" placeholder="APELLIDOS" required class="input-registro"> 
             <input type="text" id="ciUsrRegistro" name="ciUsrRegistro" placeholder="CEDULA" required class="input-registro">
-            <label for="rol">Rol</label>
+            <label for="rol" id="rolLabel">Rol</label>
             <select id="rolRegistro" name="rolRegistro" required>
                 <option value="administrador">Administrador</option>
                 <option value="alumno">Alumno</option>

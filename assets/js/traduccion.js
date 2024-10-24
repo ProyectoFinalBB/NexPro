@@ -68,7 +68,8 @@ function aplicarTraduccion(idioma) {
                 'miembrosLabel': 'miembrosLabel',
                 'modalProyectoTitulo': 'modalProyectoTitulo',
                 'aprobarBtn': 'aprobarBtn',
-                'rechazarBtn': 'rechazarBtn'
+                'rechazarBtn': 'rechazarBtn',
+                "rolLabel": "rolLabel"
             };
 
             // Actualiza textos de los elementos

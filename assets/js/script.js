@@ -265,7 +265,7 @@ function ListadoProyectosPendientes() {
                         proyectoTitulo.textContent = proyecto.titulo;
                         proyectoInfo.appendChild(proyectoTitulo);
 
-                        // Traducción de 'Miembros'
+                        
                         const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
                             ? `${traducciones[idiomaGuardado]['miembros']}: ${proyecto.miembros.join(', ')}` 
                             : `${traducciones[idiomaGuardado]['miembros']}: No especificados`;
@@ -274,7 +274,7 @@ function ListadoProyectosPendientes() {
                         miembros.textContent = miembrosText;
                         proyectoInfo.appendChild(miembros);
 
-                        // Traducción de 'Etiquetas'
+                        
                         const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
                             ? `${traducciones[idiomaGuardado]['tags']}: ${proyecto.tags.join(', ')}` 
                             : `${traducciones[idiomaGuardado]['tags']}: No especificados`;
@@ -314,8 +314,6 @@ function mostrarModal(proyecto) {
         mostrarPDF(proyecto.ruta);  
     };
 
-
-
     const miembrosList = document.getElementById('miembrosProyecto');
     miembrosList.innerHTML = ''; 
 
@@ -330,6 +328,15 @@ function mostrarModal(proyecto) {
         listItem.textContent = 'Miembros: No especificados';
         miembrosList.appendChild(listItem);
     }
+    
+
+    const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
+    ? `${traducciones[idiomaGuardado]['tags']}: ${proyecto.tags.join(', ')}` 
+    : `${traducciones[idiomaGuardado]['tags']}: No especificados`;
+
+const tags = document.getElementById('tagsModalPendientes');
+tags.textContent = tagsText;
+
 
     const aprobarBtn = document.getElementById('aprobarBtn');
     const rechazarBtn = document.getElementById('rechazarBtn');
