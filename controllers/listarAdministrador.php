@@ -15,7 +15,7 @@ $mysqli = conectar_bd();
 $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci 
         FROM usuarios 
         INNER JOIN roles ON usuarios.id_usr = roles.id_usr 
-        WHERE roles.rol = 'administrador'";
+        WHERE roles.rol = 'administrador' AND usuarios.id_usr != 1";
 
 $result = $mysqli->query($sql);
 
