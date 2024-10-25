@@ -10,7 +10,7 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
 </div>
     <h2 class="titulo-pantalla">EDITAR UN PERFIL</h2>
-    <img class="profile-image" src="../assets/img/PerfilM.png" alt="User Image">
+    <img class="profile-image" id="fotoUsrEdit" src="" alt="User Image">
     <div class="user-info" id="user-info"></div>
 
         <form >

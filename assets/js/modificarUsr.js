@@ -53,6 +53,14 @@ document.getElementById("inNames").value = nombre;
 document.getElementById("inLastname").value = apellido;
         document.getElementById("user-info").innerText = data.nombrecompleto;
 
+        if (data.ruta_img && data.ruta_img !== null) {
+            document.getElementById('fotoUsrEdit').src = data.ruta_img;
+        } else {
+            document.getElementById('fotoUsrEdit').src = "../assets/img/sinImg.jpg";
+        }
+        
+
+        
         document.getElementById("inCedula").value = data.ci;
         document.getElementById("inRol").value = data.rol;
         console.log(data.rol);
