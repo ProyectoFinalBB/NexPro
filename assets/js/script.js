@@ -60,6 +60,14 @@ function Listado($ruta) {
     .then(data => {
         const userList = document.getElementById('userList');
         userList.innerHTML = ''; 
+
+        if (data.length === 0) {
+            const noUsersMessage = document.createElement('p');
+            noUsersMessage.textContent = 'No hay usuarios para mostrar';
+            noUsersMessage.className = 'noUsuarios'; 
+            userList.appendChild(noUsersMessage);
+        } else {
+
         data.forEach(user => {
             const listItem = document.createElement('div');
             listItem.className = 'user-item';
@@ -87,21 +95,12 @@ function Listado($ruta) {
 
             userList.appendChild(listItem);
         });
-
+        }
         document.getElementById('userData').style.display = 'block';
     })
     .catch(error => console.error('Error:', error));
 }
 
-
-
-
-
-
-
-
-
-    
 
 // Front
 

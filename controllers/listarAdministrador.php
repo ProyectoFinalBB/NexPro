@@ -34,4 +34,6 @@ if ($result) {
 $mysqli->close();
 
 echo json_encode($users);
+
 ?>
+

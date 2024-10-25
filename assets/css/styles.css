@@ -532,6 +532,10 @@ input:checked + .slider:before {
     color: #1d72b8;
 }
 
+.noUsuarios {
+    color: red;
+    text-align: center;
+}
 
 /* ############################### Registrar usuarios ###############################*/
 .formulario-registro {

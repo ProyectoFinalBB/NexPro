@@ -87,7 +87,13 @@
         <ul class="nav-listCTRLUSR">
             <li class="nav-item active"><a href="#" onclick="Listado('../controllers/listarEstudiante.php')" class="nav-link">Estudiantes</a></li>
             <li class="nav-item"><a href="#" onclick="Listado('../controllers/listarProfesor.php')" class="nav-link" >Profesores</a></li>
-            <li class="nav-item"><a href="#" onclick="Listado('../controllers/listarAdministrador.php')" class="nav-link">Administrador</a></li>
+            
+            <?php if (isset($_SESSION['id_usr']) && $_SESSION['id_usr'] == 1): ?>
+            <li class="nav-item">
+             <a href="#" onclick="Listado('../controllers/listarAdministrador.php')" class="nav-link">Administrador</a>
+             </li>
+            <?php endif; ?>
+            
         </ul>
     </nav>
     <div id="userData">
@@ -126,6 +132,8 @@
 
             <div class="modal-data">
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+            <p>DESCRIPCIÓN:</p>
+            <ul id="descripcionProyecto"></ul>
             <p>MIEMBROS:</p>
             <ul id="miembrosProyecto"></ul>
             <p>Tags Seleccionados:</p>
@@ -150,6 +158,8 @@
 
             <div class="modal-data">
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
+            <p>DESCRIPCIÓN:</p>
+            <ul id="descripcionProyecto"></ul>
             <p>MIEMBROS:</p>
             <ul id="miembrosProyectoInicio"></ul>
             </div>
