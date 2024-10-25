@@ -15,12 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
         window.onclick = function(event) {
             const modalProyectoInicio = document.getElementById('modalProyectoInicio');
             const modalProyecto = document.getElementById('modalProyecto');
+            const modalPDF = document.getElementById("modalPDF");
     
             if (event.target == modalProyectoInicio) {
                 cerrarModalInicio();
             }
             if (event.target == modalProyecto) {
                 cerrarModal();
+            }
+            if (event.target == modalPDF) {
+                cerrarModalPDF();
             }
         };
     
@@ -94,6 +98,7 @@ function deleteUser(userId) {
     .then(data => {
         console.log(data.message); 
         document.getElementById("mensajeResultado").innerText = data.message;
+        
     })
     .catch(error => {
         console.error('Error:', error);
