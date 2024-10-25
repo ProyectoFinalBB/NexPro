@@ -77,11 +77,10 @@ function redirectToView(ruta, param) {
 function deleteUser(userId) {
     console.log('Deleting user', userId);
 
- 
     if (!confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
-        return; 
+        return;
     }
-    
+
     var datos = {
         userId: userId,
         eliminarUsr: "eliminarUsr"
@@ -90,21 +89,47 @@ function deleteUser(userId) {
     fetch('../controllers/eliminarUsuario.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json' 
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(datos) 
+        body: JSON.stringify(datos)
     })
-    .then(response => response.json()) 
+    .then(response => response.json())
     .then(data => {
-        console.log(data.message); 
-        document.getElementById("mensajeResultado").innerText = data.message;
-        
+        console.log(data.message);
+
+       
+        if (data.status === 'success') {
+            let rutaListado = '';
+
+            
+            console.log('Rol recibido:', data.rol);
+
+            
+            switch(data.rol.trim().toLowerCase()) {
+                case 'alumno':
+                    rutaListado = '../controllers/listarEstudiante.php';
+                    break;
+                case 'profesor':
+                    rutaListado = '../controllers/listarProfesor.php';
+                    break;
+                case 'administrador':
+                    rutaListado = '../controllers/listarAdministrador.php';
+                    break;
+                default:
+                    console.error('Rol desconocido:', data.rol);
+                    return;
+            }
+
+            
+            Listado(rutaListado);
+        }
     })
     .catch(error => {
         console.error('Error:', error);
-        document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante la eliminación.";
     });
 }
+
+
 
 
 
