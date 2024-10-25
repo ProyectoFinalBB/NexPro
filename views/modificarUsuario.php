@@ -27,6 +27,5 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"]!=="administrador") {
             <button type="button" onclick="guardarCambios(param)" class="boton-enviar">GUARDAR CAMBIOS</button>
         </form>
     </div>
-
     <script src="../assets/js/modificarUsr.js" ></script>
     <script src="../assets/js/darkMode.js"></script>

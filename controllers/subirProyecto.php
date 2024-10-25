@@ -12,25 +12,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $archivoProyecto = $_FILES['archivoProyecto']; 
     $id_usr_creador = $_SESSION['id_usr'];  
 
-   
-    if (empty($titulo) || empty($descripcion) || empty($archivoProyecto['name'])) {
+    // Validar que el título y la descripción no estén vacíos
+    if (empty($titulo) || empty($descripcion)) {
         echo "Por favor, completa todos los campos requeridos.";
         exit;
     }
 
-    
+    // Validar que los tags estén seleccionados
+    if (empty($tags) || !is_array($tags)) {
+        echo "Por favor, selecciona al menos un tag.";
+        exit;
+    }
+
+    // Validar que se haya subido un archivo PDF
+    if (empty($archivoProyecto['name'])) {
+        echo "Por favor, sube un archivo PDF.";
+        exit;
+    }
+
+    // Validar el tipo y tamaño del archivo PDF
     if ($archivoProyecto['type'] !== 'application/pdf') {
         echo "Solo se permiten archivos PDF.";
         exit;
     }
 
-   
     if ($archivoProyecto['size'] > 5000000) {
         echo "El archivo es demasiado grande. El límite es de 5MB.";
         exit;
     }
 
-    
+    // Comprobar si el nombre del proyecto ya existe
     $query = "SELECT COUNT(*) as count FROM proyectos WHERE titulo = ?";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 's', $titulo);
@@ -45,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     mysqli_stmt_close($stmt);
 
-    
     $uploadDir = '../uploads/pdfs/';
     $uploadFile = $uploadDir . basename($archivoProyecto['name']);
 
@@ -54,10 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    
     $integrantes[] = $id_usr_creador;  
     $integrantesStr = implode(",", array_map('intval', $integrantes));  
 
+    // Verificar si el usuario ya tiene un proyecto pendiente o aceptado
     $query = "SELECT estado FROM proyectos WHERE id_usr_creador IN ($integrantesStr) OR id_integrantes REGEXP ?";
     $regexp = implode('|', array_map('intval', $integrantes)); 
 
@@ -75,14 +85,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     mysqli_stmt_close($stmt);
 
-
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true); 
     }
 
-
+    // Subir el archivo
     if (move_uploaded_file($archivoProyecto['tmp_name'], $uploadFile)) {
-      
+        // Preparar los datos para insertar en la base de datos
         $tagsStr = implode(",", $tags);
         $integrantesStr = implode(",", $integrantes);  
 

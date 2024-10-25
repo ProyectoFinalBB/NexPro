@@ -78,9 +78,23 @@ console.log(id = parseInt(id));
     const ci = document.getElementById("inCedula").value;
     const rol = document.getElementById("inRol").value;
 
-  
+    //limites de caracteres para modificar un usuario
+       const limiteNombre = 50;
+       const limiteApellido = 50;
+   
+
+    // Expresión regular para permitir solo letras (incluye letras con acentos y espacios)
+    const soloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+    // Verificar si los campos están vacíos
     if (!nombre || !apellido || !ci || !rol || !id) {
         document.getElementById("mensajeResultado").innerText = "Todos los campos son obligatorios.";
+        return;
+    }
+
+    // Verificar si el nombre y apellido contienen solo letras
+    if (!soloLetras.test(nombre) || !soloLetras.test(apellido)) {
+        document.getElementById("mensajeResultado").innerText = "El nombre y el apellido solo pueden contener letras.";
         return;
     }
 

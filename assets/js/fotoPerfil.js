@@ -1,4 +1,3 @@
-
 function cargarImagenPerfil() {
     const profileImage = document.getElementById('profileImage');
     const menuProfileimg = document.getElementById('profile-img');
@@ -47,24 +46,24 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                             document.getElementById('profileImage').src = data.imagePath;
                             
                             cargarImagenPerfil(); 
-                            alert('Imagen subida exitosamente.');
+                            mostrarNotificacion('Imagen subida exitosamente.');
                         } else {
-                            alert('Error al subir la imagen: ' + data.message);
+                            mostrarNotificacion('Error al subir la imagen: ' + data.message, true);
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        alert('Ocurrió un error al subir la imagen.');
+                        mostrarNotificacion('Ocurrió un error al subir la imagen.',  true);
                     });
                 } else {
-                    alert('Las dimensiones de la imagen deben ser menores de 1000x1000 píxeles.');
+                    mostrarNotificacion('Las dimensiones de la imagen deben ser menores de 1000x1000 píxeles.', true);
                 }
             };
         };
 
         reader.readAsDataURL(file);
     } else {
-        alert('Por favor, selecciona una imagen válida.');
+        mostrarNotificacion('Por favor, selecciona una imagen válida.', true);
     }
 });
 
