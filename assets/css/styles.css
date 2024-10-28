@@ -1167,6 +1167,11 @@ input:checked + .slider:before {
     border: none;
 }
 
+#miembrosProyecto li span{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
 
 @keyframes fadeIn {
     from { opacity: 0; }
