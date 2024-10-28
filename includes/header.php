@@ -133,7 +133,7 @@
             <div class="modal-data">
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
             <p>DESCRIPCIÓN:</p>
-            <ul id="descripcionProyecto"></ul>
+            <p id="descripcionProyect"></p>
             <p>MIEMBROS:</p>
             <ul id="miembrosProyecto"></ul>
             <p>Tags Seleccionados:</p>
@@ -159,7 +159,7 @@
             <div class="modal-data">
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyectoInicio"></span></p>
             <p>DESCRIPCIÓN:</p>
-            <ul id="descripcionProyecto"></ul>
+            <p id="descripcionProyecto"></p>
             <p>MIEMBROS:</p>
             <ul id="miembrosProyectoInicio"></ul>
             </div>

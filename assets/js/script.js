@@ -224,6 +224,9 @@ function eliminarProyecto(proyectoId) {
         function mostrarModalInicio(proyecto) {
    
             document.getElementById('nombreProyectoInicio').textContent = proyecto.titulo;
+
+            document.getElementById('descripcionProyecto').textContent = proyecto.descripcion || "Descripción no disponible";
+
             pdfIcon = document.getElementById('pdf-icon-inicio')
             pdfIcon.onclick = function() {
                             
@@ -273,6 +276,13 @@ function ListadoProyectosPendientes() {
             const proyectosList = document.getElementById('proyectosPendientesList');
             proyectosList.innerHTML = '';  
 
+            if (data.length === 0) {
+                const noProjectMessage = document.createElement('p');
+                noProjectMessage.textContent = 'No hay proyectos para mostrar';
+                noProjectMessage.className = 'noUsuarios'; 
+                proyectosList.appendChild(noProjectMessage);
+            } else {
+
             data.forEach(proyecto => {
                 const listItem = document.createElement('li');
                 listItem.className = 'proyecto-item';
@@ -318,7 +328,7 @@ function ListadoProyectosPendientes() {
 
                 proyectosList.appendChild(listItem);
             });
-
+            }
             document.getElementById('proyectosPendientes').style.display = 'block';
         })
         .catch(error => console.error('Error al cargar los proyectos:', error));
@@ -339,6 +349,8 @@ function mostrarModal(proyecto) {
                     
         mostrarPDF(proyecto.ruta);  
     };
+
+    document.getElementById('descripcionProyect').textContent = proyecto.descripcion || "Descripción no disponible";
 
     const miembrosList = document.getElementById('miembrosProyecto');
     miembrosList.innerHTML = ''; 
