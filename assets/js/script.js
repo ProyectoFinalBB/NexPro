@@ -24,51 +24,54 @@ function redirectToView(ruta, param) {
 function deleteUser(userId) {
     console.log('Deleting user', userId);
 
-    // Usar la función confirmarEliminacion que maneja el idioma
-    if (!confirmarEliminacion()) {
-        return; 
-    }
-
-    var datos = {
-        userId: userId,
-        eliminarUsr: "eliminarUsr"
-    };
-
-    fetch('../controllers/eliminarUsuario.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(datos) 
-    })
-    .then(response => response.json()) 
-    .then(data => {
-        console.log(data.message); 
-        document.getElementById("mensajeResultado").innerText = data.message;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante la eliminación.";
-    });
-}
-
-function confirmarEliminacion() {
     const idioma = localStorage.getItem('idioma') || 'es'; // Por defecto a español
     const mensajes = {
         es: "¿Estás seguro de que deseas eliminar este usuario?",
         en: "Are you sure you want to delete this user?"
     };
-    return confirm(mensajes[idioma]);
+
+    // Usar la función mostrarConfirmacion con el mensaje traducido
+    mostrarConfirmacion(mensajes[idioma], (confirmado) => {
+        if (!confirmado) {
+            return; 
+        }
+
+        var datos = {
+            userId: userId,
+            eliminarUsr: "eliminarUsr"
+        };
+
+        fetch('../controllers/eliminarUsuario.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(datos) 
+        })
+        .then(response => {
+            if (!response.ok) {
+                // Si la respuesta no es exitosa, lanzar un error
+                throw new Error('Error en la respuesta del servidor');
+            }
+            return response.json();
+        })
+        .then(data => {
+       
+            if (data.status === 'success') {
+                mostrarNotificacion(idioma === 'es' ? "Usuario eliminado correctamente." : "User deleted successfully.", false);
+            } else {
+                mostrarNotificacion(idioma === 'es' ? "Ocurrió un error durante la eliminación." : "An error occurred during deletion.", true);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            mostrarNotificacion(idioma === 'es' ? "Ocurrió un error durante la eliminación." : "An error occurred during deletion.", true); 
+        });
+    });
 }
 
-function confirmarModificación() {
-    const idioma = localStorage.getItem('idioma') || 'es'; // Por defecto a español
-    const mensajes = {
-        es: "¿Estás seguro de que deseas modificar este usuario?",
-        en: "Are you sure you want to modify this user?"
-    };
-    return confirm(mensajes[idioma]);
-}
+
+
 
 function esMovil() {
     return window.innerWidth <= 768; 
