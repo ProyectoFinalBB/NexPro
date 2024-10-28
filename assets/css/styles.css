@@ -1,24 +1,15 @@
-/* body */
-
-
 body {
     margin: 0;          
     padding: 0;             
     width: 100%;            
     height: 100%;           
-
 }
-
-
-
-
 
 body::-webkit-scrollbar {
     display: none;
 }
 
 /*Header*/
-
 
 .inicioConten {
     display: flex;
@@ -46,7 +37,6 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: center;
     width: 100%;
-
 }
 
 .boton-retroceder {
@@ -92,7 +82,11 @@ body::-webkit-scrollbar {
     outline: none;
     font-size: 16px;
     padding-right: 40px; 
+    width: 250px;
+    transition: border-color 0.3s ease;
 }
+
+
 
 
 .btn-search {
@@ -658,12 +652,6 @@ input:checked + .slider:before {
     box-sizing: border-box; 
 }
 
-.proyecto-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-}
 
 .proyecto-info h3 {
     margin: 0;
@@ -1037,8 +1025,6 @@ input:checked + .slider:before {
 }
 
 /*Modales*/
-
-/* Estilo general para los modales */
 .modal, .modal-pdf {
     display: none;
     position: fixed;
@@ -1051,7 +1037,6 @@ input:checked + .slider:before {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Estilo de la caja del contenido del modal */
 .modal-content {
     background-color: #fff;
     margin: 10% auto; 
@@ -1074,7 +1059,6 @@ input:checked + .slider:before {
     animation: fadeIn 0.4s ease;
 }
 
-/* Botón de cierre del modal */
 .close, .closeI, .close-pdf {
     color: #333;
     float: right;
@@ -1087,14 +1071,12 @@ input:checked + .slider:before {
     color: #ff5a5a;
 }
 
-/* Encabezado del modal */
 .modal-content h2, .modal-pdf-content h2 {
     font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Cuerpo del modal */
 .modal-body {
     display: flex;
     align-items: center;
@@ -1125,7 +1107,6 @@ input:checked + .slider:before {
     font-size: 16px;
 }
 
-/* Estilo del footer (botones) */
 .modal-footer {
     display: flex;
     justify-content: flex-end;
@@ -1159,7 +1140,6 @@ input:checked + .slider:before {
     background-color: #d73833;
 }
 
-/* Estilo para el modal PDF */
 .modal-pdf-content {
     width: 90%;
     max-width: 800px;
@@ -1458,7 +1438,6 @@ body.dark{
 
 
 /*Tags buscador*/
-/* Estilo para la barra de búsqueda */
 
 
 .search-input:focus {
@@ -1470,21 +1449,6 @@ body.dark{
     background-color: #0056b3;
 }
 
-/* Estilo para el modal de tags */
-/* Estilo para la barra de búsqueda */
-
-.search-input {
-    padding: 8px;
-    width: 250px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.search-input:focus {
-    border-color: #007BFF;
-}
 
 .btn-filters {
     background-color: transparent;
@@ -1501,7 +1465,6 @@ body.dark{
     color: white;
 }
 
-/* Estilo para el modal de tags */
 .tags-modal {
     position: fixed;
     top: 50%;
@@ -1590,7 +1553,6 @@ body.dark{
     display: block;
 }
 
-/* Estilo para los alerts*/
 .notificacion {
     position: fixed;
     top: 20px;

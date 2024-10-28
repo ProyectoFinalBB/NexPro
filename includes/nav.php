@@ -19,7 +19,7 @@ if ($rol === 'alumno'): ?>
         </button>
     </div>
 
-    <p id="nombreUsuario"><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
+    <p id="nombreUsuario"><?php echo $nombre; ?></p> 
         <button id="subirProyectoBtn" class="btn-subir" onclick="redirectToView('../views/subirProyectos.php')">Subir Proyecto</button>
     </div>
     <div class="configuracion">
@@ -57,7 +57,7 @@ if ($rol === 'alumno'): ?>
         </button>
     </div>
 
-    <p id="nombreUsuario"><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
+    <p id="nombreUsuario"><?php echo $nombre; ?></p> 
     </div>
     <div class="configuracion">
         <div class="opcion">
@@ -94,7 +94,7 @@ if ($rol === 'alumno'): ?>
         </button>
     </div>
 
-    <p id="nombreUsuario"><?php echo $nombre; ?></p> <!-- Aquí se muestra el nombre dinámico -->
+    <p id="nombreUsuario"><?php echo $nombre; ?></p>
     <div class="menubtns">
     <button class="btn-subir" onclick="toggleMenu('controlUsuarios')">Control de Usuarios</button>
     <button class="btn-subir" onclick="toggleMenu('solicitudProyectos')">Solicitudes de Proyectos</button>

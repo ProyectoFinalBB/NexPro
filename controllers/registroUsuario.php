@@ -20,20 +20,18 @@ if (isset($data["registrarUsr"])) {
     $contrasenia = $ci;
     $nombreCompleto = $nombre . " " . $apellido;
 
-    // límites de caracteres
+   
     $limiteNombre = 50; 
     $limiteApellido = 50;
 
   
     $soloLetras = "/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/";
 
-    // Validar que nombre y apellido solo contengan letras
     if (!preg_match($soloLetras, $nombre) || !preg_match($soloLetras, $apellido)) {
         echo json_encode(['error' => 'El nombre y el apellido solo pueden contener letras.']);
         exit();
     }
 
-    // vValidar que el nombre y el apellido no excedan de caracteres
     if (strlen($nombre) > $limiteNombre || strlen($apellido) > $limiteApellido) {
         echo json_encode(['error' => 'El nombre o apellido exceden el límite de caracteres.']);
         exit();

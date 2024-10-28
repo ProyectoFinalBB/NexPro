@@ -24,7 +24,7 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"] !== "administrador") {
         </select>
 
         <p id="mensajeResultado" class="mensajeResultado"></p>
-        <button type="button" onclick="guardarCambios(param)" id="btnGuardarCambios" class="boton-enviar">GUARDAR CAMBIOS</button> <!-- Agregado id="btnGuardarCambios" -->
+        <button type="button" onclick="guardarCambios(param)" id="btnGuardarCambios" class="boton-enviar">GUARDAR CAMBIOS</button>
     </form>
 </div>
 

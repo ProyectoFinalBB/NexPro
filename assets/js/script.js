@@ -24,13 +24,12 @@ function redirectToView(ruta, param) {
 function deleteUser(userId) {
     console.log('Deleting user', userId);
 
-    const idioma = localStorage.getItem('idioma') || 'es'; // Por defecto a español
+    const idioma = localStorage.getItem('idioma') || 'es'; 
     const mensajes = {
         es: "¿Estás seguro de que deseas eliminar este usuario?",
         en: "Are you sure you want to delete this user?"
     };
 
-    // Usar la función mostrarConfirmacion con el mensaje traducido
     mostrarConfirmacion(mensajes[idioma], (confirmado) => {
         if (!confirmado) {
             return; 
@@ -50,7 +49,7 @@ function deleteUser(userId) {
         })
         .then(response => {
             if (!response.ok) {
-                // Si la respuesta no es exitosa, lanzar un error
+               
                 throw new Error('Error en la respuesta del servidor');
             }
             return response.json();
@@ -295,14 +294,13 @@ function eliminarProyecto(proyectoId) {
 
 // Listar proyectos pendientes 
 function ListadoProyectosPendientes() {
-    // Obtener el idioma guardado en localStorage
+  
     const idiomaGuardado = (['es', 'en'].includes(localStorage.getItem('idioma'))) ? localStorage.getItem('idioma') : 'es';
 
-    // Cargar las traducciones
     fetch('../assets/js/idiomas.json')
         .then(response => response.json())
         .then(traducciones => {
-            // Hacer la solicitud de los proyectos pendientes
+         
             fetch('../controllers/listadoSolicitudesProy.php') 
                 .then(response => response.json())
                 .then(data => {
@@ -612,6 +610,14 @@ function toggleMenu(menu) {
     //buscador
 
     
+    const btnFilters = document.getElementById("btn-filters");
+    const tagsModal = document.querySelector('.tags-modal');
+    const overlay = document.querySelector('.overlay');
+    const closeModalBtn = document.querySelector('.close-btn');
+    const tagItems = document.querySelectorAll('.tag-item');
+    const searchInput = document.querySelector('.search-input');
+
+
 document.querySelector('.search-input').addEventListener('input', function() {
     const query = this.value.toLowerCase(); 
     const proyectos = document.querySelectorAll('.proyecto-item'); 
@@ -631,12 +637,7 @@ document.querySelector('.search-input').addEventListener('input', function() {
     });
 });
 
-const btnFilters = document.getElementById("btn-filters");
-const tagsModal = document.querySelector('.tags-modal');
-const overlay = document.querySelector('.overlay');
-const closeModalBtn = document.querySelector('.close-btn');
-const tagItems = document.querySelectorAll('.tag-item');
-const searchInput = document.querySelector('.search-input');
+
 
 
 btnFilters.addEventListener('click', function() {
@@ -672,27 +673,9 @@ tagItems.forEach(tag => {
     });
 });
 
-// Función de búsqueda
-document.querySelector('.search-input').addEventListener('input', function() {
-    const query = this.value.toLowerCase(); 
-    const proyectos = document.querySelectorAll('.proyecto-item'); 
-    
-    proyectos.forEach(function(proyecto) {
-        const titulo = proyecto.querySelector('h3').textContent.toLowerCase(); 
-        const tags = proyecto.querySelector('h4').textContent.toLowerCase(); 
-        const miembros = proyecto.querySelector('p').textContent.toLowerCase();
-
-    
-        if (titulo.includes(query) || tags.includes(query) || miembros.includes(query)) {
-            proyecto.style.display = ''; 
-        } else {
-            proyecto.style.display = 'none'; 
-        }
-    });
-});
 
 
-// Función estilo para alerts
+
 
 function mostrarNotificacion(mensaje, esError = false) {
     const notificacion = document.createElement('div');
@@ -701,12 +684,11 @@ function mostrarNotificacion(mensaje, esError = false) {
 
     document.body.appendChild(notificacion);
 
-    // Mostrar la notificación
+   
     setTimeout(() => {
         notificacion.classList.add('mostrar');
-     }, 10); // Para que la animación funcione
+     }, 10); 
 
-    // Ocultar la notificación después de 3 segundos
     setTimeout(() => {
         notificacion.classList.remove('mostrar');
         notificacion.addEventListener('transitionend', () => {
@@ -715,7 +697,6 @@ function mostrarNotificacion(mensaje, esError = false) {
     }, 3000);
 }
 
-//función para mostrar la confirmación
 function mostrarConfirmacion(mensaje, callback) {
     const modal = document.getElementById('confirmacionModal');
     const mensajeElement = document.getElementById('mensajeConfirmacion');

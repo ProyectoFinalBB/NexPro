@@ -3,7 +3,7 @@ function aplicarTraduccion(idioma) {
         .then(response => response.json())
         .then(traducciones => {
             const elementos = {
-                // Los elementos de texto
+            
                 'miPerfil': 'miPerfil',
                 'subirProyectoBtn': 'subirProyectoBtn',
                 'temaOscuroTexto': 'temaOscuroTexto',
@@ -72,7 +72,7 @@ function aplicarTraduccion(idioma) {
                 "rolLabel": "rolLabel"
             };
 
-            // Actualiza textos de los elementos
+     
             Object.keys(elementos).forEach(id => {
                 const elem = document.getElementById(id);
                 if (elem) {

@@ -36,7 +36,7 @@
         
         <input type="file" id="archivoProyecto" name="archivoProyecto" accept=".pdf" required class="input-proyecto"> 
         
-        <input type="text" id="integrantesProyecto" name="integrantesProyecto" placeholder="Etiquetar Integrantes" class="input-proyecto"> <!-- id ya presente -->
+        <input type="text" id="integrantesProyecto" name="integrantesProyecto" placeholder="Etiquetar Integrantes" class="input-proyecto"> 
         
         <ul id="resultadosIntegrantes" class="resultados-integrantes"></ul> 
         

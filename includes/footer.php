@@ -10,8 +10,9 @@
 </footer>
 
 
-<script src="../assets/js/script.js"></script>
+
 <script src="../assets/js/darkMode.js"></script>
 <script src="../assets/js/traduccion.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

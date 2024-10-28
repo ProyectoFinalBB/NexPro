@@ -7,8 +7,7 @@
     <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css"> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
 
 </head>
 <body>
@@ -102,7 +101,6 @@
 </div>
 </div>
 
-<!-- Modal de Confirmación -->
 <div id="confirmacionModal" class="confirmacion-modal" style="display: none;">
     <div class="confirmacion-contenido">
         <p id="mensajeConfirmacion"></p>
@@ -111,7 +109,6 @@
     </div>
 </div>
 
-<script src="../assets/js/subirProyecto.js"></script>
 
 <div class="menuSolicitudProyectos" id="menuSolicitudProyectos">
 <header class="headerSoli">
@@ -127,7 +124,7 @@
     </ul>
 </div>
 </div>
-<!-- Contenedor del Modal (oculto por defecto) -->
+
 <div id="modalProyecto" class="modal">
     <div class="modal-content">
         <span class="close" id="closeModalProyecto">&times;</span>
@@ -151,7 +148,6 @@
     </div>
 </div>
 
-<!-- Contenedor del Modal INICIO (oculto por defecto) -->
 <div id="modalProyectoInicio" class="modal">
     <div class="modal-content">
         <span class="closeI" id="closeModalProyectoInicio">&times;</span>

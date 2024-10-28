@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchEnabled: true,
     });
 
-    // Agregar eventos
+   
     document.getElementById('formularioProyecto').addEventListener('submit', enviarProyecto);
     document.getElementById('integrantesProyecto').addEventListener('input', buscarIntegrantes);
 });
