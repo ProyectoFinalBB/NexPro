@@ -1,15 +1,68 @@
-
-   document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+    // Configuración inicial
     document.getElementById('header').style.display = 'flex';
     document.getElementById('menuCTRLUsuario').style.display = 'none';
     document.getElementById('menuSolicitudProyectos').style.display = 'none';
-    document.getElementById('userData').style.display = 'none'; 
-    Listado('../controllers/listarEstudiante.php')
-    ListadoProyectosPendientes()
-    ListadoProyectosAceptados()
+    document.getElementById('userData').style.display = 'none';
+    
+    // Inicializar los listados
+    Listado('../controllers/listarEstudiante.php');
+    ListadoProyectosPendientes();
+    ListadoProyectosAceptados();
 
-
+    
+        // Cerrar modales al hacer clic fuera de ellos
+        window.onclick = function(event) {
+            const modalProyectoInicio = document.getElementById('modalProyectoInicio');
+            const modalProyecto = document.getElementById('modalProyecto');
+            const modalPDF = document.getElementById("modalPDF");
+    
+            if (event.target == modalProyectoInicio) {
+                cerrarModalInicio();
+            }
+            if (event.target == modalProyecto) {
+                cerrarModal();
+            }
+            if (event.target == modalPDF) {
+                cerrarModalPDF();
+            }
+        };
+    
+    // Cerrar el menú cuando se haga clic fuera de él
+    document.addEventListener('click', function(event) {
+        const menuPerfil = document.getElementById('menuPerfil');
+        const navBtn = document.getElementById('nav-btn');
+        
+        // Verificar si el clic ocurrió fuera del menú y del botón de navegación
+        if (!menuPerfil.contains(event.target) && !navBtn.contains(event.target)) {
+            cerrarMenu(); // Cerrar el menú si se hace clic fuera de él
+        }
+    });
 });
+
+// Función para abrir el menú
+function abrirMenu() {
+    const menuPerfil = document.getElementById('menuPerfil');
+    if (esMovil()) {
+        menuPerfil.classList.add('menu-abierto-movil');
+        menuPerfil.classList.remove('menu-cerrado-movil');
+    } else {
+        menuPerfil.classList.add('menu-abierto-pc');
+        menuPerfil.classList.remove('menu-cerrado-pc');
+    }
+}
+
+// Función para cerrar el menú
+function cerrarMenu() {
+    const menuPerfil = document.getElementById('menuPerfil');
+    if (esMovil()) {
+        menuPerfil.classList.add('menu-cerrado-movil');
+        menuPerfil.classList.remove('menu-abierto-movil');
+    } else {
+        menuPerfil.classList.add('menu-cerrado-pc');
+        menuPerfil.classList.remove('menu-abierto-pc');
+    }
+}
 
 function redirectToView(ruta, param) {
     const baseURL = '../controllers/viewController.php?param='+param;
@@ -58,6 +111,33 @@ function deleteUser(userId) {
        
             if (data.status === 'success') {
                 mostrarNotificacion(idioma === 'es' ? "Usuario eliminado correctamente." : "User deleted successfully.", false);
+
+                
+            let rutaListado = '';
+
+            
+            console.log('Rol recibido:', data.rol);
+
+            
+            switch(data.rol.trim().toLowerCase()) {
+                case 'alumno':
+                    rutaListado = '../controllers/listarEstudiante.php';
+                    break;
+                case 'profesor':
+                    rutaListado = '../controllers/listarProfesor.php';
+                    break;
+                case 'administrador':
+                    rutaListado = '../controllers/listarAdministrador.php';
+                    break;
+                default:
+                    console.error('Rol desconocido:', data.rol);
+                    return;
+            }
+
+            
+            Listado(rutaListado);
+        
+
             } else {
                 mostrarNotificacion(idioma === 'es' ? "Ocurrió un error durante la eliminación." : "An error occurred during deletion.", true);
             }
@@ -75,6 +155,15 @@ function deleteUser(userId) {
 function esMovil() {
     return window.innerWidth <= 768; 
 }
+
+
+
+
+function esMovil() {
+    return window.innerWidth <= 768; 
+}
+
+
 
 
 

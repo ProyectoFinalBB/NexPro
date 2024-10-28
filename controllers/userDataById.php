@@ -16,7 +16,7 @@ $input = json_decode(file_get_contents('php://input'), true);
 if (isset($input['userId'])) {
     $userId = intval($mysqli->real_escape_string($input['userId']));
 
-    $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci, roles.rol
+    $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto, usuarios.ci, usuarios.ruta_img , roles.rol
             FROM usuarios 
             INNER JOIN roles ON usuarios.id_usr = roles.id_usr
             WHERE usuarios.id_usr = '$userId'";

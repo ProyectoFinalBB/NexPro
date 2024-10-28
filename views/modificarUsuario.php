@@ -9,7 +9,7 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"] !== "administrador") {
         <img src="../assets/img/logo.png" alt="NexPro Logo" class="logo-nexpro">
     </div>
     <h2 id="tituloPantalla" class="titulo-pantalla">EDITAR UN PERFIL</h2> 
-    <img class="profile-image" src="../assets/img/PerfilM.png" alt="User Image">
+    <img class="profile-image" id="fotoUsrEdit" src="" alt="User Image">
     <div class="user-info" id="user-info"></div>
 
     <form>
@@ -27,6 +27,10 @@ if (!isset($_SESSION['ci']) && $_SESSION["rol"] !== "administrador") {
         <button type="button" onclick="guardarCambios(param)" id="btnGuardarCambios" class="boton-enviar">GUARDAR CAMBIOS</button>
     </form>
 </div>
+    <button type="button" onclick="restablecerContrasenia(param)" class="boton-enviar">Restablecer contraseña</button>
+    <div>
+
+    </div>
 
 <script src="../assets/js/modificarUsr.js"></script>
 <script src="../assets/js/darkMode.js"></script>
