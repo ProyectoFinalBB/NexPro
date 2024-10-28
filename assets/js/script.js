@@ -211,18 +211,19 @@ function ListadoProyectosAceptados() {
 
 
 function eliminarProyecto(proyectoId) {
-    const confirmacion = confirm('¿Estás seguro de que deseas eliminar este proyecto?');
-    if (confirmacion) {
-    
+    mostrarConfirmacion('¿Estás seguro de que deseas eliminar este proyecto?', (confirmado) => {
+        if (!confirmado) {
+            return; 
+        }
+
         fetch(`../controllers/eliminarProyecto.php`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',  
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ id: proyectoId }) 
+            body: JSON.stringify({ id: proyectoId })
         })
         .then(response => {
-            
             if (!response.ok) {
                 throw new Error('Error en la respuesta del servidor');
             }
@@ -230,15 +231,16 @@ function eliminarProyecto(proyectoId) {
         })
         .then(data => {
             if (data.status === 'success') {
-                alert(data.message);  
-                ListadoProyectosAceptados();  
+                mostrarNotificacion(data.message);
+                ListadoProyectosAceptados();
             } else {
-                alert(data.message);  
+                mostrarNotificacion(data.message);
             }
         })
         .catch(error => console.error('Error al eliminar el proyecto:', error));
-    }
+    });
 }
+
 
 
 
@@ -436,11 +438,11 @@ tagsProyectos.appendChild(tags);
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Proyecto aceptado exitosamente');
+                    mostrarNotificacion('Proyecto aceptado exitosamente');
                     ListadoProyectosPendientes(); 
                     ListadoProyectosAceptados();
                 } else {
-                    alert('Error al aceptar el proyecto');
+                    mostrarNotificacion('Error al aceptar el proyecto', true);
                 }
             })
             .catch(error => console.error('Error:', error));
@@ -457,10 +459,10 @@ tagsProyectos.appendChild(tags);
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Proyecto denegado exitosamente');
+                    mostrarNotificacion('Proyecto denegado exitosamente');
                     ListadoProyectosPendientes(); 
                 } else {
-                    alert('Error al denegar el proyecto');
+                    mostrarNotificacion('Error al denegar el proyecto', true);
                 }
             })
             .catch(error => console.error('Error:', error));
@@ -685,3 +687,49 @@ document.querySelector('.search-input').addEventListener('input', function() {
         }
     });
 });
+
+
+// Función estilo para alerts
+
+function mostrarNotificacion(mensaje, esError = false) {
+    const notificacion = document.createElement('div');
+    notificacion.className = `notificacion ${esError ? 'error' : ''}`; 
+    notificacion.textContent = mensaje;
+
+    document.body.appendChild(notificacion);
+
+    // Mostrar la notificación
+    setTimeout(() => {
+        notificacion.classList.add('mostrar');
+     }, 10); // Para que la animación funcione
+
+    // Ocultar la notificación después de 3 segundos
+    setTimeout(() => {
+        notificacion.classList.remove('mostrar');
+        notificacion.addEventListener('transitionend', () => {
+            notificacion.remove();
+        });
+    }, 3000);
+}
+
+//función para mostrar la confirmación
+function mostrarConfirmacion(mensaje, callback) {
+    const modal = document.getElementById('confirmacionModal');
+    const mensajeElement = document.getElementById('mensajeConfirmacion');
+    const btnConfirmar = document.getElementById('btnConfirmar');
+    const btnCancelar = document.getElementById('btnCancelar');
+
+    mensajeElement.textContent = mensaje; 
+    modal.style.display = 'flex';
+
+    btnConfirmar.onclick = () => {
+        modal.style.display = 'none'; 
+        callback(true); 
+    };
+
+
+    btnCancelar.onclick = () => {
+        modal.style.display = 'none';
+        callback(false);
+    };
+}

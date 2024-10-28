@@ -99,6 +99,17 @@
 </div>
 </div>
 
+<!-- Modal de Confirmación -->
+<div id="confirmacionModal" class="confirmacion-modal" style="display: none;">
+    <div class="confirmacion-contenido">
+        <p id="mensajeConfirmacion"></p>
+        <button id="btnConfirmar" class="btn-confirmar">Sí</button>
+        <button id="btnCancelar" class="btn-cancelar">No</button>
+    </div>
+</div>
+
+<script src="../assets/js/subirProyecto.js"></script>
+
 <div class="menuSolicitudProyectos" id="menuSolicitudProyectos">
 <header class="headerSoli">
     <div class="logoCTRLUSR">

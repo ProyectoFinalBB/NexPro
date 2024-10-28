@@ -45,7 +45,18 @@
         <button type="submit" class="boton-enviar" id="solicitarRevisionBtn">Solicitar Revisión</button> 
     </div>
 </form>
-<div id="mensajeResultado" class="mensajeResultado"></div> 
+
+<div id="mensajeResultado" class="mensajeResultado"></div>
+
+<!-- Modal de Confirmación -->
+<div id="confirmacionModal" class="confirmacion-modal" style="display: none;">
+    <div class="confirmacion-contenido">
+        <p id="mensajeConfirmacion"></p>
+        <button id="btnConfirmar" class="btn-confirmar">Sí</button>
+        <button id="btnCancelar" class="btn-cancelar">No</button>
+    </div>
+</div>
+
 <script src="../assets/js/subirProyecto.js"></script>
 <script src="../assets/js/traduccion.js"></script>
 <script src="../assets/js/darkMode.js"></script>
