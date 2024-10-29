@@ -1,5 +1,5 @@
 function eliminarMiembro(projectId, memberId) {
-    fetch('eliminarMiembro.php', {
+    fetch('../assets/controllers/eliminarMiembro.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

@@ -1167,11 +1167,33 @@ input:checked + .slider:before {
     border: none;
 }
 
-#miembrosProyecto li span{
-    display: flex;
-    justify-content: right;
-    align-items: center;
-}
+#miembrosProyecto {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #miembrosProyecto li {
+    position: relative;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .eliminarCruz {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ff0000; 
+    font-weight: bold;
+    font-size: 25px;
+    user-select: none; 
+  }
+  
+  .eliminarCruz:hover {
+    color: #cc0000; 
+    cursor: pointer; 
+  }
 
 @keyframes fadeIn {
     from { opacity: 0; }
