@@ -38,7 +38,7 @@ if ($rol === 'alumno'): ?>
             </label>
         </div>
     </div>
-    <button id="cerrarSesionBtn3" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
+  <a href="../public/logout.php" id="cerrarSesionBtn3" class="cerrar-sesion">Cerrar Sesión</a>
 </div>
 <?php elseif ($rol === 'profesor'): ?>
 <div id="menuPerfil" class="menu">
@@ -75,7 +75,7 @@ if ($rol === 'alumno'): ?>
             </label>
         </div>
     </div>
-    <button id="cerrarSesionBtn2" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
+    <a href="../public/logout.php" id="cerrarSesionBtn2" class="cerrar-sesion">Cerrar Sesión</a>
 </div>
 <?php elseif ($rol === 'administrador'): ?>
 <div id="menuPerfil" class="menu">
@@ -96,8 +96,8 @@ if ($rol === 'alumno'): ?>
 
     <p id="nombreUsuario"><?php echo $nombre; ?></p>
     <div class="menubtns">
-    <button class="btn-subir" onclick="toggleMenu('controlUsuarios')">Control de Usuarios</button>
-    <button class="btn-subir" onclick="toggleMenu('solicitudProyectos')">Solicitudes de Proyectos</button>
+    <button id="controlUsuariosBtn" class="btn-subir" onclick="toggleMenu('controlUsuarios')">Control de Usuarios</button>
+    <button id="solicitudesProyectosBtn" class="btn-subir" onclick="toggleMenu('solicitudProyectos')">Solicitudes de Proyectos</button>
     </div>
 </div>
 
@@ -117,7 +117,7 @@ if ($rol === 'alumno'): ?>
             </label>
         </div>
     </div>
-    <button id="cerrarSesionBtn1" class="cerrar-sesion"><a href="../public/logout.php">Cerrar Sesión</a></button>
+   <a href="../public/logout.php" id="cerrarSesionBtn1" class="cerrar-sesion">Cerrar Sesión</a>
 </div>
 <?php endif; ?>
 

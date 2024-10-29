@@ -57,6 +57,7 @@
         "solicitarRevisionBtn": "Solicitar Revisión",
         "tags" : "Tags",
         "miembros" : "Miembros",
+        "eliminar" : "Eliminar",
         "aprobarBtn" : "Aprobar",
         "rechazarBtn" : "Denegar",
         "nombreProyectoLabel" : "NOMBRE DEL PROYECTO:",
@@ -64,7 +65,9 @@
         "nombreProyectoInicioLabel": "NOMBRE DEL PROYECTO",
         "modalProyectoInicioTitulo" : "Visualización del Proyecto",
         "miembrosLabel":"MIEMBROS",
-        "modalProyectoTitulo" :"Visualización del Proyecto"
+        "modalProyectoTitulo" :"Visualización del Proyecto",
+                "confirmar": "Confirmar",
+        "cancelar": "Cancelar"
         
     },
     "en": {
@@ -125,6 +128,7 @@
         "solicitarRevisionBtn": "Request Review",
         "tags" : "Tags",
           "miembros" : "Members",
+          "eliminar" : "Delete",
           "aprobarBtn" : "Approve",
           "rechazarBtn" : "Denied",
            "nombreProyectoLabel" : "NAME PROJECT",
@@ -132,7 +136,9 @@
             "nombreProyectoInicioLabel": "NAME PROJECT",
             "modalProyectoInicioTitulo" : "Project View",
              "miembrosLabel":"MEMBERS",
-"modalProyectoTitulo" : "Project View"
+"modalProyectoTitulo" : "Project View",
+  "confirmar": "Confirm",
+        "cancelar": "Cancel"
              
             
         

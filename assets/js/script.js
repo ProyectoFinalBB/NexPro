@@ -28,14 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     
-    // Cerrar el menú cuando se haga clic fuera de él
+   
     document.addEventListener('click', function(event) {
         const menuPerfil = document.getElementById('menuPerfil');
         const navBtn = document.getElementById('nav-btn');
-        
-        // Verificar si el clic ocurrió fuera del menú y del botón de navegación
+
         if (!menuPerfil.contains(event.target) && !navBtn.contains(event.target)) {
-            cerrarMenu(); // Cerrar el menú si se hace clic fuera de él
+            cerrarMenu(); 
         }
     });
 });
@@ -229,76 +228,75 @@ function obtenerRolUsuario() {
         });
 }
 
-//Listar proyectos Aceptados
 function ListadoProyectosAceptados() {
-    obtenerRolUsuario().then(userRole => {
-        fetch('../controllers/listadoProyectosAceptados.php')
-            .then(response => response.json())
-            .then(data => {
-                const proyectosList = document.getElementById('proyectosAceptadosList');
-                proyectosList.innerHTML = ''; 
+    const idiomaGuardado = (['es', 'en'].includes(localStorage.getItem('idioma'))) ? localStorage.getItem('idioma') : 'es';
 
-                data.forEach(proyecto => {
-                    const listItem = document.createElement('li'); 
-                    listItem.className = 'proyecto-item'; 
+    Promise.all([
+        fetch('../assets/js/idiomas.json').then(response => response.json()).catch(() => null),
+        obtenerRolUsuario(),
+        fetch('../controllers/listadoProyectosAceptados.php').then(response => response.json())
+    ])
+    .then(([traducciones, userRole, data]) => {
+        const proyectosList = document.getElementById('proyectosAceptadosList');
+        proyectosList.innerHTML = '';
 
-                    
-                    const pdfIcon = document.createElement('img');
-                    pdfIcon.src = '../assets/img/pdfimg.png'; 
-                    pdfIcon.className = 'pdf-icon';
-                    listItem.appendChild(pdfIcon);
+        data.forEach(proyecto => {
+            const listItem = document.createElement('li');
+            listItem.className = 'proyecto-item';
 
-                   
-                    const proyectoInfo = document.createElement('div');
-                    proyectoInfo.className = 'proyecto-info';
+            const pdfIcon = document.createElement('img');
+            pdfIcon.src = '../assets/img/pdfimg.png';
+            pdfIcon.className = 'pdf-icon';
+            listItem.appendChild(pdfIcon);
 
-                    const proyectoTitulo = document.createElement('h3');
-                    proyectoTitulo.textContent = proyecto.titulo;
-                    proyectoInfo.appendChild(proyectoTitulo);
+            const proyectoInfo = document.createElement('div');
+            proyectoInfo.className = 'proyecto-info';
 
-                    const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
-                        ? `Miembros: ${proyecto.miembros.join(', ')}` 
-                        : 'Miembros: No especificados';
+            const proyectoTitulo = document.createElement('h3');
+            proyectoTitulo.textContent = proyecto.titulo;
+            proyectoInfo.appendChild(proyectoTitulo);
 
-                    const miembros = document.createElement('p');
-                    miembros.textContent = miembrosText;
-                    proyectoInfo.appendChild(miembros);
+            const miembrosText = proyecto.miembros && Array.isArray(proyecto.miembros) 
+                ? `${traducciones ? traducciones[idiomaGuardado]['miembros'] : 'Miembros'}: ${proyecto.miembros.join(', ')}`
+                : `${traducciones ? traducciones[idiomaGuardado]['miembros'] : 'Miembros'}: No especificados`;
 
-                    
-                    const tagsHidden = document.createElement('h4');
-                    tagsHidden.className = 'tags-ocultos';
-                    tagsHidden.style.display = 'none'; 
-                    tagsHidden.textContent = proyecto.tags.join(', '); 
-                    listItem.appendChild(tagsHidden); 
+            const miembros = document.createElement('p');
+            miembros.textContent = miembrosText;
+            proyectoInfo.appendChild(miembros);
 
+            const tagsHidden = document.createElement('h4');
+            tagsHidden.className = 'tags-ocultos';
+            tagsHidden.style.display = 'none';
+            tagsHidden.textContent = proyecto.tags.join(', ');
+            listItem.appendChild(tagsHidden);
 
-                    listItem.onclick = function() {
-                        mostrarModalInicio(proyecto);  
-                    };
+            listItem.onclick = function() {
+                mostrarModalInicio(proyecto);
+            };
 
-                    listItem.appendChild(proyectoInfo);
+            listItem.appendChild(proyectoInfo);
 
-                    if (userRole === 'administrador') {
-                        const eliminarBtn = document.createElement('button');
-                        eliminarBtn.textContent = 'Eliminar';
-                        eliminarBtn.className = 'btn-eliminar';
+            if (userRole === 'administrador') {
+                const eliminarBtn = document.createElement('button');
+                eliminarBtn.textContent = traducciones ? traducciones[idiomaGuardado]['eliminar'] : 'Eliminar';
+                eliminarBtn.className = 'btn-eliminar';
 
-                        eliminarBtn.onclick = function(e) {
-                            e.stopPropagation(); 
-                            eliminarProyecto(proyecto.id);
-                        };
+                eliminarBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    eliminarProyecto(proyecto.id);
+                };
 
-                        listItem.appendChild(eliminarBtn);
-                    }
+                listItem.appendChild(eliminarBtn);
+            }
 
-                    proyectosList.appendChild(listItem);
-                });
+            proyectosList.appendChild(listItem);
+        });
 
-                document.getElementById('proyectosAceptadosList').style.display = 'block';
-            })
-            .catch(error => console.error('Error al cargar los proyectos:', error));
-    });
+        document.getElementById('proyectosAceptadosList').style.display = 'block';
+    })
+    .catch(error => console.error('Error al cargar los proyectos o traducciones:', error));
 }
+
 
 
 function eliminarProyecto(proyectoId) {
@@ -765,44 +763,58 @@ tagItems.forEach(tag => {
 
 
 
-
 function mostrarNotificacion(mensaje, esError = false) {
-    const notificacion = document.createElement('div');
-    notificacion.className = `notificacion ${esError ? 'error' : ''}`; 
-    notificacion.textContent = mensaje;
+    const idiomaGuardado = localStorage.getItem('idioma') || 'es';
 
-    document.body.appendChild(notificacion);
+    fetch('../assets/js/idiomas.json')
+        .then(response => response.json())
+        .then(traducciones => {
+            const notificacion = document.createElement('div');
+            notificacion.className = `notificacion ${esError ? 'error' : ''}`; 
+            notificacion.textContent = mensaje;
 
-   
-    setTimeout(() => {
-        notificacion.classList.add('mostrar');
-     }, 10); 
+            document.body.appendChild(notificacion);
 
-    setTimeout(() => {
-        notificacion.classList.remove('mostrar');
-        notificacion.addEventListener('transitionend', () => {
-            notificacion.remove();
-        });
-    }, 3000);
+            setTimeout(() => {
+                notificacion.classList.add('mostrar');
+            }, 10);
+
+            setTimeout(() => {
+                notificacion.classList.remove('mostrar');
+                notificacion.addEventListener('transitionend', () => {
+                    notificacion.remove();
+                });
+            }, 3000);
+        })
+        .catch(error => console.error('Error al cargar las traducciones:', error));
 }
 
 function mostrarConfirmacion(mensaje, callback) {
-    const modal = document.getElementById('confirmacionModal');
-    const mensajeElement = document.getElementById('mensajeConfirmacion');
-    const btnConfirmar = document.getElementById('btnConfirmar');
-    const btnCancelar = document.getElementById('btnCancelar');
+    const idiomaGuardado = localStorage.getItem('idioma') || 'es';
 
-    mensajeElement.textContent = mensaje; 
-    modal.style.display = 'flex';
+    fetch('../assets/js/idiomas.json')
+        .then(response => response.json())
+        .then(traducciones => {
+            const modal = document.getElementById('confirmacionModal');
+            const mensajeElement = document.getElementById('mensajeConfirmacion');
+            const btnConfirmar = document.getElementById('btnConfirmar');
+            const btnCancelar = document.getElementById('btnCancelar');
 
-    btnConfirmar.onclick = () => {
-        modal.style.display = 'none'; 
-        callback(true); 
-    };
+            mensajeElement.textContent = mensaje; 
+            modal.style.display = 'flex';
 
+            btnConfirmar.textContent = traducciones[idiomaGuardado]?.confirmar || 'Confirmar';
+            btnCancelar.textContent = traducciones[idiomaGuardado]?.cancelar || 'Cancelar';
 
-    btnCancelar.onclick = () => {
-        modal.style.display = 'none';
-        callback(false);
-    };
+            btnConfirmar.onclick = () => {
+                modal.style.display = 'none'; 
+                callback(true); 
+            };
+
+            btnCancelar.onclick = () => {
+                modal.style.display = 'none';
+                callback(false);
+            };
+        })
+        .catch(error => console.error('Error al cargar las traducciones:', error));
 }
