@@ -67,7 +67,9 @@
         "miembrosLabel":"MIEMBROS",
         "modalProyectoTitulo" :"Visualización del Proyecto",
                 "confirmar": "Confirmar",
-        "cancelar": "Cancelar"
+        "cancelar": "Cancelar",
+                "success": "Operación realizada con éxito",
+        "error": "Algo salió mal"
         
     },
     "en": {
@@ -138,7 +140,9 @@
              "miembrosLabel":"MEMBERS",
 "modalProyectoTitulo" : "Project View",
   "confirmar": "Confirm",
-        "cancelar": "Cancel"
+        "cancelar": "Cancel",
+                "success": "Operation successful",
+        "error": "Something went wrong"
              
             
         

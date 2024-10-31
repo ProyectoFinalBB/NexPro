@@ -1,3 +1,7 @@
+
+const idioma = localStorage.getItem('idioma') || 'es';
+
+
 function cargarImagenPerfil() {
     const profileImage = document.getElementById('profileImage');
     const menuProfileimg = document.getElementById('profile-img');
@@ -46,24 +50,28 @@ document.getElementById('fileInput').addEventListener('change', function (e) {
                             document.getElementById('profileImage').src = data.imagePath;
                             
                             cargarImagenPerfil(); 
-                            mostrarNotificacion('Imagen subida exitosamente.');
+                            
+                            mostrarNotificacion(idioma === 'es' ? "Foto cargada exitosamente." : "Photo uploaded successfully.", false);
                         } else {
-                            mostrarNotificacion('Error al subir la imagen: ' + data.message, true);
+                            mostrarNotificacion(idioma === 'es' ? "Algo salió mal." : "Something went wrong.", false);
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        mostrarNotificacion('Ocurrió un error al subir la imagen.',  true);
+                        mostrarNotificacion(idioma === 'es' ? "Ocurrió un error al subir la imagen." : "An error occurred while uploading the image.", true);
+
                     });
                 } else {
-                    mostrarNotificacion('Las dimensiones de la imagen deben ser menores de 1000x1000 píxeles.', true);
+                    mostrarNotificacion(idioma === 'es' ? "Las dimensiones de la imagen deben ser menores de 1000x1000 píxeles." : "Image dimensions must be less than 1000x1000 pixels.", true);
+
                 }
             };
         };
 
         reader.readAsDataURL(file);
     } else {
-        mostrarNotificacion('Por favor, selecciona una imagen válida.', true);
+        mostrarNotificacion(idioma === 'es' ? "Por favor, selecciona una imagen válida." : "Please select a valid image.", true);
+
     }
 });
 

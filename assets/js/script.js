@@ -320,10 +320,12 @@ function eliminarProyecto(proyectoId) {
         })
         .then(data => {
             if (data.status === 'success') {
-                mostrarNotificacion(data.message);
+                mostrarNotificacion(idioma === 'es' ? "Éxito" : "Success", false);
+
                 ListadoProyectosAceptados();
             } else {
-                mostrarNotificacion(data.message);
+                mostrarNotificacion(idioma === 'es' ? "Algo salió mal" : "Something went wrong", true);
+
             }
         })
         .catch(error => console.error('Error al eliminar el proyecto:', error));
@@ -526,11 +528,13 @@ tagsProyectos.appendChild(tags);
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    mostrarNotificacion('Proyecto aceptado exitosamente');
+                    mostrarNotificacion(idioma === 'es' ? "Proyecto aceptado exitosamente." : "Project accepted successfully.");
+
                     ListadoProyectosPendientes(); 
                     ListadoProyectosAceptados();
                 } else {
-                    mostrarNotificacion('Error al aceptar el proyecto', true);
+                    mostrarNotificacion(idioma === 'es' ? "Error al aceptar el proyecto." : "Error accepting the project.", true);
+
                 }
             })
             .catch(error => console.error('Error:', error));
@@ -547,10 +551,12 @@ tagsProyectos.appendChild(tags);
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    mostrarNotificacion('Proyecto denegado exitosamente');
+                    mostrarNotificacion(idioma === 'es' ? "Proyecto denegado exitosamente." : "Project denied successfully.");
+
                     ListadoProyectosPendientes(); 
                 } else {
-                    mostrarNotificacion('Error al denegar el proyecto', true);
+                    mostrarNotificacion(idioma === 'es' ? "Error al denegar el proyecto." : "Error denying the project.", true);
+
                 }
             })
             .catch(error => console.error('Error:', error));
