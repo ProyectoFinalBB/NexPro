@@ -71,7 +71,8 @@ function aplicarTraduccion(idioma) {
                 'modalProyectoTitulo': 'modalProyectoTitulo',
                 'aprobarBtn': 'aprobarBtn',
                 'rechazarBtn': 'rechazarBtn',
-                "rolLabel": "rolLabel"
+                "rolLabel": "rolLabel",
+                "resetPass": "resetPass"
             };
 
      
