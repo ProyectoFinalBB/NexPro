@@ -35,28 +35,29 @@
         <button class="close-btn">&times;</button>
     </div>
     <div class="tags-list">
-        <div class="tag-item" data-value="Finanzas">Finanzas</div>
-        <div class="tag-item" data-value="Marketing">Marketing</div>
-        <div class="tag-item" data-value="Ciencia">Ciencia</div>
-        <div class="tag-item" data-value="Tecnología">Tecnología</div>
-        <div class="tag-item" data-value="Programación">Programación</div>
-        <div class="tag-item" data-value="Investigación">Investigación</div>
-        <div class="tag-item" data-value="Ciber seguridad">Ciber seguridad</div>
-        <div class="tag-item" data-value="Videojuegos">Videojuegos</div>
-        <div class="tag-item" data-value="Educación">Educación</div>
-        <div class="tag-item" data-value="Entretenimiento">Entretenimiento</div>
-        <div class="tag-item" data-value="Medios de comunicación">Medios de comunicación</div>
-        <div class="tag-item" data-value="Redes sociales">Redes sociales</div>
-        <div class="tag-item" data-value="Política">Política</div>
-        <div class="tag-item" data-value="Salud">Salud</div>
-        <div class="tag-item" data-value="Nutrición">Nutrición</div>
-        <div class="tag-item" data-value="Deportes">Deportes</div>
-        <div class="tag-item" data-value="Gastronomía">Gastronomía</div>
-        <div class="tag-item" data-value="Transporte">Transporte</div>
-        <div class="tag-item" data-value="Medio ambiente">Medio ambiente</div>
-        <div class="tag-item" data-value="Animales">Animales</div>
+        <div class="tag-item" data-value="Finanzas" id="opcionFinanzas">Finanzas</div>
+        <div class="tag-item" data-value="Marketing" id="opcionMarketing">Marketing</div>
+        <div class="tag-item" data-value="Ciencia" id="opcionCiencia">Ciencia</div>
+        <div class="tag-item" data-value="Tecnología" id="opcionTecnologia">Tecnología</div>
+        <div class="tag-item" data-value="Programación" id="opcionProgramacion">Programación</div>
+        <div class="tag-item" data-value="Investigación" id="opcionInvestigacion">Investigación</div>
+        <div class="tag-item" data-value="Ciber seguridad" id="opcionCiberSeguridad">Ciber seguridad</div>
+        <div class="tag-item" data-value="Videojuegos" id="opcionVideojuegos">Videojuegos</div>
+        <div class="tag-item" data-value="Educación" id="opcionEducacion">Educación</div>
+        <div class="tag-item" data-value="Entretenimiento" id="opcionEntretenimiento">Entretenimiento</div>
+        <div class="tag-item" data-value="Medios de comunicación" id="opcionMediosComunicacion">Medios de comunicación</div>
+        <div class="tag-item" data-value="Redes sociales" id="opcionRedesSociales">Redes sociales</div>
+        <div class="tag-item" data-value="Política" id="opcionPolitica">Política</div>
+        <div class="tag-item" data-value="Salud" id="opcionSalud">Salud</div>
+        <div class="tag-item" data-value="Nutrición" id="opcionNutricion">Nutrición</div>
+        <div class="tag-item" data-value="Deportes" id="opcionDeportes">Deportes</div>
+        <div class="tag-item" data-value="Gastronomía" id="opcionGastronomia">Gastronomía</div>
+        <div class="tag-item" data-value="Transporte" id="opcionTransporte">Transporte</div>
+        <div class="tag-item" data-value="Medio ambiente" id="opcionMedioAmbiente">Medio ambiente</div>
+        <div class="tag-item" data-value="Animales" id="opcionAnimales">Animales</div>
     </div>
 </div>
+
 
 
     <div class="profile" id="nav-btn">
