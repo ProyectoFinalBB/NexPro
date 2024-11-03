@@ -1413,7 +1413,7 @@ body.dark{
     color: rgb(0, 0, 0);
 }
 
-.dark .input-proyecto{
+.dark #archivoProyecto{
     color: white;
 
 }
