@@ -43,6 +43,8 @@ const tagsModalHeader = document.querySelector('.tags-modal-header h3');
 const tagItem = document.querySelectorAll('.tag-item');
 const modalPdfContentSpan = document.querySelector('.modal-pdf-content span');
 const menuImg = document.querySelector('.menu-img');
+const resultadosIntegrantes = document.querySelector('.resultados-integrantes');
+const integrantesSeleccionados = document.querySelector('.integrantes-seleccionados');
 
 const elements = [header, btnFiltersByClass, body, footer, menu, cerrar,
  ...btnsubir, ...containerFrases, tituloLogin, botonEnviar,
@@ -51,7 +53,7 @@ const elements = [header, btnFiltersByClass, body, footer, menu, cerrar,
   proyectosPendientes, ...userData, ...userItem, ...userItemHover, ...icon, ...iconHover, ...userInfo,
    ...proyectoItem, ...proyectoInfo, ...proyectoInfoP, modalContent, modalPdfContent, modalContentH2,
     modalContentSpan, modalDataUl, ...formContenedor, inputProyecto, tagsMModal, tagsModalHeader,
-     ...tagItem, modalPdfContentSpan, menuImg];
+     ...tagItem, modalPdfContentSpan, menuImg, resultadosIntegrantes, integrantesSeleccionados];
 
 function toggleDarkMode() {
     elements.forEach(element => {

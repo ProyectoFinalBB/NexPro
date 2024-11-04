@@ -360,20 +360,6 @@ function mostrarModal(proyecto) {
             const listItem = document.createElement('li');
             listItem.textContent = miembro;
             miembrosList.appendChild(listItem);
-
-            const eliminarBtn = document.createElement('span');
-            eliminarBtn.textContent = " ×"; 
-            eliminarBtn.classList.add("eliminarCruz");
-
-             // Evento de clic para eliminar el miembro
-            eliminarBtn.onclick = () => eliminarMiembro(proyecto.id, miembro.id);
-
-             // Añadir la cruz al <li>
-             listItem.appendChild(eliminarBtn);
-
-            // Agregar el <li> a la lista de miembros
-            miembrosList.appendChild(listItem);
-
         });
     } else {
         const listItem = document.createElement('li');
