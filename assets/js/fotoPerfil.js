@@ -13,7 +13,7 @@ function cargarImagenPerfil() {
                 profileImage.src = data.imagePath; 
                 menuProfileimg.src = data.imagePath; 
             } else {
-                console.error('Error al cargar la imagen de perfil:', data.message);
+                
             }
         })
         .catch(error => {

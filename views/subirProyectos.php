@@ -11,7 +11,7 @@
         
         <label for="tagsProyecto" id="labelTagsProyecto">Selecciona los tags del proyecto:</label> 
         
-        <select id="tagsProyecto" name="project-tags[]" multiple class="input-proyecto" required>
+        <select id="tagsProyecto" name="project-tags[]" multiple class="input-proyecto">
             <option value="Finanzas" id="opcionFinanzas">Finanzas</option>
             <option value="Marketing" id="opcionMarketing">Marketing</option>
             <option value="Ciencia" id="opcionCiencia">Ciencia</option>

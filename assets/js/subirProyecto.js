@@ -12,6 +12,10 @@ function enviarProyecto(event) {
     
     var tagsProyecto = Array.from(document.getElementById('tagsProyecto').selectedOptions).map(option => option.value);
 
+    if (tagsProyecto.length === 0) {
+        document.getElementById("mensajeResultado").innerText = "Por favor, selecciona al menos un tag para el proyecto.";
+        return; 
+    }
   
     var formData = new FormData();
     formData.append('nombreProyecto', nombreProyecto);

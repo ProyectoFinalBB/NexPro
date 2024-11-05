@@ -21,7 +21,7 @@
     </div>
     <div class="search-bar">
     <button class="btn-filters" id="btn-filters">Tags</button>
-    <input type="text" placeholder="Buscar" class="search-input">
+    <input type="text" placeholder="Buscar" class="search-input" id="buscarInput">
     <button class="btn-search" id="buscarBtn">
         <span class="search-icon">🔍</span>
     </button>
@@ -140,7 +140,6 @@
            
             <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon-animado" id="pdf-icon">
 
-            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon-animado" id="pdf-icon">
 
             <div class="modal-data">
             <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
