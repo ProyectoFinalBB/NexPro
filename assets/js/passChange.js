@@ -6,6 +6,11 @@ newPass = document.getElementById("newPass").value;
 newPass2 = document.getElementById("newPass2").value;
 
 mensajeResultado = document.getElementById("mensajeResultado");
+if (newPass.length < 8 || newPass.length > 16) {
+    mensajeResultado.innerText = "La contraseña debe tener entre 8 y 16 caracteres.";
+    return; 
+}
+
 
 if (newPass == newPass2) {
 var datos = {
@@ -25,6 +30,7 @@ fetch('../controllers/cambiarContraseña.php', {
 .then(response => response.text()) 
 .then(data => {
     document.getElementById("mensajeResultado").innerText = data;
+    
 })
 .catch(error => {
     console.error('Error:', error);

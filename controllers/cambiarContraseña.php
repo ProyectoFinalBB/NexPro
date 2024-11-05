@@ -1,6 +1,7 @@
 <?php
 include('../includes/conexion.php');
 include("existeUsr.php");
+header('Content-Type: text/plain; charset=UTF-8');
 
 $data = json_decode(file_get_contents('php://input'), true);
 $conn = conectar_bd();
@@ -28,25 +29,25 @@ if (isset($data['ci'], $data['oldPass'], $data['newPass'])) {
                 $result = $conn->query($sql);
 
                 if ($result) {
-                    echo json_encode('Actualizada correctamente');
+                    echo 'Contraseña actualizada correctamente';
                 } else {
-                    echo json_encode('Error en la actualización de la contraseña');
+                    echo 'Error en la actualización de la contraseña';
                 }
 
             } else {
-                echo json_encode('La contraseña antigua no coincide');
+                echo 'La contraseña antigua no coincide';
             }
 
         } else {
-            echo json_encode('El usuario con esa cedula no existe');
+            echo 'El usuario con esa cedula no existe';
         }
 
     } else {
-        echo json_encode('El usuario con esa cedula no existe');
+        echo 'El usuario con esa cedula no existe';
     }
 
 } else {
-    echo json_encode('Datos incompletos');
+    echo 'Datos incompletos';
 }
 
 $conn->close();

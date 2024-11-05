@@ -13,24 +13,18 @@
 <div class="container">
     <div class="form-container">
        
-        <form onsubmit="enviarLogin(); return false;" class="formulario">
+        <form class="formulario">
             <img src="../assets/img/logo.png" alt="Logo de NexPro">
             <h3 class="titulo-login">INICIO DE SESION</h3>
             <input type="number" id="ci" placeholder="CEDULA" class="input-login" minlength="8" maxlength="8" required>
             <input type="password" id="contrasenia" placeholder="CONTRASEÑA" class="input-login" required>
             <a href="passChange.php" class="texto-contrasena">Cambiar Contraseña</a>
-            <button type="submit" class="boton-enviar">ENVIAR</button> 
+            <button type="button" class="boton-enviar" onclick="enviarLogin()">ENVIAR</button> 
+
         </form>
 
-        <!-- Mensaje para mostrar los errores -->
         <div id="mensajeResultado" class="mensaje-error"></div>
 
-        <?php 
-        if (!isset($_SESSION['ci']) && isset($_SESSION['err'])){
-            $err = $_SESSION['err'];
-            echo "<p class='mensaje-error'>$err</p>";
-        }
-        ?>
     </div>
 
     <div class="container-frases">

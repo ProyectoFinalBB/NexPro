@@ -12,7 +12,6 @@ $query = $_POST['query'] ?? '';
 $idLogueado = $_SESSION['id_usr'];  
 
 if (!empty($query)) {
-  // Consulta para filtrar usuarios que no están en proyectos con estado 'pendiente' o 'aceptado'
   $sql = "SELECT usuarios.id_usr, usuarios.nombrecompleto 
           FROM usuarios 
           INNER JOIN roles ON usuarios.id_usr = roles.id_usr 
