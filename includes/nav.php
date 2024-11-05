@@ -123,3 +123,4 @@ if ($rol === 'alumno'): ?>
 
 <script src="../assets/js/fotoPerfil.js"></script>
 
+

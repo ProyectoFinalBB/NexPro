@@ -172,6 +172,14 @@ function Listado($ruta) {
     .then(data => {
         const userList = document.getElementById('userList');
         userList.innerHTML = ''; 
+
+        if (data.length === 0) {
+            const noUsersMessage = document.createElement('p');
+            noUsersMessage.textContent = 'No hay usuarios para mostrar';
+            noUsersMessage.className = 'noUsuarios'; 
+            userList.appendChild(noUsersMessage);
+        } else {
+
         data.forEach(user => {
             const listItem = document.createElement('div');
             listItem.className = 'user-item';
@@ -199,21 +207,12 @@ function Listado($ruta) {
 
             userList.appendChild(listItem);
         });
-
+        }
         document.getElementById('userData').style.display = 'block';
     })
     .catch(error => console.error('Error:', error));
 }
 
-
-
-
-
-
-
-
-
-    
 
 // Front
 
@@ -340,6 +339,9 @@ function eliminarProyecto(proyectoId) {
         function mostrarModalInicio(proyecto) {
    
             document.getElementById('nombreProyectoInicio').textContent = proyecto.titulo;
+
+            document.getElementById('descripcionProyecto').textContent = proyecto.descripcion || "Descripción no disponible";
+
             pdfIcon = document.getElementById('pdf-icon-inicio')
             pdfIcon.onclick = function() {
                             
@@ -396,6 +398,13 @@ function ListadoProyectosPendientes() {
                     const proyectosList = document.getElementById('proyectosPendientesList');
                     proyectosList.innerHTML = '';  
 
+            if (data.length === 0) {
+                const noProjectMessage = document.createElement('p');
+                noProjectMessage.textContent = 'No hay proyectos para mostrar';
+                noProjectMessage.className = 'noUsuarios'; 
+                proyectosList.appendChild(noProjectMessage);
+            } else {
+
                     data.forEach(proyecto => {
                         const listItem = document.createElement('li');
                         listItem.className = 'proyecto-item';
@@ -438,7 +447,7 @@ function ListadoProyectosPendientes() {
 
                         proyectosList.appendChild(listItem);
                     });
-
+            }
                     document.getElementById('proyectosPendientes').style.display = 'block';
                 })
                 .catch(error => console.error('Error al cargar los proyectos:', error));
@@ -461,6 +470,8 @@ function mostrarModal(proyecto) {
                     
         mostrarPDF(proyecto.ruta);  
     };
+
+    document.getElementById('descripcionProyect').textContent = proyecto.descripcion || "Descripción no disponible";
 
     const miembrosList = document.getElementById('miembrosProyecto');
     miembrosList.innerHTML = ''; 

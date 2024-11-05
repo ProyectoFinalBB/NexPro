@@ -75,7 +75,7 @@
 <div class="menuCTRLUsuario" id="menuCTRLUsuario">
 <header class="headerCTRLUSR">
     <div class="logoCTRLUSR">
-        <img src="../assets/img/logo.png" alt="NexPro Logo" onclick="toggleMenu('headerInicio')" class="logo-imgCTRLUSR" id="logoCTRLUSR">
+        <img src="../assets/img/logo.png" alt="NexPro Logo" title="Volver" onclick="toggleMenu('headerInicio')" class="logo-imgCTRLUSR" id="logoCTRLUSR">
     </div>
     <h2 class="titleCTRLUSR" id="controlUsuariosTitulo">CONTROL DE USUARIOS</h2>
     <div class="user-iconCTRLUSR">
@@ -90,9 +90,15 @@
         <li class="nav-item">
             <a href="#" onclick="Listado('../controllers/listarProfesor.php')" class="nav-link" id="navProfesores">Profesores</a>
         </li>
+            
+            <?php if (isset($_SESSION['id_usr']) && $_SESSION['id_usr'] == 1): ?>
         <li class="nav-item">
-            <a href="#" onclick="Listado('../controllers/listarAdministrador.php')" class="nav-link" id="navAdministrador">Administrador</a>
-        </li>
+            
+             <a href="#" onclick="Listado('../controllers/listarAdministrador.php')" class="nav-link" id="navAdministrador">Administrador</a>
+        
+             </li>
+            <?php endif; ?>
+            
     </ul>
 </nav>
 <div id="userData">
@@ -134,9 +140,13 @@
            
             <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon-animado" id="pdf-icon">
 
+            <img src="../assets/img/pdfimg.png" alt="PDF Icon" class="pdf-icon-animado" id="pdf-icon">
+
             <div class="modal-data">
-            <p id="nombreProyectoLabel">NOMBRE DEL PROYECTO: </p> <span id="nombreProyecto"></span>
-            <p id="miembrosLabel">MIEMBROS:</p>
+            <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
+            <p>DESCRIPCIÓN:</p>
+            <p id="descripcionProyect"></p>
+            <p>MIEMBROS:</p>
             <ul id="miembrosProyecto"></ul>
             <p>Tags Seleccionados:</p>
             <ul id="tagsProyectos"></ul>
@@ -159,7 +169,9 @@
 
             <div class="modal-data">
                 <p id="nombreProyectoInicioLabel">NOMBRE DEL PROYECTO: </p> <span id="nombreProyectoInicio"></span>
-                <p id="miembrosInicioLabel">MIEMBROS:</p>
+                <p>DESCRIPCIÓN:</p>
+            <p id="descripcionProyecto"></p>
+            <p id="miembrosInicioLabel">MIEMBROS:</p>
                 <ul id="miembrosProyectoInicio"></ul>
             </div>
         </div>
