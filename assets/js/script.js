@@ -1,17 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Configuración inicial
+  
     document.getElementById('header').style.display = 'flex';
     document.getElementById('menuCTRLUsuario').style.display = 'none';
     document.getElementById('menuSolicitudProyectos').style.display = 'none';
     document.getElementById('userData').style.display = 'none';
     
-    // Inicializar los listados
+
     Listado('../controllers/listarEstudiante.php');
     ListadoProyectosPendientes();
     ListadoProyectosAceptados();
 
     
-        // Cerrar modales al hacer clic fuera de ellos
         window.onclick = function(event) {
             const modalProyectoInicio = document.getElementById('modalProyectoInicio');
             const modalProyecto = document.getElementById('modalProyecto');
@@ -33,35 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const menuPerfil = document.getElementById('menuPerfil');
         const navBtn = document.getElementById('nav-btn');
 
-        if (!menuPerfil.contains(event.target) && !navBtn.contains(event.target)) {
-            cerrarMenu(); 
-        }
+    
     });
 });
 
-// Función para abrir el menú
-function abrirMenu() {
-    const menuPerfil = document.getElementById('menuPerfil');
-    if (esMovil()) {
-        menuPerfil.classList.add('menu-abierto-movil');
-        menuPerfil.classList.remove('menu-cerrado-movil');
-    } else {
-        menuPerfil.classList.add('menu-abierto-pc');
-        menuPerfil.classList.remove('menu-cerrado-pc');
-    }
-}
 
-// Función para cerrar el menú
-function cerrarMenu() {
-    const menuPerfil = document.getElementById('menuPerfil');
-    if (esMovil()) {
-        menuPerfil.classList.add('menu-cerrado-movil');
-        menuPerfil.classList.remove('menu-abierto-movil');
-    } else {
-        menuPerfil.classList.add('menu-cerrado-pc');
-        menuPerfil.classList.remove('menu-abierto-pc');
-    }
-}
+
+
 
 function redirectToView(ruta, param) {
     const baseURL = '../controllers/viewController.php?param='+param;
@@ -157,10 +134,6 @@ function esMovil() {
 
 
 
-
-function esMovil() {
-    return window.innerWidth <= 768; 
-}
 
 
 
@@ -672,7 +645,7 @@ function handleMenuState() {
 }
 
 
-document.getElementById('menu-img').addEventListener('click', abrirMenu);
+document.getElementById('menu-img').addEventListener('click', handleMenuState);
 
 
 function toggleMenu(menu) {
