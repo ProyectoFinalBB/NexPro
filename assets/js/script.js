@@ -323,9 +323,10 @@ function eliminarProyecto(proyectoId) {
 
             const miembrosList = document.getElementById('miembrosProyectoInicio');
             miembrosList.innerHTML = ''; 
-        
+         
             if (proyecto.miembros && Array.isArray(proyecto.miembros)) {
                 proyecto.miembros.forEach(miembro => {
+                  
                     const listItem = document.createElement('li');
                     listItem.textContent = miembro;
                     miembrosList.appendChild(listItem);

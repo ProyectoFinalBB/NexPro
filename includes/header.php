@@ -31,7 +31,7 @@
 
 <div class="tags-modal">
     <div class="tags-modal-header">
-        <h3>Selecciona los Tags</h3>
+        <h3 id="labelTagsProyecto" >Selecciona los Tags</h3>
         <button class="close-btn">&times;</button>
     </div>
     <div class="tags-list">
@@ -168,7 +168,7 @@
 
             <div class="modal-data">
                 <p id="nombreProyectoInicioLabel">NOMBRE DEL PROYECTO: </p> <span id="nombreProyectoInicio"></span>
-                <p>DESCRIPCIÓN:</p>
+                <p id="descProyecto" >DESCRIPCIÓN:</p>
             <p id="descripcionProyecto"></p>
             <p id="miembrosInicioLabel">MIEMBROS:</p>
                 <ul id="miembrosProyectoInicio"></ul>
