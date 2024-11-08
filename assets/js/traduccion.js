@@ -72,7 +72,9 @@ function aplicarTraduccion(idioma) {
                 'aprobarBtn': 'aprobarBtn',
                 'rechazarBtn': 'rechazarBtn',
                 "rolLabel": "rolLabel",
-                "resetPass": "resetPass"
+                "resetPass": "resetPass",
+                "noUsuarios":"noUsuarios",
+                "noProjectMessage" : "noProjectMessage"
             };
 
      
@@ -99,6 +101,7 @@ function aplicarTraduccion(idioma) {
         })
         .catch(error => console.error('Error cargando el archivo de traducciones:', error));
 }
+
 
 
 

@@ -70,7 +70,9 @@
         "cancelar": "Cancelar",
                 "success": "Operación realizada con éxito",
         "error": "Algo salió mal",
-        "resetPass" : "Restablecer contraseña"
+        "resetPass" : "Restablecer contraseña",
+        "noUsuarios" : "No hay usuarios para mostrar",
+        "noProjectMessage" : "No hay proyectos para mostrar"
         
     },
     "en": {
@@ -144,7 +146,9 @@
         "cancelar": "Cancel",
                 "success": "Operation successful",
         "error": "Something went wrong",
-        "resetPass" : "Reset Password"
+        "resetPass" : "Reset Password",
+        "noUsuarios" : "No users to display",
+        "noProjectMessage" : "No projects to display"
              
             
         

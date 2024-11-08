@@ -5,10 +5,7 @@ $conn = conectar_bd();
 
 
 if ($conn === false) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Error en la conexión a la base de datos.'
-    ]);
+    echo json_encode(['success' => false,'message' => 'Error en la conexión a la base de datos.' ]);
     exit();
 }
 
@@ -35,39 +32,22 @@ if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
                 $stmt->bind_param("si", $ruta_img, $id_usuario);
 
                 if ($stmt->execute()) {
-                    echo json_encode([
-                        'success' => true,
-                        'imagePath' => $ruta_img
-                    ]);
+                    echo json_encode(['success' => true,'imagePath' => $ruta_img]);
                 } else {
-                    echo json_encode([
-                        'success' => false,
-                        'message' => 'Error al guardar la ruta en la base de datos.'
-                    ]);
+                    echo json_encode(['success' => false,'message' => 'Error al guardar la ruta en la base de datos.']);
                 }
                 $stmt->close();
             } else {
-                echo json_encode([
-                    'success' => false,
-                    'message' => 'Error al subir la imagen.'
-                ]);
+                echo json_encode(['success' => false,'message' => 'Error al subir la imagen.']);
             }
         } else {
-            echo json_encode([
-                'success' => false,
-                'message' => 'Las dimensiones de la imagen deben ser menores de 1000x1000 píxeles.'
-            ]);
+            echo json_encode(['success' => false,'message' => 'Las dimensiones de la imagen deben ser menores de 1000x1000 píxeles.' ]);
         }
     } else {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Solo se permiten imágenes JPG, JPEG, PNG o GIF.'
-        ]);
+        echo json_encode(['success' => false,'message' => 'Solo se permiten imágenes JPG, JPEG, PNG o GIF.']);
     }
 } else {
-    echo json_encode([
-        'success' => false,
-        'message' => 'No se recibió ninguna imagen.'
+    echo json_encode(['success' => false,'message' => 'No se recibió ninguna imagen.'
     ]);
 }
 

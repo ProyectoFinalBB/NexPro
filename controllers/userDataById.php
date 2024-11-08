@@ -30,11 +30,11 @@ if (isset($input['userId'])) {
         echo json_encode($user);
     } else {
 
-        echo json_encode(['Usuario no encontrado o error en la consulta']);
+        echo ('Usuario no encontrado o error en la consulta');
     }
 
     $mysqli->close();
 } else {
-    echo json_encode(['ID de usuario no proporcionado']);
+    echo ('ID de usuario no proporcionado');
 }
 ?>

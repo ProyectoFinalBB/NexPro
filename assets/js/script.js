@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const modalProyectoInicio = document.getElementById('modalProyectoInicio');
             const modalProyecto = document.getElementById('modalProyecto');
             const modalPDF = document.getElementById("modalPDF");
+            const menuPerfil = document.getElementById('menuPerfil');
     
             if (event.target == modalProyectoInicio) {
                 cerrarModalInicio();
@@ -26,14 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 cerrarModalPDF();
             }
         };
-    
+        document.addEventListener('click', function(event) {
+            const menuPerfil = document.getElementById('menuPerfil');
+            const navBtn = document.getElementById('nav-btn');
+            
+            if (!menuPerfil.contains(event.target) && !navBtn.contains(event.target)) {
+                cerrarMenu(); 
+            }
+        });
    
-    document.addEventListener('click', function(event) {
-        const menuPerfil = document.getElementById('menuPerfil');
-        const navBtn = document.getElementById('nav-btn');
 
-    
-    });
 });
 
 
@@ -150,7 +153,10 @@ function Listado($ruta) {
             const noUsersMessage = document.createElement('p');
             noUsersMessage.textContent = 'No hay usuarios para mostrar';
             noUsersMessage.className = 'noUsuarios'; 
+            noUsersMessage.id="noUsuarios";
             userList.appendChild(noUsersMessage);
+            const idiomaActual = localStorage.getItem('idioma') || 'es';
+            aplicarTraduccion(idiomaActual);
         } else {
 
         data.forEach(user => {
@@ -376,7 +382,10 @@ function ListadoProyectosPendientes() {
                 const noProjectMessage = document.createElement('p');
                 noProjectMessage.textContent = 'No hay proyectos para mostrar';
                 noProjectMessage.className = 'noUsuarios'; 
+                noProjectMessage.id = "noProjectMessage";
                 proyectosList.appendChild(noProjectMessage);
+                const idiomaActual = localStorage.getItem('idioma') || 'es';
+                aplicarTraduccion(idiomaActual);
             } else {
 
                     data.forEach(proyecto => {

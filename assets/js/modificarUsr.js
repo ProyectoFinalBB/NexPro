@@ -56,9 +56,6 @@ document.getElementById("inLastname").value = apellido;
         document.getElementById("inCedula").value = data.ci;
         document.getElementById("inRol").value = data.rol;
         
-
-       
-    
      
     })
     .catch(error => {
@@ -69,9 +66,6 @@ document.getElementById("inLastname").value = apellido;
 
 
 function guardarCambios(id) {
-
-
-
 
     const nombre = document.getElementById("inNames").value;
     const apellido = document.getElementById("inLastname").value;
@@ -120,4 +114,28 @@ function guardarCambios(id) {
         console.error('Error:', error);
         document.getElementById("mensajeResultado").innerText = "Ocurrió un error durante el registro.";
     });
+}
+function restablecerContrasenia(id_usr) {
+    
+    if (confirm('¿Estás seguro de que deseas restablecer la contraseña a la cédula?')) {
+        fetch('../controllers/restablecerContrasenia.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id_usr: id_usr, 
+                restablecerContrasenia: true
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert('La contraseña ha sido restablecida correctamente.');
+            } else {
+                alert('Error al restablecer la contraseña: ' + data.message);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
 }

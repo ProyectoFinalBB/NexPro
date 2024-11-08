@@ -30,19 +30,19 @@ if (isset($data['nombre'], $data['apellido'], $data['ci'], $data['rol'])) {
             $resultado_roles = mysqli_query($conn, $sql_roles);
 
             if ($resultado_roles) {
-                echo json_encode('Rol actualizado');
+                echo ('Rol actualizado');
             } else {
-                echo json_encode('Error al actualizar el rol.');
+                echo ('Error al actualizar el rol.');
             }
         } else {
-            echo json_encode('Error al actualizar los datos del usuario.');
+            echo ('Error al actualizar los datos del usuario.');
         }
     } else {
-        echo json_encode('Cedula invalida');
+        echo ('Cedula invalida');
     }
 
     mysqli_close($conn);
 } else {
-    echo json_encode('Datos incompletos.');
+    echo ('Datos incompletos.');
 }
 ?>

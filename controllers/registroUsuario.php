@@ -28,12 +28,12 @@ if (isset($data["registrarUsr"])) {
     $soloLetras = "/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/";
 
     if (!preg_match($soloLetras, $nombre) || !preg_match($soloLetras, $apellido)) {
-        echo json_encode(['error' => 'El nombre y el apellido solo pueden contener letras.']);
+        echo ('El nombre y el apellido solo pueden contener letras.');
         exit();
     }
 
     if (strlen($nombre) > $limiteNombre || strlen($apellido) > $limiteApellido) {
-        echo json_encode(['error' => 'El nombre o apellido exceden el límite de caracteres.']);
+        echo ('El nombre o apellido exceden el límite de caracteres.');
         exit();
     }
 
@@ -42,7 +42,7 @@ if (isset($data["registrarUsr"])) {
     if (validarCI($ci)) {
         registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_usr);
     } else {
-        echo json_encode('Cedula invalida');
+        echo ('Cedula invalida');
     }
 }
 
@@ -54,18 +54,18 @@ function registrarUsr($con, $nombreCompleto, $ci, $contrasenia, $rol, $existe_us
         
         if (mysqli_query($con, $consulta_insertar)) {
             $id_usr = mysqli_insert_id($con);
-            echo json_encode('Usuario insertado correctamente');
+            echo ('Usuario insertado correctamente');
             $consulta_insertarRol = "INSERT INTO roles (id_usr, rol) VALUES ('$id_usr', '$rol')";
             if(mysqli_query($con, $consulta_insertarRol)) {
-                echo json_encode('Rol insertado correctamente');
+                
             } else {
-                echo json_encode('Error al insertar el rol');
+                echo ('Error al insertar el rol');
             }
         } else {
-            echo json_encode('Error al insertar el usuario');
+            echo ('Error al insertar el usuario');
         }
     } else {
-        echo json_encode('El usuario ya existe');
+        echo ('El usuario ya existe');
     }
 }
 ?>

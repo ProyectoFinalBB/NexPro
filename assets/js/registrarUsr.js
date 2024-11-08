@@ -23,7 +23,7 @@ function registrarUsuario() {
      partes = nombrecompleto.split(' ');
 
     if (partes.length <= 2 || partes.length >= 6) {
-        document.getElementById("mensajeResultado").innerText = "De be ingresar 1 o 2 nombres y 2 apellidos";
+        document.getElementById("mensajeResultado").innerText = "Debe ingresar 1 o 2 nombres y 2 apellidos";
     } else {
        
 console.log(partes)

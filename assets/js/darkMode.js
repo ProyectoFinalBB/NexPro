@@ -90,5 +90,5 @@ if (toggleBtn) {
         toggleDarkMode();
     });
 } else {
-    console.log("El botón toggle para el tema oscuro no existe en el DOM.");
+   
 }
