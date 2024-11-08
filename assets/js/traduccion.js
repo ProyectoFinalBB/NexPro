@@ -37,6 +37,7 @@ function aplicarTraduccion(idioma) {
                 'tituloSubirProyecto': 'tituloSubirProyecto',
                 'nombreProyecto': 'nombreProyecto',
                 'descProyecto': 'descProyecto',
+                "descProyectoLabel" : "descProyectoLabel",
                 'labelTagsProyecto': 'labelTagsProyecto',
                 'opcionFinanzas': 'opcionFinanzas',
                 'opcionMarketing': 'opcionMarketing',
@@ -74,7 +75,8 @@ function aplicarTraduccion(idioma) {
                 "rolLabel": "rolLabel",
                 "resetPass": "resetPass",
                 "noUsuarios":"noUsuarios",
-                "noProjectMessage" : "noProjectMessage"
+                "noProjectMessage" : "noProjectMessage",
+                "TagsSeleccionados":"TagsSeleccionados"
             };
 
      

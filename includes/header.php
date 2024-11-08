@@ -142,12 +142,13 @@
 
 
             <div class="modal-data">
-            <p>NOMBRE DEL PROYECTO: <span id="nombreProyecto"></span></p>
-            <p>DESCRIPCIÓN:</p>
+            <p id="nombreProyectoLabel">NOMBRE DEL PROYECTO:</p>
+            <span id="nombreProyecto"></span>
+            <p id="descProyectoLabel">DESCRIPCIÓN:</p>
             <p id="descripcionProyect"></p>
-            <p>MIEMBROS:</p>
+            <p id="miembrosLabel">MIEMBROS:</p>
             <ul id="miembrosProyecto"></ul>
-            <p>Tags Seleccionados:</p>
+            <p id="TagsSeleccionados">Tags Seleccionados:</p>
             <ul id="tagsProyectos"></ul>
             </div>
         </div>

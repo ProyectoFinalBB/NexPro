@@ -31,6 +31,7 @@
         "tituloSubirProyecto": "Subir Proyecto",
         "nombreProyecto": "Nombre del Proyecto",
         "descProyecto": "Descripción del Proyecto",
+        "descProyectoLabel": "Descripción del Proyecto",
         "labelTagsProyecto": "Etiquetas del Proyecto",
         "opcionFinanzas": "Finanzas",
         "opcionMarketing": "Marketing",
@@ -72,7 +73,8 @@
         "error": "Algo salió mal",
         "resetPass" : "Restablecer contraseña",
         "noUsuarios" : "No hay usuarios para mostrar",
-        "noProjectMessage" : "No hay proyectos para mostrar"
+        "noProjectMessage" : "No hay proyectos para mostrar",
+        "TagsSeleccionados" : "Tags Seleccionados"
         
     },
     "en": {
@@ -107,6 +109,7 @@
         "tituloSubirProyecto": "Upload Project",
         "nombreProyecto": "Project Name",
         "descProyecto": "Project Description",
+        "descProyectoLabel" : "Project Description",
         "labelTagsProyecto": "Project Tags",
         "opcionFinanzas": "Finance",
         "opcionMarketing": "Marketing",
@@ -148,7 +151,8 @@
         "error": "Something went wrong",
         "resetPass" : "Reset Password",
         "noUsuarios" : "No users to display",
-        "noProjectMessage" : "No projects to display"
+        "noProjectMessage" : "No projects to display",
+        "TagsSeleccionados" : "Tags Selected"
              
             
         

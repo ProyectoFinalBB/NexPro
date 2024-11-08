@@ -444,65 +444,62 @@ function ListadoProyectosPendientes() {
 
         
     
-function mostrarModal(proyecto) {
-   
-    document.getElementById('nombreProyecto').textContent = proyecto.titulo;
-    tagsProyectos = document.getElementById("tagsProyectos")
-    pdfIcon = document.getElementById('pdf-icon')
-    pdfIcon.onclick = function() {
-                    
-        mostrarPDF(proyecto.ruta);  
-    };
-
-    document.getElementById('descripcionProyect').textContent = proyecto.descripcion || "Descripción no disponible";
-
-    const miembrosList = document.getElementById('miembrosProyecto');
-    miembrosList.innerHTML = ''; 
-
-    if (proyecto.miembros && Array.isArray(proyecto.miembros)) {
-        proyecto.miembros.forEach(miembro => {
-            const listItem = document.createElement('li');
-            listItem.textContent = miembro;
-            miembrosList.appendChild(listItem);
-        });
-    } else {
-        const listItem = document.createElement('li');
-        listItem.textContent = 'Miembros: No especificados';
-        miembrosList.appendChild(listItem);
-    }
-
-    const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
-    ? ` ${proyecto.tags.join(', ')}` 
-    : ' No especificados';
-
-const tags = document.createElement('li');
-tags.textContent = tagsText;
-tagsProyectos.appendChild(tags);
-
-//listItem.appendChild(tagsProyectos);
-
+        function mostrarModal(proyecto) {
+            document.getElementById('nombreProyecto').textContent = proyecto.titulo;
+            const tagsProyectos = document.getElementById("tagsProyectos");
+            const pdfIcon = document.getElementById('pdf-icon');
+        
+            pdfIcon.onclick = function() {
+                mostrarPDF(proyecto.ruta);  
+            };
+        
+            document.getElementById('descripcionProyect').textContent = proyecto.descripcion || "Descripción no disponible";
+        
+            const miembrosList = document.getElementById('miembrosProyecto');
+            miembrosList.innerHTML = ''; 
+        
+            if (proyecto.miembros && Array.isArray(proyecto.miembros)) {
+                proyecto.miembros.forEach(miembro => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = miembro;
+                    miembrosList.appendChild(listItem);
+                });
+            } else {
+                const listItem = document.createElement('li');
+                listItem.textContent = 'Miembros: No especificados';
+                miembrosList.appendChild(listItem);
+            }
     
-
-    const aprobarBtn = document.getElementById('aprobarBtn');
-    const rechazarBtn = document.getElementById('rechazarBtn');
-
-
-    aprobarBtn.onclick = null;
-    rechazarBtn.onclick = null;
-
-    aprobarBtn.onclick = function() {
-        aceptarProyecto(proyecto.id);
-        cerrarModal(); 
-    };
-
-    rechazarBtn.onclick = function() {
-        denegarProyecto(proyecto.id); 
-        cerrarModal(); 
-    };
-
-    const modal = document.getElementById('modalProyecto');
-    modal.style.display = 'block';
-}
+            tagsProyectos.innerHTML = '';
+ 
+            const tagsText = proyecto.tags && Array.isArray(proyecto.tags) 
+                ? ` ${proyecto.tags.join(', ')}` 
+                : ' No especificados';
+        
+            const tags = document.createElement('li');
+            tags.textContent = tagsText;
+            tagsProyectos.appendChild(tags);
+        
+            const aprobarBtn = document.getElementById('aprobarBtn');
+            const rechazarBtn = document.getElementById('rechazarBtn');
+        
+            aprobarBtn.onclick = null;
+            rechazarBtn.onclick = null;
+        
+            aprobarBtn.onclick = function() {
+                aceptarProyecto(proyecto.id);
+                cerrarModal(); 
+            };
+        
+            rechazarBtn.onclick = function() {
+                denegarProyecto(proyecto.id); 
+                cerrarModal(); 
+            };
+        
+            const modal = document.getElementById('modalProyecto');
+            modal.style.display = 'block';
+        }
+        
 
         //Btn aceptar y denegar
 
