@@ -2,7 +2,11 @@
 include("../includes/conexion.php");
 
 header('Content-Type: application/json');
-
+session_start(); 
+if (!isset($_SESSION['id_usr']) || $_SESSION['rol'] !== 'administrador') {
+ header("Location: login.php"); 
+    exit(); 
+}
 
 $conn = conectar_bd();
 

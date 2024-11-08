@@ -1,5 +1,6 @@
 <?php
 require("../includes/conexion.php");
+
 $con = conectar_bd();
 
 $input = file_get_contents("php://input");

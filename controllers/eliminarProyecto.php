@@ -1,6 +1,10 @@
 <?php
-session_start();
 include('../includes/conexion.php'); 
+session_start(); 
+if (!isset($_SESSION['id_usr']) || $_SESSION['rol'] !== 'administrador') {
+ header("Location: login.php"); 
+    exit(); 
+}
 
 header('Content-Type: application/json');
 

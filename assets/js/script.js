@@ -504,10 +504,6 @@ tagsProyectos.appendChild(tags);
     modal.style.display = 'block';
 }
 
-
-
-
-
         //Btn aceptar y denegar
 
 

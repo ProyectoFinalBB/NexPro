@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+session_start(); 
 if (!isset($_SESSION['ci']) && $_SESSION["rol"] !== "administrador") {
     header('Location: ../public/login.php');
     exit();

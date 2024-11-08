@@ -1,5 +1,10 @@
 <?php
 session_start(); 
+if (!isset($_SESSION['id_usr'])) {
+ header("Location: login.php"); 
+    exit(); 
+}
+
 include('../includes/conexion.php'); 
 $conn = conectar_bd(); 
 

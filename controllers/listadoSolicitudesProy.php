@@ -1,7 +1,11 @@
 
 <?php
 include("../includes/conexion.php");
-
+session_start(); 
+if (!isset($_SESSION['id_usr'])) {
+ header("Location: login.php"); 
+    exit(); 
+}
 header('Content-Type: application/json');
 
 $conn = conectar_bd();

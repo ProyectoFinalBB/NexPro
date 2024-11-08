@@ -1,6 +1,9 @@
 <?php
-session_start();
-
+session_start(); 
+if (!isset($_SESSION['id_usr'])) {
+ header("Location: login.php"); 
+    exit(); 
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require '../includes/conexion.php';
     $conn = conectar_bd();
@@ -32,10 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    if ($archivoProyecto['size'] > 5000000) {
-        echo "El archivo es demasiado grande. El límite es de 5MB.";
+    if ($archivoProyecto['size'] > 250000000) {
+        echo "El archivo es demasiado grande. El límite es de 250MB.";
         exit;
     }
+    
     $query = "SELECT COUNT(*) as count FROM proyectos WHERE titulo = ?";
     $stmt = mysqli_prepare($conn, $query);
     mysqli_stmt_bind_param($stmt, 's', $titulo);
