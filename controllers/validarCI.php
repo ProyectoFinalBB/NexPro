@@ -1,57 +1,39 @@
 <?php
-
-
-
+// Mejorado con ChatGPT
 function validarCI($ci) {
-    // Verificar que la ci tenga 8 dígitos si o si:)
-    if (strlen($ci) !== 8) {
+    // Verificar que la CI tenga 8 dígitos exactamente
+    if (strlen($ci) !== 8 || !ctype_digit($ci)) {
         return false;
     }
 
-    // sacar el número de la cédula
-    $numero = "";
-    for ($i = 0; $i < 7; $i++) {
-        if ($ci[$i] < 1 || $ci[$i] > 9) {
-            return false; 
-        }
-        $numero .= $ci[$i]; // agrega los números de la cédula a la variable numero uno x uno
-    }
+    // Extraer los primeros 7 dígitos para el cálculo y el último como dígito verificador
+    $numero = substr($ci, 0, 7);
     $digito_verificador = $ci[7];
 
-    
+    // Calcular el dígito verificador esperado
     $digito_verificador_esperado = calcularDigitoVerificador($numero);
 
-   
-    if ($digito_verificador == $digito_verificador_esperado) { // Compara el dígito verificador ingresado con el esperado
-       
-        return true; // si los dígitos verificadores son iguals entonces la cédula es valida
-    } else {
-        return false;
-    }
+    // Comparar el dígito verificador ingresado con el esperado
+    return $digito_verificador == $digito_verificador_esperado;
 }
 
-
 function calcularDigitoVerificador($numero) {
-   
-    if (strlen($numero) !== 7) { // verificar que la cedula tenga 7 dígitos
+    // Verificar que el número tenga exactamente 7 dígitos
+    if (strlen($numero) !== 7 || !ctype_digit($numero)) {
         return false;
     }
 
-    
-    $multiplicadores = [2, 9, 8, 7, 6, 3, 4];// numeros que se multiplican para cada posicion 
+    // Definir los multiplicadores para cada posición
+    $multiplicadores = [2, 9, 8, 7, 6, 3, 4];
     $suma = 0;
 
- 
+    // Calcular la suma de los productos de cada dígito por su multiplicador
     for ($i = 0; $i < 7; $i++) {
-        if ($numero[$i] < 0 || $numero[$i] > 9) {
-            return false; // si encuentra un carácter que no es un numero tiene que retornar falso
-        }
-        $suma = $suma + ($numero[$i] * $multiplicadores[$i]);
+        $suma += $numero[$i] * $multiplicadores[$i];
     }
 
-
-    $mayor_que_termina_en_0 = ceil($suma / 10) * 10; //ceil lo q hace es ponele 23.1 lo sube  a 24 directamente y multiplica x 10
-
+    // Calcular el dígito verificador esperado
+    $mayor_que_termina_en_0 = ceil($suma / 10) * 10;
     $digito_verificador = $mayor_que_termina_en_0 - $suma;
 
     return $digito_verificador;

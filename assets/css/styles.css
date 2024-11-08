@@ -129,12 +129,12 @@ body::-webkit-scrollbar {
 }
 
 .profile-img {
-    height: auto;
+    height: 60px;
     width: 60px;
     border-radius: 50%;
     cursor: pointer;
     margin-right: 30px;
-    
+    object-fit: cover
 }
 
 
@@ -1142,6 +1142,7 @@ input:checked + .slider:before {
 
 #userData {
     margin: 20px 0;
+    margin-bottom: 100px;
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 8px;
