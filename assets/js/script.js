@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const modalProyectoInicio = document.getElementById('modalProyectoInicio');
             const modalProyecto = document.getElementById('modalProyecto');
             const modalPDF = document.getElementById("modalPDF");
-            const menuPerfil = document.getElementById('menuPerfil');
+           
     
             if (event.target == modalProyectoInicio) {
                 cerrarModalInicio();
@@ -30,8 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', function(event) {
             const menuPerfil = document.getElementById('menuPerfil');
             const navBtn = document.getElementById('nav-btn');
+            const menuImg = document.getElementById("menu-img")
             
-            if (!menuPerfil.contains(event.target) && !navBtn.contains(event.target)) {
+            if (!menuPerfil.contains(event.target) && !navBtn.contains(event.target) && !menuImg.contains(event.target)) {
                 cerrarMenu(); 
             }
         });
@@ -628,10 +629,12 @@ document.getElementById('cerrarMenu').addEventListener('click', cerrarMenu);
 
 document.getElementById('nav-btn').addEventListener('click', handleMenuState);
 
+
+document.getElementById('menu-img').addEventListener('click', handleMenuState);
+
 function handleMenuState() {
     const menuPerfil = document.getElementById('menuPerfil');
-    
-    
+
     if (esMovil()) {
         if (menuPerfil.classList.contains('menu-abierto-movil')) {
             cerrarMenu();  
@@ -645,10 +648,11 @@ function handleMenuState() {
             abrirMenu();   
         }
     }
+
 }
 
 
-document.getElementById('menu-img').addEventListener('click', handleMenuState);
+
 
 
 function toggleMenu(menu) {
@@ -697,18 +701,19 @@ function toggleMenu(menu) {
     const tagItems = document.querySelectorAll('.tag-item');
     const searchInput = document.querySelector('.search-input');
 
-
 document.querySelector('.search-input').addEventListener('input', function() {
     const query = this.value.toLowerCase(); 
     const proyectos = document.querySelectorAll('.proyecto-item'); 
 
     proyectos.forEach(function(proyecto) {
-        const titulo = proyecto.querySelector('h3').textContent.toLowerCase(); 
-        const tags = proyecto.querySelector('h4').textContent.toLowerCase(); 
-        const miembros = proyecto.querySelector('p').textContent.toLowerCase();
-        
+        const tituloElem = proyecto.querySelector('h3');
+        const tagsElem = proyecto.querySelector('h4');
+        const miembrosElem = proyecto.querySelector('p');
 
-        
+        const titulo = tituloElem ? tituloElem.textContent.toLowerCase() : '';
+        const tags = tagsElem ? tagsElem.textContent.toLowerCase() : '';
+        const miembros = miembrosElem ? miembrosElem.textContent.toLowerCase() : '';
+
         if (titulo.includes(query) || miembros.includes(query) || tags.includes(query)) {
             proyecto.style.display = ''; 
         } else {
